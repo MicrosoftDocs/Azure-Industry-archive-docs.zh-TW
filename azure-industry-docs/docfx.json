@@ -36,6 +36,7 @@
     "externalReference": [],
     "globalMetadata": {
       "breadcrumb_path": "/azure/industry/breadcrumb/toc.json",
+      "bilingual_type": "hover over",
       "extendBreadcrumb": true,
       "brand": "azure",
       "hideScope": true,
