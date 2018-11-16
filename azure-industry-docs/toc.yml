@@ -1,0 +1,364 @@
+items:
+- name: 業界
+  href: index.md
+  items:
+  - name: 金融服務
+    href: financial/index.md
+    items:
+    - name: 銀行業中的風險網格運算
+      items:
+      - name: 概觀
+        href: financial/risk-grid-banking-overview.md
+      - name: 解決方案指南
+        href: financial/risk-grid-banking-solution-guide.md
+    - name: 變化多端的銀行詐騙
+      href: financial/mobile-bank-fraud-overview.md
+    - name: 精算風險分析與財務模型化
+      items:
+      - name: 概觀
+        href: financial/actuarial-risk-analysis-and-financial-modeling-overview.md
+      - name: 解決方案指南
+        href: financial/actuarial-risk-analysis-and-financial-modeling-solution-guide.md
+    - name: 架構
+      items:
+      - name: Azure 資料架構指南
+        href: /azure/architecture/data-guide
+    - name: 訓練
+      href: https://www.pluralsight.com/role-iq/microsoft-azure-solution-architect
+      items:
+      - name: Azure 解決方案架構師訓練
+      maintainContext: true
+    - name: 銀行業中的資料管理概觀
+      href: financial/data-mgmt-in-banking-overview.md
+    - name: 利用 Azure 與 R 來實現金融服務風險生命週期
+      href: financial/fsi-risk-modeling.md
+    - name: 其他資源
+      items:
+      - name: Azure AI 平台
+        href: https://azure.microsoft.com/en-us/overview/ai-platform/#platform
+        maintainContext: true
+      - name: Azure AI 服務
+        href: https://azure.microsoft.com/en-us/overview/ai-platform/#services
+        maintainContext: true
+      - name: Azure Batch 文件
+        href: /azure/batch/
+        maintainContext: true
+      - name: Azure Functions
+        href: https://azure.microsoft.com/en-us/services/functions/
+        maintainContext: true
+      - name: 適用於銀行業的 Azure
+        href: https://azure.microsoft.com/en-us/industries/financial/banking
+        maintainContext: true
+      - name: 適用於 IoT 中樞的 Azure
+        href: https://azure.microsoft.com/en-us/services/iot-hub/
+        maintainContext: true
+      - name: Azure IoT 套件
+        href: https://azure.microsoft.com/en-us/features/iot-accelerators/
+        maintainContext: true
+      - name: Azure 金鑰保存庫
+        href: https://azure.microsoft.com/en-us/services/key-vault/
+        maintainContext: true
+      - name: Azure Machine Learning
+        href: https://azure.microsoft.com/en-us/overview/machine-learning/
+        maintainContext: true
+      - name: 適用於預測的 Azure Machine Learning 套件
+        href: /python/api/overview/azure-machine-learning/forecasting-overview
+        maintainContext: true
+      - name: 連接字串
+        href: https://azure.microsoft.com/en-us/services/sql-database/
+        maintainContext: true
+      - name: Azure Stack
+        href: https://azure.microsoft.com/en-us/overview/azure-stack/
+        maintainContext: true
+      - name: Azure 串流分析
+        href: https://azure.microsoft.com/en-us/services/stream-analytics/
+        maintainContext: true
+      - name: 銀行產業新聞
+        href: https://azure.microsoft.com/en-us/blog/author/hbush/
+        maintainContext: true
+      - name: Batch 程式碼範例
+        href: https://azure.microsoft.com/en-us/resources/samples/
+        maintainContext: true
+      - name: Batch 程式碼範例存放庫
+        href: https://github.com/Azure-Samples/azure-batch-samples
+        maintainContext: true
+      - name: 受規範工作負載的 FFIEC
+        href: /azure/security/blueprints/financial-services-regulated-workloads
+        maintainContext: true
+      - name: Logic Apps
+        href: https://azure.microsoft.com/en-us/services/logic-apps/
+        maintainContext: true
+      - name: 內部部署連線能力
+        href: /azure/networking/networking-overview#connectivity
+        maintainContext: true
+      - name: 教學課程 - 整合 AAD 與 Asset Bank
+        href: /azure/active-directory/active-directory-saas-assetbank-tutorial
+        maintainContext: true
+  - name: 醫療保健與生命科學
+    href: health/index.md
+    items:
+    - name: 實作適用於 AI 的 Azure 藍圖
+      items:
+      - name: 概觀
+        href: health/overview-healthcare-ai-blueprint.md
+      - name: 解決方案指南
+        href: health/sg-healthcare-ai-blueprint.md
+    - name: 生物醫學實體辨識
+      href: /azure/machine-learning/desktop-workbench/scenario-tdsp-biomedical-recognition
+      maintainContext: true
+    - name: HL7 FHIR 醫療保健記錄變更
+      href: /azure/cosmos-db/change-feed-hl7-fhir-logic-apps
+      maintainContext: true
+    - name: Azure 藍圖
+      items:
+      - name: Azure 安全性與合規性 - HIPAA/HITRUST 醫療資料和 AI
+        href: /azure/security/blueprints/azure-health
+        maintainContext: true
+      - name: Azure 安全性與合規性 - 適用於英國 NHS 的資料分析
+        href: /azure/security/blueprints/uknhs-analytics-overview
+        maintainContext: true
+      - name: Azure 安全性與合規性 - 適用於英國 NHS 的資料倉儲
+        href: /azure/security/blueprints/uknhs-datawarehouse-overview
+        maintainContext: true
+      - name: Azure 安全性與合規性 - 適用於英國 NHS 的 IaaS Web 應用程式
+        href: /azure/security/blueprints/uknhs-iaaswa-overview
+        maintainContext: true
+      - name: Azure 安全性與合規性 - 適用於英國 NHS 的 PaaS Web 應用程式
+        href: /azure/security/blueprints/uknhs-paaswa-overview
+        maintainContext: true
+    - name: 其他資源
+      items:
+      - name: 快速入門 - Microsoft Genomics 服務
+        href: /azure/genomics/quickstart-run-genomics-workflow-portal
+        maintainContext: true
+      - name: Microsoft Azure GxP 方針
+        href: https://gallery.technet.microsoft.com/Azure-GxP-Guidelines-ab1b98d9
+      - name: 使用 Azure 設計安全醫療解決方案
+        href: https://gallery.technet.microsoft.com/Azure-A-Practical-Guide-to-5ebdc8bd
+      - name: Health Bot 概觀
+        href: /healthbot/
+        maintainContext: true
+  - name: 製造
+    href: manufacturing/index.md
+    items:
+    - name: 高功率計算
+      items:
+      - name: 概觀
+        href: manufacturing/compute-in-manufacturing-overview.md
+    - name: 預測性維護
+      items:
+      - name: 概觀
+        href: manufacturing/predictive-maintenance-overview.md
+      - name: 解決方案指南
+        href: manufacturing/predictive-maintenance-solution.md
+      - name: 其他資源
+        items:
+        - name: Azure Machine Learning 文件
+          href: /azure/machine-learning
+        - name: 深入學習預測性維護實際案例
+          href: /azure/machine-learning/desktop-workbench/scenario-deep-learning-for-predictive-maintenance
+          maintainContext: true
+        - name: Microsoft IoT 解決方案架構
+          href: /azure/iot-suite/iot-suite-what-is-azure-iot
+        - name: 軟體品質的要素
+          href: /azure/architecture/guide/pillars
+    - name: 從 IoT 資料擷取見解
+      items:
+      - name: 概觀
+        href: manufacturing/extracting-insights-from-iot-data-overview.md
+      - name: 解決方案指南
+        href: manufacturing/extracting-insights-from-iot-data.md
+    - name: 架構
+      items:
+      - name: Azure 資料架構指南
+        href: /azure/architecture/data-guide
+    - name: 訓練
+      items:
+      - name: Azure 解決方案架構師訓練
+        href: https://www.pluralsight.com/role-iq/microsoft-azure-solution-architect
+      - name: 使用 Azure Logic Apps 來檢查排程上的流量
+        href: /azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md
+      - name: Logic Apps 上資料作業的程式碼範例
+        href: /azure/logic-apps/logic-apps-data-operations-code-samples.md
+      - name: 在容器中執行 Azure Functions
+        href: /azure/azure-functions/functions-create-function-linux-custom-image
+      - name: 在 Azure Functions 使用各種繫結
+        href: /azure/azure-functions/functions-triggers-bindings
+      - name: 在事件中樞資料流上將資料異常視覺化
+        href: /azure/event-hubs/event-hubs-tutorial-visualize-anomalies
+      - name: 建立串流分析作業來分析通話資料
+        href: /azure/stream-analytics/stream-analytics-manage-job
+      - name: 使用 Spark 活動來轉換雲端中的資料
+        href: /azure/event-hubs/event-hubs-tutorial-visualize-anomalies
+      - name: 在時間序列深入解析上分析模擬裝置資料
+        href: /azure/time-series-insights/tutorial-create-populate-tsi-environment
+      - name: 了解 Power BI
+        href: /power-bi/guided-learning
+      - name: 建立時間序列深入解析 SPA
+        href: /power-bi/guided-learning
+      - name: 探索時間序列深入解析 JAVA 指令碼用戶端程式庫
+        href: /azure/time-series-insights/tutorial-create-tsi-sample-spa
+      - name: TSI 示範
+        href: https://insights.timeseries.azure.com/demo
+      - name: Power BI 示範
+        href: https://microsoft.github.io/PowerBI-JavaScript/demo/v2-demo/index.html
+    - name: 其他資源
+      items:
+      - name: HDInsight 上的 Apache Kafka
+        href: /azure/hdinsight/kafka/apache-kafka-introduction
+      - name: App Service 方案
+        href: /azure/app-service
+      - name: Azure Blob 儲存體
+        href: /azure/storage/blobs/storage-blobs-introduction
+      - name: Azure Blob 儲存層
+        href: /azure/storage/blobs/storage-blob-storage-tiers
+      - name: Azure Blob 儲存層
+        href: /azure/storage/blobs/storage-blob-storage-tiers
+      - name: Azure Container Instances
+        href: /azure/container-instances
+      - name: Azure Cosmos DB
+        href: /azure/cosmos-db/introduction
+      - name: Azure Cosmos DB - 要求單位
+        href: /azure/cosmos-db/request-units
+      - name: Azure Databricks
+        href: /azure/azure-databricks
+      - name: Azure Databricks 筆記本
+        href: /azure/data-factory/transform-data-using-databricks-notebook
+      - name: Azure Data Factory
+        href: /azure/data-factory
+      - name: Azure Data Factory 管道及活動
+        href: /azure/data-factory/concepts-pipelines-activities
+      - name: Azure Data Lake 儲存體
+        href: /azure/storage/data-lake-storage/introduction
+      - name: Azure 事件中心
+        href: /azure/event-hubs/event-hubs-about
+      - name: Azure 檔案
+        href: /azure/storage/files/storage-files-introduction
+      - name: Azure Functions
+        href: /azure/azure-functions/functions-overview
+      - name: Azure Functions 主機
+        href: https://github.com/Azure/azure-functions-host
+      - name: Azure HDInsight
+        href: /azure/hdinsight
+      - name: Azure IoT Edge
+        href: /azure/iot-edge
+      - name: Azure IoT 中樞
+        href: /azure/iot-hub
+      - name: Azure IoT 中樞裝置佈建服務
+        href: /azure/iot-dps
+      - name: Azure Kubernetes Service (AKS)
+        href: /azure/aks
+      - name: Azure Logic Apps
+        href: /azure/logic-apps
+      - name: Azure Service Fabric
+        href: /azure/service-fabric/service-fabric-overview
+      - name: 連接字串
+        href: /azure/sql-database
+      - name: Azure SQL 資料倉儲
+        href: /azure/sql-data-warehouse/sql-data-warehouse-overview-what-is
+      - name: Azure 儲存體
+        href: /azure/storage
+      - name: Azure 儲存體授權
+        href: /azure/storage/common/storage-auth
+      - name: Azure 儲存體複寫
+        href: /azure/storage/common/storage-redundancy
+      - name: Azure 串流分析
+        href: /azure/stream-analytics
+      - name: Azure 表格儲存體
+        href: /azure/cosmos-db/table-storage-overview
+      - name: Azure Time Series Insights
+        href: /azure/time-series-insights
+      - name: Azure 時間序列深入解析 (TSI) JAVA 指令碼用戶端程式庫
+        href: /azure/time-series-insights/tutorial-explore-js-client-lib
+      - name: BizTalk 服務
+        href: /services/biztalk-services
+      - name: 將 IoT Edge 裝置設定為閘道
+        href: /azure/iot-edge/iot-edge-as-gateway
+      - name: Microsoft Power BI
+        href: /power-bi/power-bi-overview
+      - name: Microsoft Power BI 文件
+        href: /power-bi
+      - name: Microsoft PowerBI - 即時串流
+        href: /power-bi/service-real-time-streaming
+      - name: Power BI Desktop
+        href: https://powerbi.microsoft.com/en-us/desktop
+      - name: Power BI JavaScript SDK
+        href: https://github.com/Microsoft/PowerBI-JavaScript
+      - name: Power BI REST API
+        href: /rest/api/power-bi
+      - name: REST 查詢 API
+        href: /rest/api/time-series-insights/time-series-insights-reference-queryapi
+      - name: 表格服務資料模型
+        href: /rest/api/storageservices/Understanding-the-Table-Service-Data-Model
+      - name: 轉換 XML
+        href: /azure/logic-apps/logic-apps-enterprise-integration-transform
+  - name: 零售
+    href: retail/index.md
+    items:
+    - name: 架構
+      items:
+      - name: Azure 資料架構指南
+        href: /azure/architecture/data-guide/
+    - name: 訓練
+      items:
+      - name: Azure 解決方案架構師訓練
+        href: /training/learning-paths/azure-solution-architect/
+    - name: 試用 Neal Analytics SKU Max 解決方案
+      href: https://appsource.microsoft.com/en-us/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a
+    - name: 其他資源
+      items:
+      - name: 利用 Neal Analytics 提升 SKU 最佳化速度
+        href: https://nealanalytics.com/solutions/sku-max/
+      - name: Azure Active Directory
+        href: /azure/active-directory/
+      - name: 利用 Neal Analytics 提升 SKU 最佳化速度
+        href: /services/analysis-services
+      - name: Azure Blob 儲存體
+        href: /services/storage/blobs
+      - name: Azure Databricks
+        href: /services/databricks
+      - name: Azure Data Factory
+        href: /services/data-factory
+      - name: 利用 Neal Analytics 提升 SKU 最佳化速度
+        href: /azure/machine-learning/service/overview-what-is-azure-ml
+      - name: Azure Machine Learning Workbench
+        href: /azure/machine-learning/service/overview-what-happened-to-workbench
+      - name: Azure SQL 資料倉儲
+        href: /services/sql-data-warehouse
+      - name: HDInsight
+        href: /services/hdinsight
+      - name: Power BI
+        href: https://powerbi.microsoft.com/en-us/
+        maintainContext: true
+    - name: 零售業中的資料管理概觀
+      href: retail/retail-data-management-overview.md
+    - name: 將您的電子商務解決方案移轉至 Azure 概觀
+      href: retail/migrating-ecommerce-solution-to-azure.md
+    - name: 將現有的建議系統最佳化並重複使用
+      href: retail/recommendation-engine-optimization.md
+    - name: 符合 PCI DSS 規範的付款處理
+      href: /azure/security/blueprints/payment-processing-blueprint
+      maintainContext: true
+    - name: 圖像式搜尋概觀
+      href: retail/visual-search-use-case-overview.md
+    - name: 消費者品牌的 SKU 最佳化
+      items:
+      - name: 概觀
+        href: retail/sku-optimization-overview.md
+      - name: 解決方案指南
+        href: retail/sku-optimization-solution-guide.md
+    - name: 其他資源
+      items:
+      - name: Azure Cosmos DB 在零售和行銷中的應用
+        href: /azure/cosmos-db/use-cases#retail-and-marketing
+        maintainContext: true
+      - name: 需求預測和價格最佳化
+        href: https://gallery.azure.ai/Solution/Demand-Forecasting-and-Price-Optimization
+      - name: 庫存最佳化解決方案與 Azure AI
+        href: https://blogs.technet.microsoft.com/machinelearning/2018/04/05/inventory-optimization-solution-in-the-azure-ai-gallery
+ms.openlocfilehash: 3ec59f998e9f2660cbcbe6a6d691f8c36b7de982
+ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "51654725"
