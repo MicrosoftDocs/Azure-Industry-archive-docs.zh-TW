@@ -6,12 +6,12 @@ ms.date: 07/16/2018
 ms.topic: article
 ms.service: industry
 description: 本文章會說明將電子商務基礎結構從內部部署移轉到 Azure 的各個階段。
-ms.openlocfilehash: 847950673475f7f59a0c8c8c8bfc821414b2cc77
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: a440eabad6a1367ed8219c01424d21d22e441b16
+ms.sourcegitcommit: 20b001b9fb51b944ae82bf55d2d670aa852fa64b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654265"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52297951"
 ---
 # <a name="migrating-your-e-commerce-solution-to-azure-overview"></a>電子商務解決方案 Azure 移轉概觀
 
@@ -141,7 +141,7 @@ Azure 也會提供環境最佳化工具。 [Azure Advisor](/azure/advisor/adviso
 
 - Azure [API 管理](/azure/api-management/?WT.mc_id=retailecomm-docs-scseely)可協助組織將 API 發佈給外部、合作夥伴及內部開發人員，以發揮其資料與服務的潛力。
 - [Azure Functions](/azure/azure-functions/functions-overview?WT.mc_id=retailecomm-docs-scseely) 是可在雲端輕鬆執行程式碼片段或「函數」的解決方案。
-- [Power BI](https://powerbi.microsoft.com/?WT.mc_id=retailecomm-docs-scseely) 為商務分析工具套件，可將見解提供給整個組織。
+- [Power BI](https://powerbi.microsoft.com/?WT.mc_id=retailecomm-docs-scseely) 是商務分析工具套件，可將見解提供給整個組織。
 
 ## <a name="conclusion"></a>結論
 
