@@ -7,12 +7,12 @@ manager: gmarchet
 ms.service: industry
 ms.topic: article
 ms.date: 09/26/2018
-ms.openlocfilehash: 79f6829d80bea2cf05bc11b613476f64dad900ef
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: e3a2f19fa584cfefa72a6b8bf3eabfe1c3af3521
+ms.sourcegitcommit: c4eb2665df40d0449bd037e7500222fc38bc53ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654405"
+ms.lasthandoff: 12/03/2018
+ms.locfileid: "52820766"
 ---
 # <a name="extracting-actionable-insights-from-iot-data"></a>從 IoT 資料擷取可操作見解
 
@@ -119,8 +119,7 @@ Lambda 架構會藉由建立兩個資料流程路徑，來解決此問題。 進
 -   批次層會饋送至「服務層」，其可回應查詢。 批次層會為批次檢視編制索引，以便能有效率地查詢。 速度層會根據最新的資料，使用累加式更新來更新服務層。
 
 下圖顯示代表轉換階段的五個區塊。 第一個區塊是資料流，其並行饋送速度層和批次層。 這兩個層級會饋送服務層，速度層和服務層都會饋送分析用戶端。
-
-![Lambda 架構圖解。] (assets/extracting-insights-from-iot/lambda-schematic.png)
+![Lambda 架構。](assets/extracting-insights-from-iot/lambda-schematic.png)
 
  Azure 平台提供各種服務，可用於實作架構。 下圖顯示如何對應這些服務，以進行實作。 該圖顯示轉換的五個階段，每個階段都包含相關的 Azure 技術。 深色方塊代表執行這些工作之多個選項的可用性。
 
