@@ -203,7 +203,7 @@ ML 模型的內嵌、處理及儲存以及執行可在 Azure 雲端中發生。 
 
 提供服務的一方必須確定能識別來自其客戶的機密資訊並適當地保護或清理。Microsoft Azure 提供根據所使用儲存體服務來加密資料的功能。
 
-您也必須使用已知方法 (例如個別裝置憑證、個別裝置啟用/停用、TLS 安全性、X.509 支援、IP 白名單/黑名單與共用存取原則) 來保護裝置產生並提交資料的方式。 提供服務的一方必須確定能識別來其客戶的機密資訊並適當地保護或清理。[Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-encryption?WT.mc_id=pdmsolution-docs-ercenk)、[Azure 儲存體](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption?WT.mc_id=pdmsolution-docs-ercenk)、[Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/database-encryption-at-rest?WT.mc_id=pdmsolution-docs-ercenk) 與 [Azure SQL Database](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?WT.mc_id=pdmsolution-docs-ercenk) 是可用來進行待用資料加密的服務範例。 解決方案提供者也應該考慮如何在相同的資源 (例如，資料庫) 或多個資源之間分割資料。 
+您也必須使用已知方法 (例如個別裝置憑證、個別裝置啟用/停用、TLS 安全性、X.509 支援、IP 允許清單/封鎖清單與共用存取原則) 來保護裝置產生並提交資料的方式。 提供服務的一方必須確定能識別來其客戶的機密資訊並適當地保護或清理。[Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-encryption?WT.mc_id=pdmsolution-docs-ercenk)、[Azure 儲存體](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption?WT.mc_id=pdmsolution-docs-ercenk)、[Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/database-encryption-at-rest?WT.mc_id=pdmsolution-docs-ercenk) 與 [Azure SQL Database](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?WT.mc_id=pdmsolution-docs-ercenk) 是可用來進行待用資料加密的服務範例。 解決方案提供者也應該考慮如何在相同的資源 (例如，資料庫) 或多個資源之間分割資料。 
 
 ### <a name="geographical-considerations"></a>地理位置的考量
 
