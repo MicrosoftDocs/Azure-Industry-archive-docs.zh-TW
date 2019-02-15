@@ -4,10 +4,15 @@
       "docset_name": "Azure-industry",
       "build_source_folder": "azure-industry-docs",
       "build_output_subfolder": "Azure-industry",
-      "locale": "zh-TW",
+      "locale": "zh-tw",
       "monikers": [],
       "moniker_ranges": [],
       "open_to_public_contributors": true,
+      "type_mapping": {
+        "Conceptual": "Content",
+        "ManagedReference": "Content",
+        "RestApi": "Content"
+      },
       "build_entry_point": "docs",
       "template_folder": "_themes"
     }
@@ -26,7 +31,7 @@
   "dependent_repositories": [
     {
       "path_to_root": "_themes",
-      "url": "https://github.com/Microsoft/templates.docs.msft.zh-TW",
+      "url": "https://github.com/Microsoft/templates.docs.msft.zh-tw",
       "branch": "master",
       "branch_mapping": {}
     },
