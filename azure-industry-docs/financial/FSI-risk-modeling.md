@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: cff221055e76d7334793782d19eadd0960712a1f
+ms.sourcegitcommit: 461c520509d53bae1021eebf9733a98edbf71e4d
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66716848"
+---
 # <a name="enabling-the-financial-services-risk-lifecycle-with-azure-and-r"></a>使用 Azure 與 R 啟用財務服務風險生命週期
 
 
@@ -12,7 +20,7 @@
 在這些程序中，風險模型建構的常見需求包括：
 
 1.  對於特設風險相關實驗 (依風險分析) 的需求；保險公司中的精算師，或資本市場公司中的分析師。
-    這些分析師一般都會處理程式碼與其領域中熱門的模型建構工具：R 與 Python。 許多大學履歷都包括數學金融與 MBA 課程中的 R 或 Python 訓練。
+    這些分析師通常會使用在其領域中十分熱門的程式碼及模型建構工具：也就是 R 與 Python。 許多大學履歷都包括數學金融與 MBA 課程中的 R 或 Python 訓練。
     這兩個語言都提供廣泛的開放原始碼程式庫，這支援熱門的風險計算。 搭配使用適當的工具之後，分析師通常需要存取下列項目：
 
     a.  精確的市場定價資料。
@@ -421,12 +429,12 @@ plot(as.numeric(df$term[df$statistic == 'PFE']) / 365, df$result[df$statistic ==
 ### <a name="tutorials"></a>教學課程
 
 
--   R 開發人員：[使用 Azure Batch 執行平行 R 模擬](https://docs.microsoft.com/azure/batch/tutorial-r-doazureparallel?WT.mc_id=fsiriskmodelr-docs-scseely)
+-   適用於 R 開發人員：[使用 Azure Batch 執行平行 R 模擬](https://docs.microsoft.com/azure/batch/tutorial-r-doazureparallel?WT.mc_id=fsiriskmodelr-docs-scseely)
 
--   [基本 R 命令與 RevoScaleR 函式：25 個常見範例](https://docs.microsoft.com/machine-learning-server/r/tutorial-r-to-revoscaler?WT.mc_id=fsiriskmodelr-docs-scseely) \(英文\)
+-   [基本 R 命令與 RevoScaleR 函式：25 個常見範例](https://docs.microsoft.com/machine-learning-server/r/tutorial-r-to-revoscaler?WT.mc_id=fsiriskmodelr-docs-scseely)
 
 -   [使用 RevoScaleR 視覺化及分析資料](https://docs.microsoft.com/machine-learning-server/r/tutorial-revoscaler-data-model-analysis?WT.mc_id=fsiriskmodelr-docs-scseely) \(英文\)
 
 -   [HDInsight 上的 ML 服務與開放原始碼 R 功能簡介](https://docs.microsoft.com/azure/hdinsight/r-server/r-server-overview?WT.mc_id=fsiriskmodelr-docs-scseely)
 
-此文章作者為 Dr.Darko Mocelj 與 Rupert Nicolay。
+此文章作者為 Dr.  Darko Mocelj 與 Rupert Nicolay。
