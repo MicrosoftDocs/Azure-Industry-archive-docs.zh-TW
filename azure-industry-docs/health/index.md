@@ -2,16 +2,16 @@
 title: 醫療保健與生命科學產業
 author: dstarr
 ms.author: dastarr
-ms.date: 04/25/2018
+ms.date: 11/07/2019
 ms.topic: article
 ms.service: industry
 description: Azure 產業經驗的醫療保健與生命科學使用案例
-ms.openlocfilehash: f317517b0a817a26c8b2aad2bbe748f2f35953a1
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: 1cdb2710de86c07a386728de04836c5813a46566
+ms.sourcegitcommit: 385e99900bc20950f02a63c885facc1cf62c49df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654715"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73845631"
 ---
 # <a name="health--life-sciences"></a>醫療保健與生命科學
 
