@@ -1,10 +1,17 @@
 ---
-ms.openlocfilehash: cff221055e76d7334793782d19eadd0960712a1f
-ms.sourcegitcommit: 461c520509d53bae1021eebf9733a98edbf71e4d
+title: 行動裝置銀行詐騙解決方案指南
+description: 說明如何在2秒內偵測到詐騙交易
+author: mauiguitar
+ms.author: sihiga
+ms.service: industry
+ms.topic: overview
+ms.date: 10/31/2019
+ms.openlocfilehash: c5ea4384d02548e4d681b1c13fd81066a955d6a2
+ms.sourcegitcommit: f42a60539bec2a7769b42b6574f09eed4d1b6c79
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66716848"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750523"
 ---
 # <a name="enabling-the-financial-services-risk-lifecycle-with-azure-and-r"></a>使用 Azure 與 R 啟用財務服務風險生命週期
 
@@ -19,7 +26,7 @@ ms.locfileid: "66716848"
 
 在這些程序中，風險模型建構的常見需求包括：
 
-1.  對於特設風險相關實驗 (依風險分析) 的需求；保險公司中的精算師，或資本市場公司中的分析師。
+1. 對於特設風險相關實驗 (依風險分析) 的需求；保險公司中的精算師，或資本市場公司中的分析師。
     這些分析師通常會使用在其領域中十分熱門的程式碼及模型建構工具：也就是 R 與 Python。 許多大學履歷都包括數學金融與 MBA 課程中的 R 或 Python 訓練。
     這兩個語言都提供廣泛的開放原始碼程式庫，這支援熱門的風險計算。 搭配使用適當的工具之後，分析師通常需要存取下列項目：
 
@@ -33,40 +40,40 @@ ms.locfileid: "66716848"
 
     e.  計算功能以啟用快速的互動式資料調查。
 
-2.  他們也可以使用特設機器學習演算法來定價或決定市場策略。
+2. 他們也可以使用特設機器學習演算法來定價或決定市場策略。
 
-3.  視覺化並呈現資料以在產品規劃、交易策略與類似討論中使用的需求。
+3. 視覺化並呈現資料以在產品規劃、交易策略與類似討論中使用的需求。
 
-4.  快速執行由分析師所設定的已定義模型，以進行定價、估值與市場風險。 估值使用專屬風險模型建構、市場風險工具與自訂程式碼的組合。 會以批次方式搭配不同的每晚、每週、每月、每季與每年計算 (產生工作負載高峰) 來執行分析。
+4. 快速執行由分析師所設定的已定義模型，以進行定價、估值與市場風險。 估值使用專屬風險模型建構、市場風險工具與自訂程式碼的組合。 會以批次方式搭配不同的每晚、每週、每月、每季與每年計算 (產生工作負載高峰) 來執行分析。
 
-5.  將資料與其他企業內部風險評估整合，以取得合併的風險報告。 在較大的組織中，較低層級的風險估計可以傳輸到企業風險模型建構與報告工具。
+5. 將資料與其他企業內部風險評估整合，以取得合併的風險報告。 在較大的組織中，較低層級的風險估計可以傳輸到企業風險模型建構與報告工具。
 
-6.  必須以必要間隔以已定義格式報告結果，以符合投資人與監管需求。
+6. 必須以必要間隔以已定義格式報告結果，以符合投資人與監管需求。
 
 Microsoft 在 [Azure Marketplace](https://azuremarketplace.microsoft.com/?WT.mc_id=fsiriskmodelr-docs-scseely) 中透過 Azure 服務與合作夥伴供應項目的結合來支援上面的顧慮。 在此文章中，我們顯示有關如何使用 R 執行特設實驗的範例。我們從說明如何在單一機器上執行實驗開始，接著顯示如何在 [Azure Batch](https://docs.microsoft.com/azure/batch/?WT.mc_id=fsiriskmodelr-docs-scseely) 上執行相同的實驗，最後顯示如何在我們的模型建構中利用外部服務的優勢。 在 Azure 上執行已定義模型時的選項與考量項目可以在著重在[銀行](https://docs.microsoft.com/azure/industry/financial/risk-grid-banking-solution-guide?WT.mc_id=fsiriskmodelr-docs-scseely)與[保險](https://docs.microsoft.com/azure/industry/financial/actuarial-risk-analysis-and-financial-modeling-solution-guide?WT.mc_id=fsiriskmodelr-docs-scseely)的這些文章中找到。
 
-## <a name="analyst-modelling-in-r"></a>R 中的分析師模型建構 
+## <a name="analyst-modelling-in-r"></a>R 中的分析師模型建構
 
 讓我們從查看分析師如何在簡化的代表性資本市場案例中使用 R 開始。 您可以透過針對計算參考現有的 R 程式庫或從頭開始撰寫程式碼來建置。 在我們的案例中，我們也必須擷取外部定價資料。 為讓範例維持簡單但仍具示範功能，我們計算股票遠期合約的潛在未來曝險 (PFE)。
 此範例針對複雜導數的檢測避免複雜量化模型建構技術，並著重在單一風險因素以專注在風險生命週期。 我們的範例會執行下列動作：
 
-1.  選取感興趣的檢測。
+1. 選取感興趣的檢測。
 
-2.  檢測的來源歷史價格。
+2. 檢測的來源歷史價格。
 
-3.  透過簡單的蒙地卡羅 (MC) 計算 (它使用幾何布朗運動 (GBM)) 來建構權益價格模型：
+3. 透過簡單的蒙地卡羅 (MC) 計算 (它使用幾何布朗運動 (GBM)) 來建構權益價格模型：
 
     a.  預估預期的報酬 μ (mu) 與揮發性 σ (theta)。
 
     b.  校準模型至歷史資料。
 
-4.  視覺化傳達結果的各種路徑。
+4. 視覺化傳達結果的各種路徑。
 
-5.  繪製 max(0,Stock Value) 以示範 PFE 的意義、風險價值 (VaR) 的差異
+5. 繪製 max(0,Stock Value) 以示範 PFE 的意義、風險價值 (VaR) 的差異
 
     a.  釐清：PFE = Share Price (T) -- 遠期合約價格 K
 
-6.  取 0.95 百分位數以在每個時間步驟/模擬期間結尾取得 PFE 值
+6. 取 0.95 百分位數以在每個時間步驟/模擬期間結尾取得 PFE 值
 
 我們將以 MSFT 股票為基礎計算權益遠期的潛在未來曝險。 如前面所述，若要建構股票價格模型，需要 MSFT 股票的歷史價格，以便我們可以校準模型至歷史資料。 有許多方式可以取得歷史股票價格。 在我們的範例中，我們使用外部服務提供者 [Quandl](https://www.quandl.com/) 提供的免費股票價格服務。
 
@@ -75,15 +82,15 @@ Microsoft 在 [Azure Marketplace](https://azuremarketplace.microsoft.com/?WT.mc_
 
 若要處理資料並定義與權益關聯的風險，我們必須執行下列動作：
 
-1.  從權益擷取歷史資料。
+1. 從權益擷取歷史資料。
 
-2.  從歷史資料判斷預期報酬 μ 與揮發性 σ。
+2. 從歷史資料判斷預期報酬 μ 與揮發性 σ。
 
-3.  使用一些模擬方式，建構底層股票價格的模型。
+3. 使用一些模擬方式，建構底層股票價格的模型。
 
-4.  執行模型
+4. 執行模型
 
-5.  判斷未來權益的曝險。
+5. 判斷未來權益的曝險。
 
 我們一開始先從 Quandl 服務擷取股票，並繪製過去 180 天的收盤價格歷史。
 
@@ -254,7 +261,7 @@ plot(df_pfe, t = 'l', ylab = "Potential Future Exposure in USD", xlab = "time t 
 
 ## <a name="using-azure-batch-with-r"></a>搭配 R 使用 Azure Batch 
 
-上面所述的 R 解決方案可以連結到 Azure Batch 並利用雲端來進行風險計算。 針對平行計算 (例如我們的範例)，這需要多一點心力。 [使用 Azure Batch 執行平行 R 模擬](https://docs.microsoft.com/en-us/azure/batch/tutorial-r-doazureparallel?WT.mc_id=fsiriskmodelr-docs-scseely)教學課程提供有關如何將 R 連線到 Azure Batch 的詳細資訊。 我們在下面顯示連線到 Azure Batch 之程序的程式碼與摘要，以及如何在簡化的 PFE 計算中發揮雲端延伸模組的優勢。
+上面所述的 R 解決方案可以連結到 Azure Batch 並利用雲端來進行風險計算。 針對平行計算 (例如我們的範例)，這需要多一點心力。 [使用 Azure Batch 執行平行 R 模擬](https://docs.microsoft.com/azure/batch/tutorial-r-doazureparallel?WT.mc_id=fsiriskmodelr-docs-scseely)教學課程提供有關如何將 R 連線到 Azure Batch 的詳細資訊。 我們在下面顯示連線到 Azure Batch 之程序的程式碼與摘要，以及如何在簡化的 PFE 計算中發揮雲端延伸模組的優勢。
 
 此範例處理稍早所述的一些模型。 如果我們先前所看見的，此計算可以在我們的個人電腦上執行。 增加蒙地卡羅路徑數目或使用較小的時間步驟將會導致長許多的執行時間。 幾乎所有 R 程式碼都不需變更。 我們將在此節中反白顯示差異處。
 
@@ -330,23 +337,23 @@ stopCluster(cluster)
 前兩個範例顯示如何利用本機與雲端基礎結構來開發適當的估值模型。 此範例已經開始變更。 與內部部署基礎結構轉換為雲端式 IaaS 與 PaaS 服務的方式相同，相關風險數據的模型建構會轉換為服務導向程序。
 今天的分析師面臨兩個主要挑戰：
 
-1.  法規需求使用逐漸增加的計算功能來新增到模型建構需求。 監管者要求更頻繁且更新的風險數據。
+1. 法規需求使用逐漸增加的計算功能來新增到模型建構需求。 監管者要求更頻繁且更新的風險數據。
 
 2.  現有的風險基礎結構已隨著時間有機地成長，而且在以靈活方式實作新的需求與更進階的風險模型建構時會產生挑戰。
 
 雲端式服務可提供必要的功能並支援風險分析。 此方法有一些優點：
 
--   監管者所要求的最常見風險計算必須在法規下由每個人實作。 透過使用來自特殊化服務提供者的服務，分析師可從能隨時使用、符合監管者規範的風險計算而獲益。 此類服務可能包括市場風險計算、對手風險計算、X 值調整 (XVA)，甚至是交易簿基本檢閱 (FRTB) 計算。
+-  監管者所要求的最常見風險計算必須在法規下由每個人實作。 透過使用來自特殊化服務提供者的服務，分析師可從能隨時使用、符合監管者規範的風險計算而獲益。 此類服務可能包括市場風險計算、對手風險計算、X 值調整 (XVA)，甚至是交易簿基本檢閱 (FRTB) 計算。
 
--   這些服務透過 Web 服務公開其介面。 現有的風險基礎結構可透過這些其他服務來加強。
+- 這些服務透過 Web 服務公開其介面。 現有的風險基礎結構可透過這些其他服務來加強。
 
 在我們的範例中，我們想要針對 FRTB 計算叫用雲端式服務。 您可以在 [AppSource](https://appsource.microsoft.com/?WT.mc_id=fsiriskmodelr-docs-scseely) 找到許多這些項目。 針對此文章，我們選擇來自 [Vector Risk](http://www.vectorrisk.com/) 的試用版選項。 我們將繼續修改我們的系統。 這次，我們使用服務來計算感興趣的風險數據。 此程序由下列步驟組成：
 
-1.  使用正確的參數呼叫相關風險服務。
+1. 使用正確的參數呼叫相關風險服務。
 
-2.  等候服務完成計算。
+2. 等候服務完成計算。
 
-3.  擷取結果並納入到風險分析中。
+3. 擷取結果並納入到風險分析中。
 
 已轉譯為 R 程式碼，我們的 R 程式碼可透過必要輸入值 (來自準備好的輸入範本) 的定義來加強。
 
@@ -428,13 +435,12 @@ plot(as.numeric(df$term[df$statistic == 'PFE']) / 365, df$result[df$statistic ==
 
 ### <a name="tutorials"></a>教學課程
 
+- 適用於 R 開發人員：[使用 Azure Batch 執行平行 R 模擬](https://docs.microsoft.com/azure/batch/tutorial-r-doazureparallel?WT.mc_id=fsiriskmodelr-docs-scseely)
 
--   適用於 R 開發人員：[使用 Azure Batch 執行平行 R 模擬](https://docs.microsoft.com/azure/batch/tutorial-r-doazureparallel?WT.mc_id=fsiriskmodelr-docs-scseely)
+- [基本 R 命令與 RevoScaleR 函式：25 個常見範例](https://docs.microsoft.com/machine-learning-server/r/tutorial-r-to-revoscaler?WT.mc_id=fsiriskmodelr-docs-scseely)
 
--   [基本 R 命令與 RevoScaleR 函式：25 個常見範例](https://docs.microsoft.com/machine-learning-server/r/tutorial-r-to-revoscaler?WT.mc_id=fsiriskmodelr-docs-scseely)
+- [使用 RevoScaleR 視覺化及分析資料](https://docs.microsoft.com/machine-learning-server/r/tutorial-revoscaler-data-model-analysis?WT.mc_id=fsiriskmodelr-docs-scseely) \(英文\)
 
--   [使用 RevoScaleR 視覺化及分析資料](https://docs.microsoft.com/machine-learning-server/r/tutorial-revoscaler-data-model-analysis?WT.mc_id=fsiriskmodelr-docs-scseely) \(英文\)
-
--   [HDInsight 上的 ML 服務與開放原始碼 R 功能簡介](https://docs.microsoft.com/azure/hdinsight/r-server/r-server-overview?WT.mc_id=fsiriskmodelr-docs-scseely)
+- [HDInsight 上的 ML 服務與開放原始碼 R 功能簡介](https://docs.microsoft.com/azure/hdinsight/r-server/r-server-overview?WT.mc_id=fsiriskmodelr-docs-scseely)
 
 此文章作者為 Dr.  Darko Mocelj 與 Rupert Nicolay。

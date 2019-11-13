@@ -2,16 +2,16 @@
 title: 銀行業中的資料管理概觀
 author: dstarr
 ms.author: dastarr
-ms.date: 05/21/2018
+ms.date: 10/30/2019
 ms.topic: article
 ms.service: industry
 description: 描述在受規範的銀行業環境中使用 Microsoft Azure 管理資料的技術。
-ms.openlocfilehash: 69b0abfc4908431397e47752bcbe56a440703406
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: 1314054018c04e45b6450604febbf0142ead380d
+ms.sourcegitcommit: f42a60539bec2a7769b42b6574f09eed4d1b6c79
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654245"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750540"
 ---
 # <a name="data-management-in-banking-overview"></a>銀行業中的資料管理概觀
 
@@ -49,7 +49,7 @@ ms.locfileid: "51654245"
 
 ## <a name="data-ingest"></a>資料擷取
 
-金融機構將會擁有已收集的資料和目前應用程式正在使用的資料。 要將此資料移至 Azure 有數個選項。 在許多情況下，現有應用程式可以連線到 Azure 中的資料，就如同資料是內部部署一樣，幾乎不需要變更這些現有的應用程式。 使用 Microsoft [Azure SQL Database](/azure/sql-database/?WT.mc_id=bankdm-docs-dastarr) 時尤其如此，但是透過 [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/databases?WT.mc_id=bankdm-docs-dastarr) 可以找到適用於 Oracle、TeraData MongoDB 等的解決方案。
+金融機構將會擁有已收集的資料和目前應用程式正在使用的資料。 要將此資料移至 Azure 有數個選項。 在許多情況下，現有應用程式可以連線到 Azure 中的資料，就如同資料是內部部署一樣，幾乎不需要變更這些現有的應用程式。 使用 Microsoft [Azure SQL Database](/azure/sql-database/?WT.mc_id=bankdm-docs-dastarr) 時尤其如此，但是透過 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/databases?WT.mc_id=bankdm-docs-dastarr) 可以找到適用於 Oracle、TeraData MongoDB 等的解決方案。
 
 資料移轉策略有許多種，可用來將資料從內部部署移至 Azure，並具有不同程度的延遲。 下面所參照的所有技術都提供了資料透明度和可靠的安全性。
 
@@ -78,11 +78,11 @@ VNet 在 Azure 資中定義為包含繫結 Vnet 內的 Azure 資源。 然後，
 
 ### <a name="azure-database-migration-service"></a>Azure 資料庫移轉服務
 
-在平移 SQL Server 資料庫時，[Microsoft Azure 資料庫移轉服務](/azure/dms/dms-overview?WT.mc_id=bankdm-docs-dastarr)可用來將資料庫移至 Azure。 該服務使用[Data Migration Assistant](https://docs.microsoft.com/en-us/sql/dma/dma-overview?WT.mc_id=bankdm-docs-dastarr) 以確保在內部部署資料庫會與 Azure SQL 中所提供的功能相容。 移轉之前所需的任何資料庫變更都由您決定。 此外，使用此服務需要在內部部署網路與 Azure 之間的站對站網際網路連線。
+在平移 SQL Server 資料庫時，[Microsoft Azure 資料庫移轉服務](/azure/dms/dms-overview?WT.mc_id=bankdm-docs-dastarr)可用來將資料庫移至 Azure。 該服務使用[Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?WT.mc_id=bankdm-docs-dastarr) 以確保在內部部署資料庫會與 Azure SQL 中所提供的功能相容。 移轉之前所需的任何資料庫變更都由您決定。 此外，使用此服務需要在內部部署網路與 Azure 之間的站對站網際網路連線。
 
 ### <a name="bulk-copy-program-for-sql-server"></a>適用於 SQL Server 的大量複製程式
 
-如果目前的 SQL Server 是內部部署，而目標是要移至 SQL Azure，另一個很棒的技術是使用 SQL Server Management Studio[ 和 BCP 公用程式將資料移動](https://azure.microsoft.com/en-us/blog/bcp-and-sql-azure/?WT.mc_id=bankdm-docs-dastarr)到 SQL Azure。 再從原始內部部署伺服器撰寫指令碼並建立 Azure SQL 資料庫之後，可以使用 BCP 將資料快速傳送到 SQL Azure。
+如果目前的 SQL Server 是內部部署，而目標是要移至 SQL Azure，另一個很棒的技術是使用 SQL Server Management Studio[ 和 BCP 公用程式將資料移動](https://azure.microsoft.com/blog/bcp-and-sql-azure/?WT.mc_id=bankdm-docs-dastarr)到 SQL Azure。 再從原始內部部署伺服器撰寫指令碼並建立 Azure SQL 資料庫之後，可以使用 BCP 將資料快速傳送到 SQL Azure。
 
 ### <a name="blob-and-file-storage"></a>Blob 和檔案儲存體
 
@@ -116,7 +116,7 @@ Azure 提供可協助減輕這些問題的服務。 將此資料移至 Azure，�
 
 通常，銀行要帶入 Azure 的資訊就算沒有數 PB，也會有數 TB。 幸好，Azure 中的資料存放區非常有彈性且高度可擴充。
 
-著重於將超大量資料移轉至 Azure 的服務是 [Azure 資料箱](https://azure.microsoft.com/en-us/services/storage/databox/?WT.mc_id=bankdm-docs-dastarr)。 此服務的設計宗旨是在不透過 Azure 連線傳送資料或備份的情況下移轉資料。 Azure 資料箱適用於數 TB 的資料，此設備可從 Azure 入口網站訂購。 它會運送到您的位置，它在那裡會連線到您的網路並透過標準 NAS 通訊協定載入資料，並透過 standard256-AES 加密提供保護。 當資料位於設備上時，該設備會送回 Azure 資料中心，接著資料會在 Azure 中進行水合。
+著重於將超大量資料移轉至 Azure 的服務是 [Azure 資料箱](https://azure.microsoft.com/services/storage/databox/?WT.mc_id=bankdm-docs-dastarr)。 此服務的設計宗旨是在不透過 Azure 連線傳送資料或備份的情況下移轉資料。 Azure 資料箱適用於數 TB 的資料，此設備可從 Azure 入口網站訂購。 它會運送到您的位置，它在那裡會連線到您的網路並透過標準 NAS 通訊協定載入資料，並透過 standard256-AES 加密提供保護。 當資料位於設備上時，該設備會送回 Azure 資料中心，接著資料會在 Azure 中進行水合。
 然後，會安全地清除該裝置。
 
 ## <a name="azure-information-protection"></a>Azure 資訊保護
@@ -185,7 +185,7 @@ Data Factory 管線是由活動組成，這些活動參與及輸出資料集。 
 
 當您熟悉新的資料模型之後，請決定您的資料擷取策略。 資料來源有哪些？ 資料存放在 Azure 的何處？ 資料如何及何時會移至 Azure？ 根據內容類型、大小和更多項目，此處有許多資源可用來協助移轉。 Azure 資料移轉服務就是其中一個例子。
 
-當您的資料裝載於 Azure 中之後，請針對已超過其實用性或有效期的資料建立資料清除計畫。 雖然長期 (非經常性) 儲存體通常是封存的最佳選擇，不過清理過期的資料可降低使用量和整體儲存成本。 備份及封存 [Azure 解決方案架構](https://azure.microsoft.com/en-us/solutions/architecture/?solution=backup-archive?WT.mc_id=bankdm-docs-dastarr)是協助規劃您整體策略的理想資源。
+當您的資料裝載於 Azure 中之後，請針對已超過其實用性或有效期的資料建立資料清除計畫。 雖然長期 (非經常性) 儲存體通常是封存的最佳選擇，不過清理過期的資料可降低使用量和整體儲存成本。 備份及封存 [Azure 解決方案架構](https://azure.microsoft.com/solutions/architecture/?solution=backup-archive?WT.mc_id=bankdm-docs-dastarr)是協助規劃您整體策略的理想資源。
 
 ## <a name="relevant-technologies"></a>相關技術
 
@@ -207,6 +207,6 @@ Azure 可使用數種技術和策略協助資料擷取、處理、封存和刪�
 
 使用 Databricks 和 Data Factory 等 Azure 服務，可以簡單地操作及處理該資料。 封存儲存體適用於不常存取的資料的長期儲存，而且可以視需要依循環週期加以刪除。
 
-請瀏覽 Azure 解決方案程式庫，了解[備份和封存儲存體](https://azure.microsoft.com/en-us/solutions/architecture/?solution=backup-archive?WT.mc_id=bankdm-docs-dastarr)，以開始設計您的資料管理計畫。
+請瀏覽 Azure 解決方案程式庫，了解[備份和封存儲存體](https://azure.microsoft.com/solutions/architecture/?solution=backup-archive?WT.mc_id=bankdm-docs-dastarr)，以開始設計您的資料管理計畫。
 
-**作者**Howard Bush 和 David Starr
+**作者：** Howard Bush 和 David Starr
