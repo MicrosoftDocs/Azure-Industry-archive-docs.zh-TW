@@ -1,17 +1,17 @@
 ---
 title: 實作適用於 AI 的 Azure 藍圖
-author: dastarr
+author: dstarr
 ms.author: dastarr
-ms.date: 08/24/2018
+ms.date: 11/07/2019
 ms.topic: article
 ms.service: industry
 description: 此文章提供適用於 AI 之 Microsoft Azure 藍圖的指導方針。
-ms.openlocfilehash: f7c9290e6bbc0d500a9f7774c2020f78b5e94aca
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: 845ec2a1da335336375d90c789e0fa89bc70d23a
+ms.sourcegitcommit: 385e99900bc20950f02a63c885facc1cf62c49df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654345"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73845624"
 ---
 # <a name="implementing-the-azure-blueprint-for-ai"></a>實作適用於 AI 的 Azure 藍圖
 
@@ -61,7 +61,7 @@ IaaS 模型不再此文章的討論範圍內，此文章著重在藍圖的 PaaS 
 
 主要資源為：
 
-1. 用於部署、設定與其他工作的 [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/powershell-scripting?WT.mc_id=ms-docs-dastarr) 指令碼。
+1. 用於部署、設定與其他工作的 [PowerShell](https://docs.microsoft.com/powershell/scripting/powershell-scripting?WT.mc_id=ms-docs-dastarr) 指令碼。
 2. 包括如何使用安裝指令碼的[詳細安裝指示](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md)。
 3. [詳盡的常見問題集](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/faq.md)。
 
@@ -81,7 +81,7 @@ IaaS 模型不再此文章的討論範圍內，此文章著重在藍圖的 PaaS 
 
 該藍圖提供適用於技術員工的實用指導方針與指示，而且也包括成品，有助於建立完全可運作的安裝。 這些其他成品包括：
 
-1. [威脅模型](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=01828de2-9555-4bac-a2a0-44e9ed2eeeaf&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr)，可搭配 [Microsoft Threat Modeling Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49168&WT.mc_id=ms-docs-dastarr) 使用。 此威脅模型顯示解決方案的各元件、各元件之間的資料流程，以及信任邊界。 想要延伸基底藍圖或想要從安全性觀點了解系統架構的人，可以將該工具用於威脅模型建構。
+1. [威脅模型](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=01828de2-9555-4bac-a2a0-44e9ed2eeeaf&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr)，可搭配 [Microsoft Threat Modeling Tool](https://www.microsoft.com/download/details.aspx?id=49168&WT.mc_id=ms-docs-dastarr) 使用。 此威脅模型顯示解決方案的各元件、各元件之間的資料流程，以及信任邊界。 想要延伸基底藍圖或想要從安全性觀點了解系統架構的人，可以將該工具用於威脅模型建構。
 
 2. Excel 活頁簿中的 [HITRUST 客戶責任矩陣](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=eab85244-b9ab-490a-9e2a-611153f7d3af&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr)。  這顯示您 (客戶) 必須為矩陣中的每個需求提供 Microsoft 所提供的項目。 在此文章中，有關此責任矩陣的詳細資訊包含在此文件的＜安全性與合規性 > 藍圖責任矩陣＞一節中。
 
@@ -123,7 +123,7 @@ IaaS 模型不再此文章的討論範圍內，此文章著重在藍圖的 PaaS 
 
 1. 不對安裝指令碼進行任何變更，再次執行安裝指令碼。 安裝程式會檢查已配置的資源，並指安裝需要的項目。 雖然此方式有用，但仍有安裝指令碼嘗試配置已配置之資源的風險。 這可能導致錯誤，而且安裝將會失敗。
 
-2. 您仍然必須執行 deploy.ps1 指令碼，但傳遞不同的引數以解除安裝藍圖服務。 
+2. 您仍然必須執行 deploy.ps1 指令碼，但傳遞不同的引數以解除安裝藍圖服務。
 
 ```powershell
 .\deploy.ps1 -clearDeploymentPrefix <prefix> `
@@ -146,7 +146,7 @@ IaaS 模型不再此文章的討論範圍內，此文章著重在藍圖的 PaaS 
 
 ### <a name="reinstall-after-an-uninstall"></a>在解除安裝之後重新安裝
 
-若需要在解除安裝藍圖之後重新安裝，您必須變更下一個部署中的前置詞，因為如果您沒有變更前置詞，解除安裝的 Key Vault 將會導致錯誤。 此文章的＜技術問題 > Key Vault＞一節中有詳細的說明。
+若需要在解除安裝藍圖之後重新安裝，您必須變更下一個部署中的前置詞，因為如果您沒有變更前置詞，解除安裝的 Key Vault 將會導致錯誤。 此文章的＜技術問題 > Key Vault＞  一節中有詳細的說明。
 
 ### <a name="required-administrator-roles"></a>必要系統管理員角色
 
@@ -154,7 +154,7 @@ IaaS 模型不再此文章的討論範圍內，此文章著重在藍圖的 PaaS 
 
 ![藍圖安裝程式](assets/sg-healthcare-ai-blueprint-assets/blueprint-installer.png)
 
-此外，由於與 AAD 的緊密整合，安裝並非設計為搭配 MSDN 訂閱運作。 必須使用標準 Azure 帳戶。 如果有需要，使用[取得免費試用版](https://azure.microsoft.com/en-us/free/?WT.mc_id=ms-docs-dastarr)以獲得可花在安裝藍圖解決方案並執行其示範的點數。
+此外，由於與 AAD 的緊密整合，安裝並非設計為搭配 MSDN 訂閱運作。 必須使用標準 Azure 帳戶。 如果有需要，使用[取得免費試用版](https://azure.microsoft.com/free/?WT.mc_id=ms-docs-dastarr)以獲得可花在安裝藍圖解決方案並執行其示範的點數。
 
 ## <a name="adding-other-resources"></a>新增其他資源
 
@@ -162,7 +162,7 @@ Azure 藍圖安裝只包括實作 AI/ML 使用案例所需的服務。 不過，
 
 需要更多 Azure 功能時，可以新增資源 (例如 [Cosmos DB](/azure/cosmos-db/introduction?WT.mc_id=ms-docs-dastarr) 或新的 [Azure Functions](/azure/azure-functions/functions-overview?WT.mc_id=ms-docs-dastarr)) 到解決方案。 新增資源或服務時，請確定它們設定為符合法規與原則的安全性與隱私權原則。
 
-您可以使用 [Azure REST API](https://docs.microsoft.com/en-us/rest/api/?view=Azure&WT.mc_id=ms-docs-dastarr)、[Azure PowerShell 指令碼](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-6.6.0&WT.mc_id=ms-docs-dastarr)或使用 [Azure 入口網站](http://portal.azure.com/?WT.mc_id=ms-docs-dastarr)來建立新資源與服務。
+您可以使用 [Azure REST API](https://docs.microsoft.com/rest/api/?view=Azure&WT.mc_id=ms-docs-dastarr)、[Azure PowerShell 指令碼](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-6.6.0&WT.mc_id=ms-docs-dastarr)或使用 [Azure 入口網站](http://portal.azure.com/?WT.mc_id=ms-docs-dastarr)來建立新資源與服務。
 
 ## <a name="using-machine-learning-with-the-blueprint"></a>搭配藍圖使用機器學習
 
@@ -214,7 +214,7 @@ MLS 可讓您[建立並使用](/azure/machine-learning/studio-module-reference/m
 
 雙因素驗證也是一種技術深層防禦的形式，而且可以在安裝藍圖時選擇包括在內。
 
-### <a name="azure-key-vault"></a>Azure Key Vault
+### <a name="azure-key-vault"></a>Azure 金鑰保存庫
 
 Azure Key Vault 服務是一個容器 (亦稱為「保存庫」)，可用來存放祕密、憑證與應用程式所使用的其他資料。 這些包括資料庫字串、REST 端點 URL、API 金鑰，以及開發人員不想要以硬式編碼方式撰寫到應用程式中或在 .config 檔案中散佈的任何其他項目。
 
@@ -222,7 +222,7 @@ Azure Key Vault 服務是一個容器 (亦稱為「保存庫」)，可用來存�
 
 存放在保存庫中的金鑰可能已加密或簽署，而且可以根據任何安全性顧慮監視金鑰用途。
 
-當您刪除 Key Vault 時，系統並不會立即將它從 Azure 清除。 此文章的＜技術問題 > Key Vault＞一節中說明關於這個的意涵。
+當您刪除 Key Vault 時，系統並不會立即將它從 Azure 清除。 此文章的＜技術問題 > Key Vault＞  一節中說明關於這個的意涵。
 
 ### <a name="application-insights"></a>Application Insights
 
@@ -246,7 +246,7 @@ Azure Key Vault 服務是一個容器 (亦稱為「保存庫」)，可用來存�
 
 - 原則與合規性
 - 資源安全性檢查
-- 威脅防護
+- 威脅保護
 
 下面是已找出 13 個改進系統威脅弱點建議的範例儀表板。 它也顯示僅有 46% 的 HIPAA 與原則合規性。
 
@@ -318,12 +318,11 @@ HITRUST 客戶責任矩陣是一個 Excel 文件，它支援針對建置在 Azur
 
 - 深入了解 [Azure 健康資料與 AI 藍圖](/azure/security/blueprints/azure-health?WT.mc_id=ms-docs-dastarr)。
 - 下載、複製或將 [這裡的 GitHub 保存庫分岔](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md)。
-- [Machine Learning Studio](/azure/machine-learning/studio/?WT.mc_id=ms-docs-dastarr) 是用來建立 Machine Learning 實驗的工作區與工具資料科學。 它可讓您使用內建演算法、特殊用途小工具，以及 Python 與 R 指令碼。
+- [Machine Learning Studio](/azure/machine-learning/?WT.mc_id=ms-docs-dastarr) 是用來建立 Machine Learning 實驗的工作區與工具資料科學。 它可讓您使用內建演算法、特殊用途小工具，以及 Python 與 R 指令碼。
 - 祕密、憑證與其他私人資料是存放在 [Azure Key Vault](/azure/key-vault/key-vault-whatis?WT.mc_id=ms-docs-dastarr) 中。
 - 指令碼語言 PowerShell 是用來設定藍圖，雖然所需的命令是在安裝指示中提供。
-- [Azure AI 資源庫](https://docs.microsoft.com/en-us/powershell/scripting/powershell-scripting?WT.mc_id=ms-docs-dastarr) \(英文\) 依客戶的產業提供對客戶而言非常實用的 AI/ML 解決方案食譜盒。 有一些由資料科學家與其他醫療保健專家發佈的解決方案。
+- [Azure AI 資源庫](https://gallery.azure.ai/) \(英文\) 依客戶的產業提供對客戶而言非常實用的 AI/ML 解決方案食譜盒。 有一些由資料科學家與其他醫療保健專家發佈的解決方案。
 - [Azure 資訊安全中心](/azure/security-center/?WT.mc_id=ms-docs-dastarr)提供對您應用程式行為、弱點與減緩技術的見解。
-- [Microsoft Threat Modeling Tool](/azure/security/blueprints/azure-health?WT.mc_id=ms-docs-dastarr) 是用來規劃及預測對您系統環境的威脅。 必須檢閱藍圖中隨附的威脅模型。
 
 ## <a name="wrapping-up"></a>總結
 

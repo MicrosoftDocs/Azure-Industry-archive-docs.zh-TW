@@ -1,17 +1,17 @@
 ---
 title: 實作適用於 AI 的 Azure 藍圖
-author: dastarr
+author: dstarr
 ms.author: dastarr
-ms.date: 08/24/2018
+ms.date: 11/07/2019
 ms.topic: article
 ms.service: industry
 description: 此文章介紹適用於 AI 的 Microsoft Azure 藍圖。
-ms.openlocfilehash: 454c08c58b644995d8484b420a074dce173e0efd
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: bcf8ff2f7a84f1b5d4848d6eb77ba51dec114f27
+ms.sourcegitcommit: 385e99900bc20950f02a63c885facc1cf62c49df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654015"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73845619"
 ---
 # <a name="implementing-the-azure-blueprint-for-ai"></a>實作適用於 AI 的 Azure 藍圖
 
