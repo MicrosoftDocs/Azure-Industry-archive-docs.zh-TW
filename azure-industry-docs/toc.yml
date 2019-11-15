@@ -135,14 +135,6 @@
               href: manufacturing/predictive-maintenance-overview.md
             - name: 解決方案指南
               href: manufacturing/predictive-maintenance-solution.md
-            - name: 其他資源
-              items:
-                - name: Azure Machine Learning 文件
-                  href: /azure/machine-learning
-                - name: Microsoft IoT 解決方案架構
-                  href: /azure/iot-suite/iot-suite-what-is-azure-iot
-                - name: 軟體品質的要素
-                  href: /azure/architecture/guide/pillars
         - name: 從 IoT 資料擷取見解
           items:
             - name: 概觀
@@ -153,6 +145,12 @@
           items:
             - name: Azure 資料架構指南
               href: /azure/architecture
+            - name: 雲端設計模式
+              href: /azure/architecture/patterns
+            - name: Azure 上的高效能運算 (HPC)
+              href: /azure/architecture/topics/high-performance-computing
+            - name: 使用 Azure Databricks 串流處理管線
+              href: /azure/architecture/reference-architectures/data/stream-processing-databricks
         - name: 訓練
           items:
             - name: 使用 Azure Logic Apps 建立以排程為基礎的週期性自動化工作流程
@@ -177,6 +175,12 @@
               href: 'https://microsoft.github.io/PowerBI-JavaScript/demo/v2-demo/index.html'
         - name: 其他資源
           items:
+            - name: Azure Machine Learning 文件
+              href: /azure/machine-learning
+            - name: Microsoft IoT 解決方案架構
+              href: /azure/iot-suite/iot-suite-what-is-azure-iot
+            - name: 軟體品質的要素
+              href: /azure/architecture/guide/pillars
             - name: HDInsight 上的 Apache Kafka
               href: /azure/hdinsight/kafka/apache-kafka-introduction
             - name: App Service 方案
