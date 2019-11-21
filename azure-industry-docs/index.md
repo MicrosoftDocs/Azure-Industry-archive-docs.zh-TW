@@ -3,16 +3,16 @@ title: 適用於產業的 Azure
 author: dstarr
 layout: LandingPage
 ms.author: dastarr
-ms.date: 04/12/2018
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: 產業經驗小組的首頁
-ms.openlocfilehash: fad2b84c9c7d6ee916506cb4f9fbca2a5ceb57a0
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: 0130bc655658cc25648b83264a452ac9ef40989d
+ms.sourcegitcommit: b8f9ccc4e4453d6912b05cdd6cf04276e13d7244
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654685"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74263436"
 ---
 # <a name="azure-for-industry"></a>適用於產業的 Azure
 
