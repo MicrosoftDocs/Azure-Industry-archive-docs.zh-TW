@@ -7,12 +7,12 @@ ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: 產業經驗小組的首頁
-ms.openlocfilehash: 0130bc655658cc25648b83264a452ac9ef40989d
-ms.sourcegitcommit: b8f9ccc4e4453d6912b05cdd6cf04276e13d7244
+ms.openlocfilehash: 48baa300803273dcb78f2bc46cf111f29a125ba6
+ms.sourcegitcommit: 2714a77488c413f01beb169a18acab45663bcfd7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/21/2019
-ms.locfileid: "74263436"
+ms.locfileid: "74308468"
 ---
 # <a name="azure-for-industry"></a>適用於產業的 Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "74263436"
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img alt="Financial Services" src="https://azure.microsoft.com/en-us/patterns/styles/glyphs-icons/financial.svg">
+                            <img alt="Financial Services" src="https://azure.microsoft.com/patterns/styles/glyphs-icons/financial.svg">
                         </div>
                     </div>
                     <div class="cardText">
@@ -44,7 +44,7 @@ ms.locfileid: "74263436"
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img alt="Health &amp; Life Sciences" src="https://azure.microsoft.com/en-us/patterns/styles/glyphs-icons/healthcare.svg">
+                            <img alt="Health &amp; Life Sciences" src="https://azure.microsoft.com/patterns/styles/glyphs-icons/healthcare.svg">
                         </div>
                     </div>
                     <div class="cardText">
@@ -65,7 +65,7 @@ ms.locfileid: "74263436"
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img alt="Manufacturing" src="https://azure.microsoft.com/en-us/patterns/styles/glyphs-icons/discrete-manufacturing.svg">
+                            <img alt="Manufacturing" src="https://azure.microsoft.com/patterns/styles/glyphs-icons/discrete-manufacturing.svg">
                         </div>
                     </div>
                     <div class="cardText">
@@ -83,7 +83,7 @@ ms.locfileid: "74263436"
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img alt="Retail" src="https://azure.microsoft.com/en-us/patterns/styles/glyphs-icons/retailers.svg">
+                            <img alt="Retail" src="https://azure.microsoft.com/patterns/styles/glyphs-icons/retailers.svg">
                         </div>
                     </div>
                     <div class="cardText">
