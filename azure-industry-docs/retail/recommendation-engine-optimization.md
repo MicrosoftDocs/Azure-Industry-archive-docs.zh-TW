@@ -1,17 +1,17 @@
 ---
-title: 建議引擎最佳化
+title: 重複使用建議系統，以及 R 與 Azure 的演算法
 author: kbaroni
 ms.author: kbaroni
-ms.date: 07/18/2018
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: 如何重複使用並最佳化以 R 語言撰寫的建議應用程式。 仰賴 Azure VM 上的 Machine Learning Server。
-ms.openlocfilehash: bce6d7df548e7bd80d73495dc0bec642817d8641
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: c5c35de681abc52641952f8bc9e95095b9d99d97
+ms.sourcegitcommit: b8f9ccc4e4453d6912b05cdd6cf04276e13d7244
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654255"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74263494"
 ---
 # <a name="optimize-and-reuse-an-existing-recommendation-system"></a>將現有的建議系統最佳化並重複使用  
 
@@ -19,8 +19,8 @@ ms.locfileid: "51654255"
 
 ## <a name="recommendation-systems-and-r"></a>建議系統與 R
 
-針對經銷商，了解消費者喜好與購買記錄是一個競爭優勢。 經銷商已使用此類資料數年，並結合機器學習以指出與消費者相關的產品並提供個人化的購物體驗。 此方式稱為**產品建議**，而且它會為經銷商產生大幅的營收串流。 建議系統有助於回答如下問題：這個人下次將看哪一部電影？此客戶可能對哪些額外服務感興趣？此客戶想要到哪裡度假？
-最近的客戶想要知道：消費者 (訂閱者) 何時將會針對其合約續約？ 客戶有現有的建議模型，此模型可預測訂閱者針對合約續約的機率。 一旦產生預測，就會套用額外的處理以將回應分類為是、否或可能。 模型回應接著會整合到話務中心商業程序。 該程序可讓服務專員提供個人化的建議給消費者。  
+針對經銷商，了解消費者喜好與購買記錄是一個競爭優勢。 經銷商已使用此類資料數年，並結合機器學習以指出與消費者相關的產品並提供個人化的購物體驗。 此方式稱為**產品建議**，而且它會為經銷商產生大幅的營收串流。 建議系統會協助回答下列問題，例如：*接下來他會看哪部電影？此客戶可能對哪些額外服務感興趣？此客戶想要到哪裡度假？*
+客戶最近會想知道：*客戶 (訂閱者) 會更新合約嗎？* 客戶有現有的建議模型，此模型可預測訂閱者針對合約續約的機率。 一旦產生預測，就會套用額外的處理以將回應分類為是、否或可能。 模型回應接著會整合到話務中心商業程序。 該程序可讓服務專員提供個人化的建議給消費者。  
 有許多這個客戶早期分析產品已內建在[程式設計語言 R](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server) 中，包括其建議系統核心的機器學習模型。 因為其訂閱者基底已成長，因此有資料與運算需求。 在這種程度上，建議工作負載處理速度現在異常慢且難以處理。 現在 Python 逐漸成為其分析產品策略的一部分。 但在近期，他們必須保留其 R 投資並尋找更有效的開發與部署程序。 所面臨的挑戰是使用 Azure 中的功能最佳化現有的方法。 我們著手進行一個工作來提供並驗證建議工作負載的概念證明技術堆疊。 在這裡，我們摘述了可為類似專案使用的一般方法。  
 
 ## <a name="design-goals"></a>設計目標
@@ -57,7 +57,7 @@ ms.locfileid: "51654255"
 
 ### <a name="microsoft-machine-learning-server"></a>Microsoft Machine Learning Server
 
-選取 R 工作負載的主要原因：**[RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler)** 與 **Microsoft ML**。 這些套件中包含的功能會在程式碼中廣泛使用，以匯入資料、建立分類模型，以及將它們部署到生產環境。
+選取 R 工作負載的主要原因： **[RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler)** 和 **Microsoft ML**。 這些套件中包含的功能會在程式碼中廣泛使用，以匯入資料、建立分類模型，以及將它們部署到生產環境。
 MLS 已部署在 Azure 中的兩部 Linux 虛擬機器上：一部設定為「開發」，而另一部設定為「作業」。 開發 VM 是使用更大量的記憶體與處理能力來佈建，以進行數百個模型的定型及測試。 它也裝載 RStudio Server 以為遠端使用者提供輕鬆存取 RStudio IDE 的方式。 作業伺服器使在較小的 VM 上設定，此 VM 具有裝載 R 模型 (可透過 REST API 從 Web 應用程式呼叫) 所需的額外延伸模組。
 
 ### <a name="rstudio-server"></a>RStudio Server
@@ -195,7 +195,7 @@ rxGetInfo (input_data, getVarInfo = TRUE)
 }
  ````
 
-當部署時，模型會序列化並存放在作業伺服器上，而且可透過 Web 服務以「標準」或「即時」模式取用。 每次以標準模式呼叫 Web 服務時，都會載入 R 與任何必要程式庫，並透過每個呼叫來卸載。 相反地，使用「即時」模式時，R 與程式庫只會載入一次，並由後續 Web 服務呼叫重複使用。 因為 Web 服務呼叫的大部分額外負擔是載入 R 與程式庫，即時模式提供有關模型評分的較短延遲，而且回應時間可以在 10 毫秒以下。 針對標準與即時選項，請參閱[這裡](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services)的文件與參考範例。 即時可用於進行單次預測，但您也可以傳入輸入資料框架以進行評分。 此參考提供進一步的說明：[透過批次處理的非同步 Web 服務 (使用 mrsdeploy)](https://docs.microsoft.com/machine-learning-server/operationalize/how-to-consume-web-service-asynchronously-batch) \(英文\)。
+當部署時，模型會序列化並存放在作業伺服器上，而且可透過 Web 服務以「標準」  或「即時」  模式取用。 每次以標準模式呼叫 Web 服務時，都會載入 R 與任何必要程式庫，並透過每個呼叫來卸載。 相反地，使用「即時」  模式時，R 與程式庫只會載入一次，並由後續 Web 服務呼叫重複使用。 因為 Web 服務呼叫的大部分額外負擔是載入 R 與程式庫，即時模式提供有關模型評分的較短延遲，而且回應時間可以在 10 毫秒以下。 針對標準與即時選項，請參閱[這裡](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services)的文件與參考範例。 即時可用於進行單次預測，但您也可以傳入輸入資料框架以進行評分。 如同本參考所述：[透過批次處理的非同步 Web 服務 (使用 mrsdeploy)](https://docs.microsoft.com/machine-learning-server/operationalize/how-to-consume-web-service-asynchronously-batch) \(英文\)。
 
 ## <a name="conclusion"></a>結論
 
@@ -205,7 +205,7 @@ rxGetInfo (input_data, getVarInfo = TRUE)
 - [Machine Learning Server 文件](https://docs.microsoft.com/machine-learning-server/) \(英文\)
 - [Machine Learning Server 的 R 教學課程](https://docs.microsoft.com/advanced-analytics/tutorials/sql-server-r-tutorials?view=sql-server-2017) \(英文\)
 - [Machine Learning Server 的 R 範例](https://docs.microsoft.com/machine-learning-server/r/r-samples) \(英文\)
-- [R 函式程式庫參考](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) \(英文\) 
+- [R 函式程式庫參考](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) \(英文\)
 
 ## <a name="references"></a>參考
 

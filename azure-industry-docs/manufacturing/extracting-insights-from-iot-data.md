@@ -1,18 +1,18 @@
 ---
-title: 從 IoT 資料擷取可操作見解
+title: 從 IoT 擷取製造業見解的架構
 description: 使用 Azure 服務從 IoT 資料擷取見解。
 author: ercenk
 ms.author: ercenk
 manager: gmarchet
 ms.service: industry
 ms.topic: article
-ms.date: 09/26/2018
-ms.openlocfilehash: e3a2f19fa584cfefa72a6b8bf3eabfe1c3af3521
-ms.sourcegitcommit: c4eb2665df40d0449bd037e7500222fc38bc53ef
+ms.date: 11/28/2019
+ms.openlocfilehash: 34577d595144c12ca9a85d1b28388a3bc84fb701
+ms.sourcegitcommit: a6eefa2a605c9e1c5015ae107c9847b18d415746
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2018
-ms.locfileid: "52820766"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74540434"
 ---
 # <a name="extracting-actionable-insights-from-iot-data"></a>從 IoT 資料擷取可操作見解
 
@@ -83,10 +83,10 @@ IoT 資料是時間序列資料：「事項」中的值會在一段時間內變�
 如果資料在外部可用，並且可從網際網路存取，則可以使用多個 Azure 服務以存取、轉換和擴充資料。 這些選項包括：
 
 - 部署在各種 Azure 計算服務中的自訂程式碼，例如 [App Service](https://docs.microsoft.com/azure/app-service/?WT.mc_id=iotinsightssoln-docs-ercenk)、[Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/?WT.mc_id=iotinsightssoln-docs-ercenk) (AKS)、[Container Instances](https://docs.microsoft.com/azure/container-instances/?WT.mc_id=iotinsightssoln-docs-ercenk)，或 [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview?WT.mc_id=iotinsightssoln-docs-ercenk)。
--   [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/?WT.mc_id=iotinsightssoln-docs-ercenk)
--   [Azure Data Factory 活動](https://docs.microsoft.com/azure/data-factory/?WT.mc_id=iotinsightssoln-docs-ercenk)
--   [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview?WT.mc_id=iotinsightssoln-docs-ercenk)
--   [BizTalk 服務](https://azure.microsoft.com/services/biztalk-services/)
+- [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/?WT.mc_id=iotinsightssoln-docs-ercenk)
+- [Azure Data Factory 中的管線和活動](/azure/data-factory/copy-activity-overview ?/WT.mc_id=iotinsightssoln-docs-ercenk)
+- [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview?WT.mc_id=iotinsightssoln-docs-ercenk)
+- [BizTalk 服務](https://azure.microsoft.com/services/biztalk-services/)
 
 上述每項服務都有各自的優點和成本，取決於具體情況而定。 例如，Logic Apps 提供[轉換 XML 文件](https://docs.microsoft.com/azure/logic-apps/logic-apps-enterprise-integration-transform?WT.mc_id=iotinsightssoln-docs-ercenk)的方法。 但是，資料可能是過於複雜的 XML 文件，因此，開發一個大型 XSLT 指令碼以轉換資料可能不切實際。 在這種情況下，可以使用來自不同 Azure 服務的多個微服務，來開發混合式解決方案。 例如，在 Azure Logic Apps 中實作的微服務可以輪詢 HTTP 端點、暫時儲存未經處理的結果，並通知另一個微服務。 另一個轉換訊息的微服務可自訂裝載在 [Azure Functions 主機](https://github.com/Azure/azure-functions-host)上的程式碼。  
 
@@ -100,10 +100,10 @@ IoT 資料是時間序列資料：「事項」中的值會在一段時間內變�
 若要以串流分析資料，我們可以根據時間範圍，對資料進行查詢，以識別模式和關聯性。 Azure 平台上有各種服務，可利用高輸送量擷取資料。
 在以下服務之間進行選擇，取決於專案的需求，例如裝置管理、通訊協定支援、延展性、團隊對程式設計模型的偏好等。例如，團隊可能會先前經驗而優先使用 Kafka，或者需要針對解決方案擁有 Kafka 訊息代理程式。 或者，另一種情況是，專案可能需要資料擷取系統，以利用 [IoT 中樞裝置佈建服務的 TPM 金鑰證明](https://docs.microsoft.com/azure/iot-dps/?WT.mc_id=iotinsightssoln-docs-ercenk)來保護裝置對擷取點的存取權。
 
--   [Azure IoT 中樞](https://docs.microsoft.com/azure/iot-hub/?WT.mc_id=iotinsightssoln-docs-ercenk)是 IoT 應用程式和裝置之間的雙向通訊中樞。 它是一種可擴充的服務，藉由提供安全通訊、訊息路由、與其他 Azure 服務的整合，以及用於控制和設定裝置的管理功能，實現全功能的 IoT 解決方案。
+- [Azure IoT 中樞](https://docs.microsoft.com/azure/iot-hub/?WT.mc_id=iotinsightssoln-docs-ercenk)是 IoT 應用程式和裝置之間的雙向通訊中樞。 它是一種可擴充的服務，藉由提供安全通訊、訊息路由、與其他 Azure 服務的整合，以及用於控制和設定裝置的管理功能，實現全功能的 IoT 解決方案。
 
--   [Azure 事件中樞](https://docs.microsoft.com/azure/event-hubs/event-hubs-about?WT.mc_id=iotinsightssoln-docs-ercenk)是大規模的僅擷取服務，以極高的輸送率從並行來源收集遙測資料。
--   [HDInsight 上的 Apache Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction?WT.mc_id=iotinsightssoln-docs-ercenk) 是裝載 [Apache Kafka](https://kafka.apache.org/) 的受控服務。 Apache Kafka 是開放原始碼分散式串流平台，其同時提供訊息代理程式功能。 託管服務的 Kafka 運作時間服務等級協定 (SLA) 為 99.9%。
+- [Azure 事件中樞](https://docs.microsoft.com/azure/event-hubs/event-hubs-about?WT.mc_id=iotinsightssoln-docs-ercenk)是大規模的僅擷取服務，以極高的輸送率從並行來源收集遙測資料。
+- [HDInsight 上的 Apache Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction?WT.mc_id=iotinsightssoln-docs-ercenk) 是裝載 [Apache Kafka](https://kafka.apache.org/) 的受控服務。 Apache Kafka 是開放原始碼分散式串流平台，其同時提供訊息代理程式功能。 託管服務的 Kafka 運作時間服務等級協定 (SLA) 為 99.9%。
 
 ## <a name="processing-and-storing-the-data"></a>處理並儲存資料
 
@@ -114,9 +114,9 @@ Microsoft 的 Azure IoT 參考架構為使用 Lambda 架構 之 IoT 解決方案
 
 Lambda 架構會藉由建立兩個資料流程路徑，來解決此問題。 進入系統的所有資料會經過這兩個路徑：
 
--   批次層 (非經常性路徑) 會以原始格式儲存所有傳入資料，並對資料執行批次處理。 此處理的結果會儲存為批次檢視。 它是執行複雜分析的緩慢處理管線，例如，來自多個來源以及更長時間內 (數小時，數天或更長時間) 的組合資料，並產生新的資訊，例如報告、機器學習模型等。
--   速度層 (經常性路徑) 會即時分析資料。 這一層的設計目的是要犧牲精確度來實現低延遲。 它是更快的處理管線，可以封存和顯示傳入訊息，並分析這些記錄，產生短期的重要資訊和警示等動作。
--   批次層會饋送至「服務層」，其可回應查詢。 批次層會為批次檢視編制索引，以便能有效率地查詢。 速度層會根據最新的資料，使用累加式更新來更新服務層。
+- 批次層 (非經常性路徑) 會以原始格式儲存所有傳入資料，並對資料執行批次處理。 此處理的結果會儲存為批次檢視。 它是執行複雜分析的緩慢處理管線，例如，來自多個來源以及更長時間內 (數小時，數天或更長時間) 的組合資料，並產生新的資訊，例如報告、機器學習模型等。
+- 速度層 (經常性路徑) 會即時分析資料。 這一層的設計目的是要犧牲精確度來實現低延遲。 它是更快的處理管線，可以封存和顯示傳入訊息，並分析這些記錄，產生短期的重要資訊和警示等動作。
+- 批次層會饋送至「服務層」，其可回應查詢。 批次層會為批次檢視編制索引，以便能有效率地查詢。 速度層會根據最新的資料，使用累加式更新來更新服務層。
 
 下圖顯示代表轉換階段的五個區塊。 第一個區塊是資料流，其並行饋送速度層和批次層。 這兩個層級會饋送服務層，速度層和服務層都會饋送分析用戶端。
 ![Lambda 架構。](assets/extracting-insights-from-iot/lambda-schematic.png)
@@ -165,9 +165,9 @@ Cosmos DB 的價格是根據使用的儲存體和佈建的[要求單位](https:/
   
 [Azure 時間序列深入解析](https://docs.microsoft.com/azure/time-series-insights/?WT.mc_id=iotinsightssoln-docs-ercenk) (TSI) 是時間序列資料的分析、儲存體及視覺效果服務。 它提供類似 SQL 的篩選和彙總，減少了對使用者定義函式的需求。 TSI 可以接收來自事件中樞、IoT 中樞或 Azure Blob 儲存體的資料。 TSI 中的所有資料都會儲存在記憶體內部和 SSD 中，以確保資料一律可用於互動式分析。 例如，數百萬個事件的一般彙總會以毫秒為單位傳回。 它也提供視覺效果，例如不同時間序列的重疊、儀表板比較、可存取的表格式檢視，以及熱度圖。 TSI 的主要功能包括：
 
--   內建的視覺效果服務，適用於無需立即報告資料的解決方案。 TSI 有約略 30-60 秒的查詢資料記錄延遲時間。 
--   可查詢大型資料集。
--   使用者不限數量皆可進行無限量的查詢，且無需額外費用。
+- 內建的視覺效果服務，適用於無需立即報告資料的解決方案。 TSI 有約略 30-60 秒的查詢資料記錄延遲時間。 
+- 可查詢大型資料集。
+- 使用者不限數量皆可進行無限量的查詢，且無需額外費用。
 
 TSI 的最大保留期為 400 天，最大儲存限制為 3TB。 如果您需要較長的保留期範圍或更多容量，請使用非經常性儲存體資料庫 (視需要交換資料至 TSI 查詢)。
 
@@ -220,7 +220,7 @@ Azure SQL 資料倉儲提供許多其他功能，在某些情況下非常有用�
   -[將 Azure Cosmos DB 與與 .NET 搭配使用](https://docs.microsoft.com/azure/cosmos-db/sql-api-get-started?WT.mc_id=iotinsightssoln-docs-ercenk)
 - 非經常性路徑
   - [使用 Azure Data Factory 中的 Spark 活動來轉換雲端中的資料](https://docs.microsoft.com/azure/data-factory/tutorial-transform-data-spark-portal?WT.mc_id=iotinsightssoln-docs-ercenk)
-  - [在時間序列深入解析上分析模擬裝置資料](https://docs.microsoft.com/azure/time-series-insights/tutorial-create-populate-tsi-environment?WT.mc_id=iotinsightssoln-docs-ercenk)
+  - [教學課程：建立 Azure 時間序列深入解析環境](/azure/time-series-insights/tutorial-create-populate-tsi-environment?WT.mc_id=iotinsightssoln-docs-ercenk)
 - 分析用戶端
   - [了解 Power BI](https://docs.microsoft.com/power-bi/guided-learning/?WT.mc_id=iotinsightssoln-docs-ercenk)
   - [建立時間序列深入解析 SPA](https://docs.microsoft.com/azure/time-series-insights/tutorial-create-tsi-sample-spa?WT.mc_id=iotinsightssoln-docs-ercenk)
@@ -229,7 +229,7 @@ Azure SQL 資料倉儲提供許多其他功能，在某些情況下非常有用�
 
 ## <a name="appendix-pillars-of-software-quality-posq"></a>附錄：軟體品質的要素 (PoSQ)
 
-成功的雲端應用程式會建置在下列[軟體品質的要素](https://docs.microsoft.com/azure/architecture/guide/pillars?WT.mc_id=iotinsightssoln-docs-ercenk)：延展性、可用性、復原功能、管理和安全性。 在本節中，我們將視需要簡要討論每個元件的要素。 我們未涵蓋可用性、彈性、管理和 DevOps，因為大部分是在實作層級處理，而且我們想提到的是 Azure 平台提供廣泛的方法，透過 API、工具、診斷和記錄來達成這些目標。 除了上述要件，我們也會提及成本效益。
+成功的雲端應用程式著重於[軟體品質的這幾項支柱](https://docs.microsoft.com/azure/architecture/guide/pillars?WT.mc_id=iotinsightssoln-docs-ercenk)：延展性、可用性、復原、管理和安全性。 在本節中，我們將視需要簡要討論每個元件的要素。 我們未涵蓋可用性、彈性、管理和 DevOps，因為大部分是在實作層級處理，而且我們想提到的是 Azure 平台提供廣泛的方法，透過 API、工具、診斷和記錄來達成這些目標。 除了上述要件，我們也會提及成本效益。
 
 讓我們快速檢閱這些要素：
 
@@ -245,7 +245,7 @@ Azure SQL 資料倉儲提供許多其他功能，在某些情況下非常有用�
 
 每個 Azure 服務皆提供垂直和水平縮放的選項。 我們強烈建議在設計解決方案時考量延展性需求。
 
-至於提供來源資料的系統，需注意不要對系統造成衝擊，過於頻繁地查詢系統，基本上會導致系統的拒絕服務 (DoS) 攻擊。 如果要輪詢系統，應該記住調整輪詢頻率有兩個影響，即資料的粒度 (查詢次數越多，越接近即時)，以及遠端系統上建立的負載。 
+至於提供來源資料的系統，需注意不要對系統造成衝擊，過於頻繁地查詢系統，基本上會導致系統的拒絕服務 (DoS) 攻擊。 如果要輪詢系統，應該記住調整輪詢頻率有兩個影響，即資料的粒度 (查詢次數越多，越接近即時)，以及遠端系統上建立的負載。
 
 **安全性**：如果藉由對稱或非對稱金鑰存取遠端系統，建議將密碼保存在 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/?WT.mc_id=iotinsightssoln-docs-ercenk) 中。
 
@@ -267,7 +267,7 @@ Azure Cosmos DB 實作需要佈建正確的輸送量參數和適當的資料分�
 
 ## <a name="posq-cold-path"></a>PoSQ：非經常性路徑
 
-**延展性**Azure 時間序列深入解析 (TSI) 使用名為「容量」的計量進行調整，該計量是套用至輸入速率、儲存體容量，以及與 SKU 相關之成本的乘數。 
+**延展性**：Azure 時間序列深入解析 (TSI) 使用名為「容量」的計量進行調整，該計量是套用至輸入速率、儲存體容量，以及與 SKU 相關之成本的乘數。 
 
 Azure 時間序列深入解析有多個 SKU，這些 SKU 對其垂直調整也有直接影響。 如需調整的相關詳細資料，請參閱文件[規劃 Azure 時間序列深入解析環境](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-planning?WT.mc_id=iotinsightssoln-docs-ercenk)。 如同其他許多 Azure 服務一樣，TSI 也受限於節流，以避免「吵雜芳鄰」問題。 吵雜的芳鄰是在共用環境 https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore?WT.mc_id=iotinsightssoln-docs-ercenk 中的應用程式，它獨占資源，並讓其他使用者無資源可用。 如需管理節流的詳細資訊，請參閱 [TSI 說明文件](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency?WT.mc_id=iotinsightssoln-docs-ercenk)。 
 
