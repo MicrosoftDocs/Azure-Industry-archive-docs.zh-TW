@@ -1,17 +1,17 @@
 ---
-title: 行動裝置銀行詐騙解決方案指南
-description: 說明如何在2秒內偵測到詐騙交易
-author: mauiguitar
-ms.author: sihiga
+title: 透過 Azure 和 R 啟用 Finserve 風險生命週期
+description: ''
+author: sseely
+ms.author: sseely
 ms.service: industry
 ms.topic: overview
-ms.date: 10/31/2019
-ms.openlocfilehash: c5ea4384d02548e4d681b1c13fd81066a955d6a2
-ms.sourcegitcommit: f42a60539bec2a7769b42b6574f09eed4d1b6c79
+ms.date: 11/19/2019
+ms.openlocfilehash: 03fea3996b62782c2b65e6d2edf841b5adaebcd2
+ms.sourcegitcommit: f030566b177715794d2ad857b150317e72d04d64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750523"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74234540"
 ---
 # <a name="enabling-the-financial-services-risk-lifecycle-with-azure-and-r"></a>使用 Azure 與 R 啟用財務服務風險生命週期
 

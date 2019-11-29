@@ -1,17 +1,17 @@
 ---
-title: 銀行業中的風險網格運算概觀
+title: 使用 Azure Batch 和 Azure Data Lake 的網格運算風險分析
 author: dstarr
 ms.author: dastarr
-ms.date: 04/12/2018
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: 提供在 Azure 上實作銀行業中的風險網格運算的商業考量。
-ms.openlocfilehash: 49d3d5223bee85689043d84eb5236cca4f53fc03
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: 746b93e545aa8ff61a8fab4a021b6c5caa1889bb
+ms.sourcegitcommit: f030566b177715794d2ad857b150317e72d04d64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654175"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74234653"
 ---
 # <a name="risk-grid-computing-in-banking-overview"></a>銀行業中的風險網格運算概觀
 
@@ -86,7 +86,7 @@ Azure Batch 處理模型對於風險網格運算有幾項優點：
 
 如果需要更多計算容量，例如每季的估值，可以從 Azure Batch 的自動調整規模功能獲得額外的容量。 自動調整規模可以對 Batch 解決方案提供彈性。 比起擁有硬體，Azure 能夠調整資源，讓資源與需要的負載一致，以更低的成本提供明顯更大的容量。
 
-大部分商用網格產品都支援某種形式的高載至雲端，讓風險分析負載的概念證明更簡單。 例如，[Microsoft HPC Pack](/azure/virtual-machines/windows/hpcpack-cluster-options?WT.mc_id=gridbank-docs-dastarr) 可以在 Azure 中執行，而像是 TIBCO、Univa 以及其他公司的產品也可以。 透過 [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/?WT.mc_id=gridbank-docs-dastarr) 可以取得這些協力廠商工具或系統。
+大部分商用網格產品都支援某種形式的高載至雲端，讓風險分析負載的概念證明更簡單。 例如，[Microsoft HPC Pack](/azure/virtual-machines/windows/hpcpack-cluster-options?WT.mc_id=gridbank-docs-dastarr) 可以在 Azure 中執行，而像是 TIBCO、Univa 以及其他公司的產品也可以。 透過 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?WT.mc_id=gridbank-docs-dastarr) 可以取得這些協力廠商工具或系統。
 
 ### <a name="migrating-additional-resources-to-the-cloud"></a>將額外的資源移轉到雲端
 
@@ -108,7 +108,7 @@ Azure Batch 處理模型對於風險網格運算有幾項優點：
 
 風險網格運算的重要考量是要[在 Azure VNet 內執行批次程序](/azure/batch/batch-virtual-network?WT.mc_id=gridbank-docs-dastarr)。 這可讓集區計算節點安全地與其他計算節點或內部部署網路進行通訊。 您應該建立適當的服務帳戶和網路服務群組 (NSG) 讓批次計算節點使用。 對於在 Azure 儲存體中傳輸中的資料和待用資料的資料加密，[Azure 也有解決方案](/azure/security/blueprints/financial-services-regulated-workloads?WT.mc_id=gridbank-docs-dastarr)。
 
-要考量的某些區域會是：Active Directory (AD) 或非加入 AD 的計算節點 (適用於 Windows Server 節點?WT.mc_id=gridbank-docs-dastarr)、[VM 磁碟加密](/azure/security/azure-security-disk-encryption?WT.mc_id=gridbank-docs-dastarr)、計算輸入和輸出待用資料和傳輸中資料的安全性、Azure 網路設定、使用權限等等。 驗證也可能透過祕密金鑰在 REST API 層級處理。
+以下某些方面可能需要納入考量：Active Directory (AD) 或非加入 AD 的計算節點 (適用於 Windows Server 節點?WT.mc_id=gridbank-docs-dastarr)、[VM 磁碟加密](/azure/security/azure-security-disk-encryption?WT.mc_id=gridbank-docs-dastarr)、計算輸入和輸出待用資料和傳輸中資料的安全性、Azure 網路設定、使用權限等等。 驗證也可能透過祕密金鑰在 REST API 層級處理。
 
 ## <a name="getting-started"></a>開始使用
 

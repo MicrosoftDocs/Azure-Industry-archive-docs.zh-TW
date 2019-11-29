@@ -1,17 +1,17 @@
 ---
-title: 解決方案指南中的風險網格運算
+title: 概觀 - Azure Batch 和 Azure Data Lake 的網格運算風險分析
 author: dstarr
 ms.author: dastarr
-ms.date: 5/2/2018
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: 介紹銀行業實作 Azure Batch 來進行風險網格運算的技術層面。
-ms.openlocfilehash: d3470a2e546e73f4c0f1478413ca4b1af7433a66
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: 542fb820870048ac2ec2cb67c2bbf13988588ea1
+ms.sourcegitcommit: f030566b177715794d2ad857b150317e72d04d64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654295"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74234667"
 ---
 # <a name="risk-grid-computing-in-banking-solution-guide"></a>銀行業風險網格運算解決方案指南
 
@@ -112,7 +112,7 @@ Batch 處理可以依照預先決定的排程或視需要執行，不過在任�
 1. 配置更多計算節點電腦加以擴充。
 2. 配置能力較強的計算節點電腦以相應增加。 可以佈建 Azure 電腦來滿足對核心、記憶體甚至 GPU 運算能力的高效能需求。
 
-> 請注意：Microsoft HPC Pack 搭配 Batch 是較複雜的模型，本文不予討論。
+> 注意：Microsoft HPC Pack 搭配 Batch 是較複雜的模型，本文不予討論。
 
 在 Batch 處理叢集中，少至兩部處理 VM，多至在數千個 VM 計算節點上以上萬顆核心處理數千個並行工作，都有可能。 每部 VM 負責每次執行一件工作。 集區中的 VM 數目能以手動方式調整，抑或是設定為隨著負載增減而自動調整。
 
@@ -206,13 +206,13 @@ Azure 提供兩種模型，供您將目前的內部部署系統安全可靠地�
 
 ExpressRoute 能透過連線合作夥伴 (目前網際網路服務提供者 (ISP?WT.mc_id=gridbanksg-docs-dastarr)) 促成的私人連線，將內部部署或資料中心網路與 Azure 相連。 這個做法能讓兩個網路彼此視為相同的網路執行個體，實現網路之間的無縫存取。 如果想要整合現有的內部部署系統與 Azure 網路，網路整合必不可少，而 ExpressRoute 提供最快的連線速度。
 
-如需 Azure ExpressRoute 的定價資訊，請[參閱這個頁面](https://azure.microsoft.com/en-us/pricing/details/expressroute/?WT.mc_id=gridbanksg-docs-dastarr)。
+如需 Azure ExpressRoute 的定價資訊，請[參閱這個頁面](https://azure.microsoft.com/pricing/details/expressroute/?WT.mc_id=gridbanksg-docs-dastarr)。
 
 ### <a name="vpn-gateway"></a>VPN 閘道
 
 VPN 閘道將是將您的網路與 Azure 相連的另一種方法。 這個模型的缺點是流量會經由網際網路來傳送， 如此會導致連線較不具有彈性，而且網路速度也不及 ExpressRoute。不過這不會對風險網格運算案例造成任何阻礙，因為資料檔案的讀取通常不會花費太多時間。
 
-如需 VPN 閘道的定價資訊，請[參閱這個頁面](https://azure.microsoft.com/en-us/pricing/details/expressroute/?WT.mc_id=gridbanksg-docs-dastarr)。
+如需 VPN 閘道的定價資訊，請[參閱這個頁面](https://azure.microsoft.com/pricing/details/expressroute/?WT.mc_id=gridbanksg-docs-dastarr)。
 
 ### <a name="choices-for-connectivity-details"></a>連線選擇詳細資料
 
@@ -247,12 +247,12 @@ VPN 閘道將是將您的網路與 Azure 相連的另一種方法。 這個模�
 
 ### <a name="hybrid-network-connectivity-resources"></a>混合式網路連線資源
 
-對您的情況而言，可能有好幾種合適的設定。 為了協助您擬定有關 Azure 網路連線的決策及提供架構指引，請參閱由模式與做法小組所撰寫的_[將內部部署網路連線到 Azure](/azure/architecture/reference-architectures/hybrid-networking/?WT.mc_id=gridbanksg-docs-dastarr)_ 一文。
+對您的情況而言，可能有好幾種合適的設定。 為了協助您擬定有關 Azure 網路連線的決策及提供架構指引，請參閱由模式與做法小組所撰寫的 _[將內部部署網路連線到 Azure](/azure/architecture/reference-architectures/hybrid-networking/?WT.mc_id=gridbanksg-docs-dastarr)_ 一文。
 
 - 如需 VPN 閘道設定的替代方案，[請參閱這篇文章](/azure/vpn-gateway/vpn-gateway-about-vpngateways?WT.mc_id=gridbanksg-docs-dastarr)。
 - 深入了解 [ExpressRoute 連線模型](/azure/expressroute/expressroute-connectivity-models?WT.mc_id=gridbanksg-docs-dastarr)。
-- 計算 [ExpressRoute 價格](https://azure.microsoft.com/en-us/pricing/details/expressroute/?WT.mc_id=gridbanksg-docs-dastarr)。
-- 計算 [VPN 閘道價格](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/?WT.mc_id=gridbanksg-docs-dastarr)。
+- 計算 [ExpressRoute 價格](https://azure.microsoft.com/pricing/details/expressroute/?WT.mc_id=gridbanksg-docs-dastarr)。
+- 計算 [VPN 閘道價格](https://azure.microsoft.com/pricing/details/vpn-gateway/?WT.mc_id=gridbanksg-docs-dastarr)。
 
 ## <a name="security-considerations"></a>安全性考量
 

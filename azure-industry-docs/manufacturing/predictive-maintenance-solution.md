@@ -1,17 +1,17 @@
 ---
-title: 預測性維護解決方案
+title: 使用 Azure ML 和 IoT 在製造業中進行預測性維護
 author: ercenk
 ms.author: ercenk
-ms.date: 05/03/2018
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: 有關如何為 Azure 上的製造業客戶開發預測性維護解決方案的解決方案描述。
-ms.openlocfilehash: 1c7b95e2da21df46465ccaf21827ae97597206a2
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: c32893d534279cda35f7c6a142869d2983eaca67
+ms.sourcegitcommit: 2714a77488c413f01beb169a18acab45663bcfd7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654315"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74308493"
 ---
 # <a name="predictive-maintenance-in-manufacturing-solution-guide"></a>製造業解決方案指南中的預設性維護
 
@@ -54,7 +54,7 @@ ms.locfileid: "51654315"
 
 在本質上，預測性維護是動態問題，因此必須持續重新整理 (或重新定型) 關聯的機器學習模型。 若妥善執行，預測性維護應該可減少失敗執行個體，這很好，但會導致較少的失敗資料。 此外，影響失敗的功能可能會變更，而使得先前的機器學習模型變成無效。 我們建議定期使用錯誤狀況中的任何變更來將模型定型。
 
-「全新」資料也表示模型中發生新狀況，與先前用來將模型定型的狀況不同。 換句話說，我們可能將失敗建構為變數函式模型 _x<sub>1</sub>,x<sub>2</sub>,⋯,x<sub>n</sub>, f(x<sub>1</sub>,x<sub>2</sub>,⋯,x<sub>n</sub>)_，但最終我們可能會發現變數 _x<sub>(n+1)</sub>,⋯,x<sub>(m+n)</sub>_ 也會影響失敗，因此我們可能必須針對 _f(x<sub>1</sub>,x<sub>2</sub>,⋯,x<sub>(m+n)</sub>)_ 修改我們的模型定型。 模型在偵測失敗時可能表現不如預期，可以建置新的模型，包括來自機器 MES 記錄以及針對下一個反覆項目的資料點。
+「全新」資料也表示模型中發生新狀況，與先前用來將模型定型的狀況不同。 換句話說，我們可能將失敗建構為變數函式模型 _x<sub>1</sub>,x<sub>2</sub>,⋯,x<sub>n</sub>, f(x<sub>1</sub>,x<sub>2</sub>,⋯,x<sub>n</sub>)_ ，但最終我們可能會發現變數 _x<sub>(n+1)</sub>,⋯,x<sub>(m+n)</sub>_ 也會影響失敗，因此我們可能必須針對 _f(x<sub>1</sub>,x<sub>2</sub>,⋯,x<sub>(m+n)</sub>)_ 修改我們的模型定型。 模型在偵測失敗時可能表現不如預期，可以建置新的模型，包括來自機器 MES 記錄以及針對下一個反覆項目的資料點。
 
 即使沒有現代化 IoT 環境串流資料到雲端，將機器學習模型定型所需的資料可能已在您的 MES、歷史學家或其他生產系統中。 只需要準備資料，以便它可以用來將機器學習模型定型。
 
@@ -64,14 +64,14 @@ ms.locfileid: "51654315"
 
 ![ML 模型建置階段](assets/pdm-assets/mlmodelbuildingstages.png)
 
-Microsoft 也發行了[詳細指南](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk)，說明如何準備資料並將機器學習模型定型。 有三個典型的維護問題，以及相關的機器學習演算法：
+Microsoft 也發行了[詳細指南](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk)，說明如何準備資料並將機器學習模型定型。 有三個典型的維護問題，以及相關的機器學習演算法：
 
-- _針對資產，接下來 X 小時內發生失敗的機率為何？_ 答：0-100%
-  - **二元分類：** 二元分類是一個機器學習方法，它使用資料來判斷項目或資料列的種類、類型或類別是否屬於兩種類別其中一種的成員。 有多種類型的分類演算法，Microsoft 已發行一組演算法，並以 [Machine Learning Studio 模組](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/machine-learning-initialize-model-classification?WT.mc_id=pdmsolution-docs-ercenk)的形式提供。
-- _資產的剩餘使用年限為何？_ 答：X 小時
-  - **迴歸：** 迴歸是一種機器學習演算法類別，它可以在給定一組其他變數的情況下預測變數的值。 Machine Learning Studio 以[模組](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/machine-learning-initialize-model-regression?WT.mc_id=pdmsolution-docs-ercenk)的形式包括一組迴歸演算法。
-    - **長期短期記憶 (LSTM)：** [LSTM](http://colah.github.io/posts/2015-08-Understanding-LSTMs/?WT.mc_id=pdmsolution-docs-ercenk) 網路是一種深度類神經網路 (DNN)。 DNN 的靈感來自建構大腦中個別神經元行為的模型。 Microsoft 已發行[逐步指南](https://docs.microsoft.com/en-us/azure/machine-learning/desktop-workbench/scenario-deep-learning-for-predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk)，說明如何針對預測性維護使用 LSTM
-- _哪些資產需要最緊急的維護？_ 答：資產 X
+- 針對資產，接下來 X 小時內發生故障的機率為何？  答：0-100%
+  - **二元分類：** 二元分類是一個機器學習方法，它使用資料來判斷項目或資料列的種類、類型或類別是否屬於兩種類別其中一種的成員。 有多種類型的分類演算法，Microsoft 已發行一組演算法，並以 [Machine Learning Studio 模組](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model-classification?WT.mc_id=pdmsolution-docs-ercenk)的形式提供。
+- 資產的剩餘使用年限為何？  答：X 個小時
+  - **迴歸：** 迴歸是一種機器學習演算法類別，它可以在給定一組其他變數的情況下預測變數的值。 Machine Learning Studio 以[模組](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model-regression?WT.mc_id=pdmsolution-docs-ercenk)的形式包括一組迴歸演算法。
+    - **長短期記憶 (LSTM)：** [LSTM](https://colah.github.io/posts/2015-08-Understanding-LSTMs/?WT.mc_id=pdmsolution-docs-ercenk) 網路是一種深度類神經網路 (DNN)。 DNN 的靈感來自建構大腦中個別神經元行為的模型。 Microsoft 已發行[逐步指南](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-deep-learning-for-predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk)，說明如何針對預測性維護使用 LSTM
+- 哪些資產需要最緊急的維護？  答：資產 X
   - **多元分類：** 多元分類是一個機器學習方法，它使用資料來判斷項目或資料列的種類、類型或類別是否屬於兩種類別以上其中一種的成員。
 
 再提一次，帶入資料可能表示利用多種通道，先大量將它初始化，然後繼續接收用於預測失敗的串流資料，並針對後續的模型建置作業使用它。
@@ -80,29 +80,29 @@ Microsoft 也發行了[詳細指南](https://docs.microsoft.com/en-us/azure/mach
 
 Microsoft Azure 提供數種服務可讓您內嵌即存放資料。 我們建議使用批次方法來將資料傳輸到 Azure (若資料還不在 Azure 中)。 若您可以將您的資料匯出為已知格式的檔案 (例如 csv、json、xml 等)，這些是好的選項。 您也可以選擇在上傳前先將資料壓縮，然後進一步在雲端中處理它們。
 
-- 使用 [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy?WT.mc_id=pdmsolution-docs-ercenk) 上傳到 Blob 儲存體 (Windows 與 Linux)
+- 使用 [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy?WT.mc_id=pdmsolution-docs-ercenk) 上傳到 Blob 儲存體 (Windows 與 Linux)
 
-- 在 Linux 上[將 Blob 儲存體掛接](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux?WT.mc_id=pdmsolution-docs-ercenk)為檔案系統
+- 在 Linux 上[將 Blob 儲存體掛接](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux?WT.mc_id=pdmsolution-docs-ercenk)為檔案系統
 
-- 若資料大小比較大，且需要太長的時間上傳，請使用[匯入/匯出服務](https://docs.microsoft.com/en-us/azure/storage/common/storage-import-export-service?WT.mc_id=pdmsolution-docs-ercenk)
+- 若資料大小比較大，且需要太長的時間上傳，請使用[匯入/匯出服務](https://docs.microsoft.com/azure/storage/common/storage-import-export-service?WT.mc_id=pdmsolution-docs-ercenk)
 
-- 在 Windows、Linux 與 MacOS 上[掛接 Azure 檔案](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-windows?WT.mc_id=pdmsolution-docs-ercenk)共用
+- 在 Windows、Linux 與 MacOS 上[掛接 Azure 檔案](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows?WT.mc_id=pdmsolution-docs-ercenk)共用
 
-若資料位於 SQL Server 資料庫中，您也可以使用 [Data Migration Assistant](https://docs.microsoft.com/en-us/sql/dma/dma-overview?WT.mc_id=pdmsolution-docs-ercenk) 將資料上傳到 Azure SQL Database 中。
+若資料位於 SQL Server 資料庫中，您也可以使用 [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?WT.mc_id=pdmsolution-docs-ercenk) 將資料上傳到 Azure SQL Database 中。
 
-Azure 平台上有數種工具與服務可用於擷取、轉換及上傳 (ETL) 作業。 最著名的服務是 [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/?WT.mc_id=pdmsolution-docs-ercenk) ，它提供可用於操控資要的完整功能集。 許多可從 Azure 透過開放原始碼程式庫取得的 ML 服務中也提供可用於操控資料的其他選項。
+Azure 平台上有數種工具與服務可用於擷取、轉換及上傳 (ETL) 作業。 最著名的服務是 [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/?WT.mc_id=pdmsolution-docs-ercenk) ，它提供可用於操控資要的完整功能集。 許多可從 Azure 透過開放原始碼程式庫取得的 ML 服務中也提供可用於操控資料的其他選項。
 
 至於將 ML 模型定型，Microsoft Azure 提供許多選項，它們全都可以在不同的組合中使用。
 
-- [Azure Machine Learning  服務](https://docs.microsoft.com/en-us/azure/machine-learning/preview/?WT.mc_id=pdmsolution-docs-ercenk)
+- [Azure Machine Learning  服務](https://docs.microsoft.com/azure/machine-learning/preview/?WT.mc_id=pdmsolution-docs-ercenk)
 
-- [Azure Machine Learning Studio](https://docs.microsoft.com/en-us/azure/machine-learning/studio/?WT.mc_id=pdmsolution-docs-ercenk)
+- [Azure Machine Learning Studio](https://docs.microsoft.com/azure/machine-learning/studio/?WT.mc_id=pdmsolution-docs-ercenk)
 
-- [資料科學虛擬機器](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/?WT.mc_id=pdmsolution-docs-ercenk)
+- [資料科學虛擬機器](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/?WT.mc_id=pdmsolution-docs-ercenk)
 
-- [HDInsight 中的 Spark MLLib](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-machine-learning-mllib-ipython?WT.mc_id=pdmsolution-docs-ercenk)
+- [HDInsight 中的 Spark MLLib](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-machine-learning-mllib-ipython?WT.mc_id=pdmsolution-docs-ercenk)
 
-- [Batch AI 定型服務](https://docs.microsoft.com/en-us/azure/batch-ai/?WT.mc_id=pdmsolution-docs-ercenk)
+- [Batch AI 定型服務](https://docs.microsoft.com/azure/batch-ai/?WT.mc_id=pdmsolution-docs-ercenk)
 
 決定要使用哪個工具取決於作業的複雜度、小組的經驗，以及資料的大小。
 
@@ -110,7 +110,7 @@ Azure 平台上有數種工具與服務可用於擷取、轉換及上傳 (ETL) �
 
 設計資料分析與模型發行程序是複雜的主題，而且視使用的技術而異。 那些主題不在此文章的範圍內。 有一系列的文章說明該程序，而且我們提供可用來產生該模型的 Azure 服務。 Microsoft 也提供系統性方法，可讓您用於建置解決方案以讓資料科學小組有效率地在資料生命週期內共同作業。
 
-Microsoft 的 [Machine Learning 文件](https://docs.microsoft.com/en-us/azure/machine-learning?WT.mc_id=pdmsolution-docs-ercenk)是探索建置 ML 與 AI 模型並將其部署到雲端並進行管理的好起點。
+Microsoft 的 [Machine Learning 文件](https://docs.microsoft.com/azure/machine-learning?WT.mc_id=pdmsolution-docs-ercenk)是探索建置 ML 與 AI 模型並將其部署到雲端並進行管理的好起點。
 
 Microsoft Azure 平台提供豐富的選擇，供您大規模處理資料並建置 ML 模型。 雲端平台幾乎無窮盡的可用性、可調整的運算與儲存體能力，讓您可以建置 ML 與 AI 模型。 因此，使用 Azure 服務來建置模型是實作此資料流程最符合邏輯的選項。
 
@@ -124,13 +124,13 @@ Microsoft Azure 平台提供豐富的選擇，供您大規模處理資料並建�
 
 Microsoft Azure 平台提供各種服務供您內嵌、處理及存放資料，例如：
 
-- [Azure 事件中樞](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-what-is-event-hubs?WT.mc_id=pdmsolution-docs-ercenk)
+- [Azure 事件中樞](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs?WT.mc_id=pdmsolution-docs-ercenk)
 
-- [Azure 服務匯流排](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview?WT.mc_id=pdmsolution-docs-ercenk)
+- [Azure 服務匯流排](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview?WT.mc_id=pdmsolution-docs-ercenk)
 
-- [Azure IoT 中樞](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-what-is-iot-hub?WT.mc_id=pdmsolution-docs-ercenk)
+- [Azure IoT 中樞](https://docs.microsoft.com/azure/iot-hub/iot-hub-what-is-iot-hub?WT.mc_id=pdmsolution-docs-ercenk)
 
-- [Apache Kafka for   HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/kafka/apache-kafka-introduction?WT.mc_id=pdmsolution-docs-ercenk)
+- [Apache Kafka for   HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction?WT.mc_id=pdmsolution-docs-ercenk)
 
 不像建置 ML 模型的程序，取用它不需要許多運算資源。 視您的需求而定，模型可以部署到雲端中的服務，或部署在近端內部部署環境中。
 
@@ -144,9 +144,9 @@ ML 模型會在本機被取用，同時資料會傳送到雲端待內嵌，儲�
 
 ## <a name="cloud-execution"></a>雲端執行
 
-ML 模型的內嵌、處理及儲存以及執行可在 Azure 雲端中發生。 此選項可能較適用於在多個租用戶或地理位置 (且延遲不嚴重) 中共用 ML 模組執行結果的案例。 您可以從本機新增一個選擇性元件 (通常稱為「邊緣閘道」)，以依照稱為 [「大使」模式](https://docs.microsoft.com/en-us/azure/architecture/patterns/ambassador?WT.mc_id=pdmsolution-docs-ercenk)的模式執行一些工作 (例如資料彙總與投影、串流分析等)。
+ML 模型的內嵌、處理及儲存以及執行可在 Azure 雲端中發生。 此選項可能較適用於在多個租用戶或地理位置 (且延遲不嚴重) 中共用 ML 模組執行結果的案例。 您可以從本機新增一個選擇性元件 (通常稱為「邊緣閘道」)，以依照稱為 [「大使」模式](https://docs.microsoft.com/azure/architecture/patterns/ambassador?WT.mc_id=pdmsolution-docs-ercenk)的模式執行一些工作 (例如資料彙總與投影、串流分析等)。
 
-在 Azure 上使用模型的方式有數種。 [Azure Machine Learning Web 服務](https://docs.microsoft.com/en-us/azure/machine-learning/studio/consume-web-services?WT.mc_id=pdmsolution-docs-ercenk)是最直覺化的方式，而且使用 [Azure Machine Learning Studio](https://docs.microsoft.com/en-us/azure/machine-learning/studio/what-is-ml-studio?WT.mc_id=pdmsolution-docs-ercenk) 做為建立模型的選擇。 或者，您也可以選擇 [Azure Machine Learning 模型管理](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview?WT.mc_id=pdmsolution-docs-ercenk)，它提供可用於管理模型的全方位服務集合，並提供具有驗證、負載平衡、自動相應放大與加密功能的 REST API 端點。 模型可以部署到單一機器 (例如，資料科學虛擬機器、IoT 裝置、本機 PC) 或 [Azure Container Service](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes?WT.mc_id=pdmsolution-docs-ercenk)。 一旦透過 REST API 公開模型之後，使用它的機會就無窮無盡，從客戶應用程式到企業解決方案整合。
+在 Azure 上使用模型的方式有數種。 [Azure Machine Learning Web 服務](https://docs.microsoft.com/azure/machine-learning/studio/consume-web-services?WT.mc_id=pdmsolution-docs-ercenk)是最直覺化的方式，而且使用 [Azure Machine Learning Studio](https://docs.microsoft.com/azure/machine-learning/studio/what-is-ml-studio?WT.mc_id=pdmsolution-docs-ercenk) 做為建立模型的選擇。 或者，您也可以選擇 [Azure Machine Learning 模型管理](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview?WT.mc_id=pdmsolution-docs-ercenk)，它提供可用於管理模型的全方位服務集合，並提供具有驗證、負載平衡、自動相應放大與加密功能的 REST API 端點。 模型可以部署到單一機器 (例如，資料科學虛擬機器、IoT 裝置、本機 PC) 或 [Azure Container Service](https://docs.microsoft.com/azure/aks/intro-kubernetes?WT.mc_id=pdmsolution-docs-ercenk)。 一旦透過 REST API 公開模型之後，使用它的機會就無窮無盡，從客戶應用程式到企業解決方案整合。
 
 ![僅限雲端](assets/pdm-assets/cloudonly.png)
 
@@ -156,7 +156,7 @@ ML 模型的內嵌、處理及儲存以及執行可在 Azure 雲端中發生。 
 
 許多 IoT 解決方案都內嵌並存放資料做為其功能集的一部分。 此外，預測性維護解決方案通常仰賴 IoT 資料，它們可以是新增到 IoT 解決方案的自然功能。 在此環境中要強調的一點是，在現有資料中擁有已記錄失敗，以為失敗定型預測性模型的重要性。
 
-某些使用案例需要近乎即時的資料處理。 在這些案例中，我們需要具有高度資料內嵌速率功能，且規模可調整的 IoT 解決方案。 Microsoft Azure 平台提供許多服務，這些服務能讓解決方案支援高度可調整的 IoT 需求。 Azure 平台上的 [Microsoft 的 IoT 解決方案架構](https://docs.microsoft.com/en-us/azure/iot-suite/iot-suite-what-is-azure-iot?WT.mc_id=pdmsolution-docs-ercenk) 具有三個階段上的邏輯元件：
+某些使用案例需要近乎即時的資料處理。 在這些案例中，我們需要具有高度資料內嵌速率功能，且規模可調整的 IoT 解決方案。 Microsoft Azure 平台提供許多服務，這些服務能讓解決方案支援高度可調整的 IoT 需求。 Azure 平台上的 [Microsoft 的 IoT 解決方案架構](https://docs.microsoft.com/azure/iot-suite/iot-suite-what-is-azure-iot?WT.mc_id=pdmsolution-docs-ercenk) 具有三個階段上的邏輯元件：
 
 - 裝置連線能力
 
@@ -166,7 +166,7 @@ ML 模型的內嵌、處理及儲存以及執行可在 Azure 雲端中發生。 
 
 ![IoT 解決方案架構](assets/pdm-assets/iot.png)
 
-您可以在[線上](http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf?WT.mc_id=pdmsolution-docs-ercenk)找到 Azure IoT 解決方案架構的詳細資料。
+您可以在[線上](https://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf?WT.mc_id=pdmsolution-docs-ercenk)找到 Azure IoT 解決方案架構的詳細資料。
 不過，由於連線到後端服務的潛在實質裝置數目，可能必須面臨獨特的挑戰。
 
 ## <a name="data-ingestion-and-stream-processing"></a>資料內嵌與串流處理
@@ -180,16 +180,16 @@ ML 模型的內嵌、處理及儲存以及執行可在 Azure 雲端中發生。 
 針對資料內嵌插入新元件可讓通訊的規模更容易調整。 此元件需要可調整規模、安全而且最可能更容易從全球各地存取 (透過全球分割與資料內嵌程序的協助)。 
 
 考慮預測性維護是 IoT 解決方案的其中一個功能。 當資料透過閘道串流時，它必須被路由傳送到與預測性維護功能相關的服務。
-另一個要考慮的模式是[閘道路由傳送](https://docs.microsoft.com/en-us/azure/architecture/patterns/gateway-routing?WT.mc_id=pdmsolution-docs-ercenk)。
+另一個要考慮的模式是[閘道路由傳送](https://docs.microsoft.com/azure/architecture/patterns/gateway-routing?WT.mc_id=pdmsolution-docs-ercenk)。
 
-這兩種模式都可以使用 Azure 服務、[IoT 中樞](https://azure.microsoft.com/en-us/services/iot-hub/?WT.mc_id=pdmsolution-docs-ercenk)與 [Azure 串流分析](https://azure.microsoft.com/en-us/services/stream-analytics/?WT.mc_id=pdmsolution-docs-ercenk)來實作。
+這兩種模式都可以使用 Azure 服務、[IoT 中樞](https://azure.microsoft.com/services/iot-hub/?WT.mc_id=pdmsolution-docs-ercenk)與 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/?WT.mc_id=pdmsolution-docs-ercenk)來實作。
 
 ## <a name="edge-and-cloud-processing-cooperation"></a>邊緣與雲端處理合作
 
 並非所有裝置與設備都能直接且一致地存取網際網路。
-有時候，您必須從通用閘道提取其資料。 例如，[MTConnect](http://www.mtconnect.org/) 代理程式只提供用於提取資料的 REST 介面。
+有時候，您必須從通用閘道提取其資料。 例如，[MTConnect](https://www.mtconnect.org/) 代理程式只提供用於提取資料的 REST 介面。
 
-可能有其他必須考慮的事項，例如延遲、在將裝置資料傳送到雲端 (多組織用戶共享案例) 之前先在本機將它清理的需求，以及執行在裝置資料上執行投影或彙總的需求。 [「大使」模式](https://docs.microsoft.com/en-us/azure/architecture/patterns/ambassador?WT.mc_id=pdmsolution-docs-ercenk)是滿足這些需求的好方式。 [Microsoft Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/how-iot-edge-works?WT.mc_id=pdmsolution-docs-ercenk) 這個實作可以做為 [Microsoft Azure IoT 中樞](https://azure.microsoft.com/en-us/services/iot-hub/?WT.mc_id=pdmsolution-docs-ercenk)的 Proxy，並透過遠端管理功能提供本機處理功能。
+可能有其他必須考慮的事項，例如延遲、在將裝置資料傳送到雲端 (多組織用戶共享案例) 之前先在本機將它清理的需求，以及執行在裝置資料上執行投影或彙總的需求。 [「大使」模式](https://docs.microsoft.com/azure/architecture/patterns/ambassador?WT.mc_id=pdmsolution-docs-ercenk)是滿足這些需求的好方式。 [Microsoft Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works?WT.mc_id=pdmsolution-docs-ercenk) 這個實作可以做為 [Microsoft Azure IoT 中樞](https://azure.microsoft.com/services/iot-hub/?WT.mc_id=pdmsolution-docs-ercenk)的 Proxy，並透過遠端管理功能提供本機處理功能。
 
 常見的部署可能包括在工廠的近乎即時的警示，同時清理資料並將它張貼到雲端中的多組織用戶共享解決方案進行封存、模型定型與非時間關鍵報告。 使用 Azure IoT Edge 與 IoT Hub 的功能時， 客戶可以控制邊緣裝置上的資料篩選選項，以及與其他工廠系統互動以提供警示。
 
@@ -203,7 +203,7 @@ ML 模型的內嵌、處理及儲存以及執行可在 Azure 雲端中發生。 
 
 提供服務的一方必須確定能識別來自其客戶的機密資訊並適當地保護或清理。Microsoft Azure 提供根據所使用儲存體服務來加密資料的功能。
 
-您也必須使用已知方法 (例如個別裝置憑證、個別裝置啟用/停用、TLS 安全性、X.509 支援、IP 允許清單/封鎖清單與共用存取原則) 來保護裝置產生並提交資料的方式。 提供服務的一方必須確定能識別來其客戶的機密資訊並適當地保護或清理。[Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-encryption?WT.mc_id=pdmsolution-docs-ercenk)、[Azure 儲存體](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption?WT.mc_id=pdmsolution-docs-ercenk)、[Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/database-encryption-at-rest?WT.mc_id=pdmsolution-docs-ercenk) 與 [Azure SQL Database](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?WT.mc_id=pdmsolution-docs-ercenk) 是可用來進行待用資料加密的服務範例。 解決方案提供者也應該考慮如何在相同的資源 (例如，資料庫) 或多個資源之間分割資料。 
+您也必須使用已知方法 (例如個別裝置憑證、個別裝置啟用/停用、TLS 安全性、X.509 支援、IP 允許清單/封鎖清單與共用存取原則) 來保護裝置產生並提交資料的方式。 提供服務的一方必須確定能識別來其客戶的機密資訊並適當地保護或清理。[Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-encryption?WT.mc_id=pdmsolution-docs-ercenk)、[Azure 儲存體](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?WT.mc_id=pdmsolution-docs-ercenk)、[Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest?WT.mc_id=pdmsolution-docs-ercenk) 與 [Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?WT.mc_id=pdmsolution-docs-ercenk) 是可用來進行待用資料加密的服務範例。 解決方案提供者也應該考慮如何在相同的資源 (例如，資料庫) 或多個資源之間分割資料。 
 
 ### <a name="geographical-considerations"></a>地理位置的考量
 
@@ -223,7 +223,7 @@ ML 模型的內嵌、處理及儲存以及執行可在 Azure 雲端中發生。 
 
 複雜的系統需要與滿足功能需求不同的額外審查。 成功的雲端解決方案會將焦點放在這五大要素：延展性、可用性、復原能力、管理性與安全性。 除了五大要素之外，我們也想要帶來解決方案的成本效益。
 
-如需詳細資訊，請參閱[軟體品質的要素](https://docs.microsoft.com/en-us/azure/architecture/guide/pillars?WT.mc_id=pdmsolution-docs-ercenk)一文。
+如需詳細資訊，請參閱[軟體品質的要素](https://docs.microsoft.com/azure/architecture/guide/pillars?WT.mc_id=pdmsolution-docs-ercenk)一文。
 
 | 要素                      |                                                                                                                                                                                                                                                                                                                                                                                                 |
 |-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -243,9 +243,9 @@ ML 模型的內嵌、處理及儲存以及執行可在 Azure 雲端中發生。 
 
 1. [著重未來：停止過去的思考方式並透過 IoT 走在前端](https://blogs.microsoft.com/iot/2017/02/28/future-focused-stop-thinking-in-the-past-and-get-ahead-of-the-unexpected-with-iot-2/?WT.mc_id=pdmsolution-docs-ercenk) \(英文\)
 
-2. [利用由 IoT 提供支援的預測性維護增加設備的可靠性](https://www.microsoft.com/en-us/internet-of-things/predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk) \(英文\)
+2. [利用由 IoT 提供支援的預測性維護增加設備的可靠性](https://www.microsoft.com/internet-of-things/predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk) \(英文\)
 
-3. [從物聯網獲取價值：如何採用預測性維護專案](http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF?WT.mc_id=pdmsolution-docs-ercenk)
+3. [從物聯網獲得益處：如何處理預測性維護專案](https://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF?WT.mc_id=pdmsolution-docs-ercenk)
 
 4. [合作夥伴觀點：前線的預測性維護](https://blogs.microsoft.com/iot/2017/03/21/partner-perspectives-predictive-maintenance-on-the-frontlines/?WT.mc_id=pdmsolution-docs-ercenk) \(英文\)
 

@@ -1,17 +1,17 @@
 ---
-title: 精算風險分析與模型化解決方案指南
+title: 將精算風險分析移至 Azure 的指南
 author: scseely
 ms.author: scseely
-ms.date: 08/23/2018
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
-description: 此解決方案指南說明精算開發人員如何將其現有的解決方案加上支援的基礎結構移至 Azure。
-ms.openlocfilehash: 82cb53d529f6d7524ae1f9c148118b5edddc648b
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+description: 精算開發人員如何將現有的解決方案加上支援的基礎結構移至 Azure。
+ms.openlocfilehash: 456c054cf3a6165f160005ba8ea2c155637faa07
+ms.sourcegitcommit: f030566b177715794d2ad857b150317e72d04d64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654285"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74234538"
 ---
 # <a name="actuarial-risk-analysis-and-financial-modeling-solution-guide"></a>精算風險分析與財務模型化解決方案指南
 
@@ -31,7 +31,7 @@ ms.locfileid: "51654285"
 
 您相信雲端的承諾：它可以更快、更輕鬆地執行您的財務和風險模型。 對於許多保險公司而言，粗略計算顯示出一個問題：他們需要數年，甚至數十年的連續時間，從頭到尾執行這些計算。 您需要可解決執行時間問題的技術。 您的策略如下：
 
-- 資料準備：有些資料的變化很慢。 政策或服務合約生效之後，索賠就會以可預測的速度進展。 您可以備妥模型在抵達時執行所需的資料，就不需要針對資料清理和準備而規劃大量時間。 您也可以使用叢集，透過加權表示法建立連續數據的替代物。 較少的記錄通常會使計算時間縮短。
+- 資料準備：某些資料變更的速度很慢。 政策或服務合約生效之後，索賠就會以可預測的速度進展。 您可以備妥模型在抵達時執行所需的資料，就不需要針對資料清理和準備而規劃大量時間。 您也可以使用叢集，透過加權表示法建立連續數據的替代物。 較少的記錄通常會使計算時間縮短。
 - 平行處理：如果需要針對兩個或更多項目執行相同的分析，您可以同時執行分析。
 
 讓我們分別看看這些項目。
@@ -42,7 +42,7 @@ ms.locfileid: "51654285"
 
 那麼，您該如何準備資料？ 讓我們先看看通用位元，然後再看看如何處理資料出現的不同方式。 首先，您需要一個機制以獲得自上次同步處理之後的所有變更。 該機制應該包含可排序的值。 針對最近的變更，其值應大於任何先前的變更。 最常見的兩個機制是不斷增加的 ID 欄位或時間戳記。 如果記錄具有增加的 ID 金鑰，但記錄其餘部分包含可更新的欄位，則需要使用類似&quot;上次修改&quot;時間戳記以找出變更。 處理完記錄之後，要記錄最後已更新項目的可排序值。 此值 (可能是名為 _lastModified_ 的欄位上的時間戳記) 會變成您的浮水印，用於後續對資料存放區的查詢。 資料變更可以用多種方式加以處理。 以下是兩個使用最少資源的常見機制：
 
-1. 如果您有數百或數千個變更要處理：將資料上傳至 blob 儲存體。 使用 [Azure Data Factory](https://docs.microsoft.com/azure/data-factory?WT.mc_id=riskmodel-docs-scseely)中的事件觸發程序處理變更集。
+1. 如果您有數百或數千個變更要處理：將資料上傳至 Blob 儲存體。 使用 [Azure Data Factory](https://docs.microsoft.com/azure/data-factory?WT.mc_id=riskmodel-docs-scseely)中的事件觸發程序處理變更集。
 2. 如果您有少數變更要處理，或希望一有變更就立即更新資料，請將每個變更放進由[服務匯流排](https://docs.microsoft.com/azure/service-bus-messaging?WT.mc_id=riskmodel-docs-scseely)或[儲存體佇列](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction?WT.mc_id=riskmodel-docs-scseely)所裝載的佇列訊息。 [這篇文章](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted?WT.mc_id=riskmodel-docs-scseely)詳細說明兩種佇列技術之間的取捨。 當訊息在佇列中時，您可以使用 Azure Functions 或 Azure Data Factory 中的觸發程序來處理訊息。
 
 下圖說明典型案例。 首先，排程的工作會收集一些資料集，並將檔案放入儲存體。 排程的工作可以是內部部署執行的 CRON 作業、[排程器工作](https://docs.microsoft.com/azure/scheduler?WT.mc_id=riskmodel-docs-scseely)[邏輯應用程式](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview?WT.mc_id=riskmodel-docs-scseely)，或任何在計時器上執行的項目。 上傳檔案之後，會觸發 [Azure Function](https://docs.microsoft.com/azure/azure-functions?WT.mc_id=riskmodel-docs-scseely) 或 **Data Factory** 執行個體以處理資料。 如果是可在短時間內處理的檔案，請使用 **Function**。 如果處理程序很複雜，需要 AI 或其他複雜的指令碼，您可能會發現 [HDInsight](https://docs.microsoft.com/azure/hdinsight?WT.mc_id=riskmodel-docs-scseely)[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks?WT.mc_id=riskmodel-docs-scseely)，或某些自訂項目的效果更好。 完成時，檔案會以新檔案或資料庫中的記錄的可用表單做為結束。
@@ -109,7 +109,7 @@ ms.locfileid: "51654285"
 - 最終輸出的快照集。 這包括用來建立呈給管理機關的報告的任何資料。
 - 其他重要的中繼結果。 稽核員會詢問您的模型為什麼會得出某些結果。 您必須保留模型為什麼做出特定選擇或得出特定數字的相關證據。 許多保險公司會選擇保留用來從原始輸入產生最終輸出的二進位檔。 然後，當被問到時，他們會重新執行模型以取得中繼結果的全新複本。 如果輸出相符，中繼檔案應該還要包含所需的說明。
 
-在模型執行期間，精算師會使用可處理從執行載入的要求的資料傳遞機制。 當執行完成且不再需要資料時，他們會保留部分資料。 保險公司至少應保留輸入和執行階段組態，以滿足任何重現性需求。 資料庫會保留在 Azure Blob 儲存體的備份中，而且伺服器會關閉。 放在高速儲存體上的資料也會移至成本較低的 Azure Blob 儲存體。 放進 Blob 儲存體之後，您可以選擇每個 Blob 所使用的資料層：經常性儲存層、非經常性儲存層、封存儲存層。 經常性儲存層儲存體非常適合經常存取的檔案。 非經常性儲存層儲存體已針對不常存取的資料存取最佳化。 封存儲存層儲存體最適合保留可稽核的檔案，但是節省的成本是延遲成本：封存層資料延遲的計算是以小時為單位。 請閱讀 [Azure Blob 儲存體︰經常性儲存層、非經常性儲存層和封存儲存層](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?WT.mc_id=riskmodel-docs-scseely)以充分了解不同的儲存層。 從資料建立到刪除的過程中，您可以使用生命週期管理來管理資料。 Blob 的 URI 保持為靜態，但是 Blob 的儲存位置會隨著時間越來越便宜。 這項功能可為 Azure 儲存體的許多使用者省下大量金錢和困擾。 您可以在[管理 Azure Blob 儲存體生命週期](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts?WT.mc_id=riskmodel-docs-scseely)中了解這些細節。 您可以自動刪除檔案這一點很棒：這表示您不會透過參考超出範圍的檔案而意外擴充稽核，因為可以自動移除檔案本身。
+在模型執行期間，精算師會使用可處理從執行載入的要求的資料傳遞機制。 當執行完成且不再需要資料時，他們會保留部分資料。 保險公司至少應保留輸入和執行階段組態，以滿足任何重現性需求。 資料庫會保留在 Azure Blob 儲存體的備份中，而且伺服器會關閉。 放在高速儲存體上的資料也會移至成本較低的 Azure Blob 儲存體。 放進 Blob 儲存體之後，您可以選擇每個 Blob 所使用的資料層：經常性儲存層、非經常性儲存層、封存儲存層。 經常性儲存層儲存體非常適合經常存取的檔案。 非經常性儲存層儲存體已針對不常存取的資料存取最佳化。 封存儲存層儲存體最適合保留可稽核的檔案，但是節省的成本是延遲成本：封存層資料延遲的計算是以小時為單位。 請閱讀 [Azure Blob 儲存體：經常性儲存層、非經常性儲存層和封存儲存層](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?WT.mc_id=riskmodel-docs-scseely)以充分了解不同的儲存層。 從資料建立到刪除的過程中，您可以使用生命週期管理來管理資料。 Blob 的 URI 保持為靜態，但是 Blob 的儲存位置會隨著時間越來越便宜。 這項功能可為 Azure 儲存體的許多使用者省下大量金錢和困擾。 您可以在[管理 Azure Blob 儲存體生命週期](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts?WT.mc_id=riskmodel-docs-scseely)中了解這些細節。 您可以自動刪除檔案這一點很棒：這表示您不會透過參考超出範圍的檔案而意外擴充稽核，因為可以自動移除檔案本身。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -119,9 +119,9 @@ ms.locfileid: "51654285"
 
 ### <a name="tutorials"></a>教學課程
 
-- R 開發人員：[使用 Azure Batch 執行平行 R 模擬](https://docs.microsoft.com/azure/batch/tutorial-r-doazureparallel?WT.mc_id=riskmodel-docs-scseely)
-- 示範如何使用 Azure Functions 與儲存體互動的教學課程：[使用 Azure Functions 將映像上傳到 Blob 儲存體](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database?tutorial-step=2&WT.mc_id=riskmodel-docs-scseely)
-- 使用 Databricks 進行 ETL：[使用 Azure Databrick 擷取、轉換和載入資料](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?WT.mc_id=riskmodel-docs-scseely)
-- 使用 HDInsight 進行 ETL：[使用 Azure HDInsight 上的 Apache Hive 來擷取、轉換和載入資料](https://docs.microsoft.com/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fhadoop%2FTOC.json&amp;bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&WT.mc_id=riskmodel-docs-scseely)
+- 適用於 R 開發人員：[使用 Azure Batch 執行平行 R 模擬](https://docs.microsoft.com/azure/batch/tutorial-r-doazureparallel?WT.mc_id=riskmodel-docs-scseely)
+- 示範如何使用 Azure 函式與儲存體互動的教學課程：[使用 Azure Functions 將映像上傳到 Blob 儲存體](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database?tutorial-step=2&WT.mc_id=riskmodel-docs-scseely)
+- 使用 Databricks 擷取、轉換和下載：[使用 Azure Databrick 擷取、轉換和載入資料](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?WT.mc_id=riskmodel-docs-scseely)
+- 使用 HDInsight 擷取、轉換和下載：[使用 Azure HDInsight 上的 Apache Hive 來擷取、轉換和載入資料](https://docs.microsoft.com/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fhadoop%2FTOC.json&amp;bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&WT.mc_id=riskmodel-docs-scseely)
 - 資料科學 VM 作法 (Linux)：[https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/linux-dsvm-walkthrough](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/linux-dsvm-walkthrough?WT.mc_id=riskmodel-docs-scseely)
 - 資料科學 VM 作法 (Windows)：[https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/vm-do-ten-things](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/vm-do-ten-things?WT.mc_id=riskmodel-docs-scseely)

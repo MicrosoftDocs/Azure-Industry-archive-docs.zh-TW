@@ -1,17 +1,17 @@
 ---
-title: 變化多端的銀行詐騙
-author: dstarr
-ms.author: dastarr
-ms.date: 10/30/2018
+title: 概觀 - 透過 Azure 服務開發行動銀行詐騙解決方案
+author: kbaroni
+ms.author: kbaroni
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
-description: 變化多端的銀行詐騙概觀
-ms.openlocfilehash: e3e707c8f08b650b642a8a88330c90c328966ef1
-ms.sourcegitcommit: f42a60539bec2a7769b42b6574f09eed4d1b6c79
+description: 說明如何在2秒內偵測到詐騙交易
+ms.openlocfilehash: 17cc8cbcfe260b0925d50223e8c9d57319d19466
+ms.sourcegitcommit: f030566b177715794d2ad857b150317e72d04d64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750560"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74234630"
 ---
 # <a name="mobile-bank-fraud"></a>變化多端的銀行詐騙
 

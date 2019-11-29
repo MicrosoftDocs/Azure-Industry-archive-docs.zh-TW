@@ -1,17 +1,17 @@
 ---
-title: 消費者品牌的 SKU 最佳化
+title: 使用 Azure ML 和分析數據，針對消費者品牌進行 SKU 最佳化
 author: scseely
-ms.author: scseely, mazoroto
-ms.date: 10/10/2018
+ms.author: scseely
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: 零售產業種類最佳化。 透過來自 AI 與 ML 的見解的 SKU 最佳化。
-ms.openlocfilehash: 2a87425faa322f190cb0b106b5daa2a9c8ef03fe
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: 22411776e830bb3c71f8c1277b30ec4331a3ef17
+ms.sourcegitcommit: 2714a77488c413f01beb169a18acab45663bcfd7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654275"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74308502"
 ---
 # <a name="sku-optimization-for-consumer-brands-solution-guide"></a>消費者品牌的 SKU 最佳化解決方案指南
 
@@ -156,18 +156,18 @@ $$min_\lambda|\Lambda\lambda - v|$$
 
 當我們從上面的公式減去時，最佳化模型是資料驅動且運算密集的。
 
-Microsoft 合作夥伴 (例如 Neal Analytics) 已開發強固的架構來滿足那些情況。 請參閱 [SKU Max](https://appsource.microsoft.com/en-us/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview?WT.mc_id=invopt-article-gmarchet) \(英文\)。 我們將使用那些架構做為範例並提供新的考慮事項。
+Microsoft 合作夥伴 (例如 Neal Analytics) 已開發強固的架構來滿足那些情況。 請參閱 [SKU Max](https://appsource.microsoft.com/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview?WT.mc_id=invopt-article-gmarchet) \(英文\)。 我們將使用那些架構做為範例並提供新的考慮事項。
 
 - 首先，它們依賴 (1) 強固且規模可調整的資料管線來提供給模型，並使用 (2) 強固且規模可調整的執行基礎結構來執行它們。
 - 第二，結果可輕鬆由規劃者透過儀表板取用。
 
 圖 2 顯示範例架構。 它包括四個主要區塊：擷取、處理、模型與操作化。 每個區塊都包含主要程序。 「擷取」包括「資料預先處理」；「處理」包括「存放資料」功能；「模型」包括「將機器學習模型定型」功能；而「操作化」包括「存放資料」與報告選項 (例如儀表板)。
 
-![四個部分中的架構：擷取、處理、模型與操作化。](assets/sku-optimization-solution-guide/architecture-sku-optimization.png)<center><font size="1">_圖 2：SKU 最佳化的架構 (由 Neal Analytics 提供)_</font></center>
+![四個部分中的架構：擷取、處理、模型與操作化。](assets/sku-optimization-solution-guide/architecture-sku-optimization.png)<center><font size="1">_圖 2：SKU 最佳化的架構 (由 Neal Analytics 提供)_ </font></center>
 
 ## <a name="the-data-pipeline"></a>資料管線
 
-架構強調同時針對模型的定型與作業建立資料管線的重要性。 我們使用 [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/introduction?WT.mc_id=invopt-article-gmarchet) 這個可讓您執行整合工作流程的受控擷取-轉換-載入 (ETL) 服務來協調管線中的活動。
+架構強調同時針對模型的定型與作業建立資料管線的重要性。 我們使用 [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction?WT.mc_id=invopt-article-gmarchet) 這個可讓您執行整合工作流程的受控擷取-轉換-載入 (ETL) 服務來協調管線中的活動。
 
 Azure Data Factory 是具有稱為「活動」之元件的受控服務，該元件可以取用和/或產生資料庫。
 
@@ -180,8 +180,8 @@ Azure Data Factory 是具有稱為「活動」之元件的受控服務，該元�
 
 在「擷取」階段中，我們可以利用複製活動 (內建在 Data Factory 中) 來將資料從各種來源 (不論是內部部署或位於雲端) 轉換為 Azure SQL 資料倉儲。 文件中提供作法範例：
 
-- [將資料複製到 Azure SQL DW 或從該處複製資料](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-data-warehouse?WT.mc_id=invopt-article-gmarchet)
-- [將資料載入到 Azure SQL DW](https://docs.microsoft.com/en-us/azure/data-factory/load-azure-sql-data-warehouse?WT.mc_id=invopt-article-gmarchet)
+- [將資料複製到 Azure SQL DW 或從該處複製資料](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse?WT.mc_id=invopt-article-gmarchet)
+- [將資料載入到 Azure SQL DW](https://docs.microsoft.com/azure/data-factory/load-azure-sql-data-warehouse?WT.mc_id=invopt-article-gmarchet)
 
 下圖顯示管線的定義。 它是由三個大小相同的連續區塊組成。 前兩個區塊是由箭頭連接以指出資料流程的資料集與活動。 第三個區塊標示為「管線」，而且只是指向前兩個區塊以指出封裝。 
 
@@ -198,7 +198,7 @@ Azure Data Factory 是具有稱為「活動」之元件的受控服務，該元�
 
 在「處理」階段中，SQL 資料倉儲是要儲存體引擎。 因此，您能以 SQL 預存程序方式表示此類轉換活動，這能以管線的一部分自動叫用。 文件提供詳細指示：
 
-- [使用 SQL 預存程序轉換資料](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-stored-procedure?WT.mc_id=invopt-article-gmarchet)
+- [使用 SQL 預存程序轉換資料](https://docs.microsoft.com/azure/data-factory/transform-data-using-stored-procedure?WT.mc_id=invopt-article-gmarchet)
 
 請注意，Data Factory 不會限制您必須使用 SQL 資料倉儲與 SQL 預存程序。 事實上，它與各種平台整合。 例如，您可以選擇使用 Databricks 並針對轉換執行 Python 指令碼。 這是一個優點，因為您可以使用一個平台來進行儲存及轉換，並在下列「模型」階段為機器學習演算法定型。
 
@@ -222,17 +222,17 @@ Azure Data Factory 是具有稱為「活動」之元件的受控服務，該元�
 - 將運算散佈在多個核心執行。
 - 在「接近」儲存體的位置執行運算，以限制資料移動。
 
-Azure [HDInsight](https://azure.microsoft.com/en-us/services/hdinsight/?WT.mc_id=invopt-article-gmarchet) 與 [Databricks](https://azure.microsoft.com/en-us/services/databricks/?WT.mc_id=invopt-article-gmarchet) 都滿足這些需求。 此外，它們都在 Azure Data Factory 編輯器內執行支援的平台。 在工作流程中整合兩者其中之一相當簡單。
+Azure [HDInsight](https://azure.microsoft.com/services/hdinsight/?WT.mc_id=invopt-article-gmarchet) 與 [Databricks](https://azure.microsoft.com/services/databricks/?WT.mc_id=invopt-article-gmarchet) 都滿足這些需求。 此外，它們都在 Azure Data Factory 編輯器內執行支援的平台。 在工作流程中整合兩者其中之一相當簡單。
 
 ML Server 與其程式庫可部署在 HDInsight 上，但若要發揮平台功能的完整優勢，您可以使用 SparkML、Python 中的 Microsoft ML Spark 程式庫或其他專家線性程式設計解析器 (例如 TFoCS、Spark-LP 或 SolveDF) 實作想要的 ML 演算法。 
 
-從定型程序開始，然後成為從 Data Factory 工作流程叫用適當的 pySpark 指令碼或 Nnotebook 的問題。 圖形化編輯器中完全支援此功能。 如需詳細資訊，請參閱[在 Azure Data Factory 中使用 Databricks Notebook 活動執行 Databricks Notebook](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-databricks-notebook?WT.mc_id=invopt-article-gmarchet)。
+從定型程序開始，然後成為從 Data Factory 工作流程叫用適當的 pySpark 指令碼或 Nnotebook 的問題。 圖形化編輯器中完全支援此功能。 如需詳細資訊，請參閱[在 Azure Data Factory 中使用 Databricks Notebook 活動執行 Databricks Notebook](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook?WT.mc_id=invopt-article-gmarchet)。
 
 下圖顯示透過 Azure 入口網站存取的 Data Factory 使用者介面。 它包括適用於工作流程中各程序的區塊。 
 
 ![顯示 Databricks Notebook 活動的 Data Factory 介面。](assets/sku-optimization-solution-guide/data-factory-pipeline-databricks.png)<center><font size="1">_圖 5：具有 Databricks Notebook 活動的 Data Factory 管線範例_</font></center>
 
-此外，請注意，在我們的[庫存最佳化解決方案](https://gallery.azure.ai/Solution/Inventory-Optimization-3?WT.mc_id=invopt-article-gmarchet)中，我們建議一個容器型解析器實作，它是透過 [Azure Batch](https://azure.microsoft.com/en-us/services/batch/?WT.mc_id=invopt-article-gmarchet) 來調整規模的。 專家最佳化程式庫 (例如 [pyomo](http://www.pyomo.org/about/)) 可讓您以 Python 程式設計語言表示最佳化問題，然後叫用獨立解析器，例如 [bonmin](https://projects.coin-or.org/Bonmin) (開放原始碼版本) 或 [gurobi](http://www.gurobi.com/) (商業版本) 以尋找解決方案。
+此外，請注意，在我們的[庫存最佳化解決方案](https://gallery.azure.ai/Solution/Inventory-Optimization-3?WT.mc_id=invopt-article-gmarchet)中，我們建議一個容器型解析器實作，它是透過 [Azure Batch](https://azure.microsoft.com/services/batch/?WT.mc_id=invopt-article-gmarchet) 來調整規模的。 專家最佳化程式庫 (例如 [pyomo](http://www.pyomo.org/about/)) 可讓您以 Python 程式設計語言表示最佳化問題，然後叫用獨立解析器，例如 [bonmin](https://projects.coin-or.org/Bonmin) (開放原始碼版本) 或 [gurobi](http://www.gurobi.com/) (商業版本) 以尋找解決方案。
 
 庫存最佳化文件可處理與種類最佳化不同的問題 (訂單數量)，而且 Azure 中的解析器實作同樣適用。
 
@@ -240,28 +240,28 @@ ML Server 與其程式庫可部署在 HDInsight 上，但若要發揮平台功�
 
 ## <a name="running-the-model-operationalize"></a>執行模型 (操作化)
 
-將模型定型之後，執行它通常需要與用於部署之基礎結構不同的基礎結構。 若要讓它可供輕鬆取用，您可以選擇將它部署為具有 REST 介面的 Web 服務。 Azure ML Studio 與 ML Server 兩者都可以將建立此類服務的程序自動化。 在 ML Server 的案例中，我們提供範本供您部署支援的基礎結構。 請參閱相關[4文件](https://docs.microsoft.com/en-us/machine-learning-server/what-is-operationalization?WT.mc_id=invopt-article-gmarchet) \(英文 \)。
+將模型定型之後，執行它通常需要與用於部署之基礎結構不同的基礎結構。 若要讓它可供輕鬆取用，您可以選擇將它部署為具有 REST 介面的 Web 服務。 Azure ML Studio 與 ML Server 兩者都可以將建立此類服務的程序自動化。 在 ML Server 的案例中，我們提供範本供您部署支援的基礎結構。 請參閱相關[4文件](https://docs.microsoft.com/machine-learning-server/what-is-operationalization?WT.mc_id=invopt-article-gmarchet) \(英文 \)。
 
 下圖顯示部署的架構。 它包括執行 R 語言與 Python 之伺服器的表示。 這兩種伺服器都會與執行運算之 Web 節點的子區段通訊。 有一個大型的資料存放區會連線到運算區塊。
 
 ![ML server 部署圖表。 要執行之多個節點前的負載平衡器。](assets/sku-optimization-solution-guide/ml-server-deployment-example.png)<center><font size="1">_圖 6：ML Server 部署的範例_</font></center>
 
 
-針對在 HDInsight 或 Databricks 上建立而因此相依於 Spark 環境 (程式庫、平行功能等) 的模型，您可以考慮在叢集上執行它們。 [這裡](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/spark-model-consumption?WT.mc_id=invopt-article-gmarchet)提供指導方針。
+針對在 HDInsight 或 Databricks 上建立而因此相依於 Spark 環境 (程式庫、平行功能等) 的模型，您可以考慮在叢集上執行它們。 [這裡](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/spark-model-consumption?WT.mc_id=invopt-article-gmarchet)提供指導方針。
 
 這有優點，那就是作業模型本身可透過用於評分的 Data Factory 管線活動來叫用。
 
-若要使用容器，您可以封裝您的模型並將它們部署在 Azure Kubernetes Service 上。 原型將將要求使用 [Azure 資料科學 VM](https://azure.microsoft.com/en-us/services/virtual-machines/data-science-virtual-machines/?WT.mc_id=invopt-article-gmarchet)；您也必須在 VM 上安裝 Azure ML [命令列](https://docs.microsoft.com/en-us/azure/machine-learning/desktop-workbench/model-management-service-deploy?WT.mc_id=invopt-article-gmarchet)工具。
+若要使用容器，您可以封裝您的模型並將它們部署在 Azure Kubernetes Service 上。 原型將將要求使用 [Azure 資料科學 VM](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/?WT.mc_id=invopt-article-gmarchet)；您也必須在 VM 上安裝 Azure ML [命令列](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-service-deploy?WT.mc_id=invopt-article-gmarchet)工具。
 
 ## <a name="data-output-and-reporting"></a>資料輸出與報告
 
 一旦部署，模型就能處理財務交易工作流程與庫存讀數，以產生最佳化種類預測。 因此產生的資料可以存放回 Azure SQL 資料倉儲以進行進一步的分析。 特別是，它將可以研究各 SKU 的過去績效，進而找出帶來最多營收的 SKU 與帶來最少營收的 SKU。 您將可以將那些資料與由模型所建議的種類比較，並評估績效與重新定型的需求。
 
-[PowerBI](https://powerbi.microsoft.com/en-us/get-started/?&OCID=AID719832_SEM_uhlWLg3x&lnkd=Google_PowerBI_Brand&gclid=CjwKCAjw5ZPcBRBkEiwA-avvkyOLMJCrhqH8iac84aLX7EcUQIirSSqUCostzGi8y_XntJTCD73ZixoCQ4sQAvD_BwE?WT.mc_id=invopt-article-gmarchet) 提供一種方式來分析並顯示該程序中產生的資料。 
+[PowerBI](https://powerbi.microsoft.com/get-started/?&OCID=AID719832_SEM_uhlWLg3x&lnkd=Google_PowerBI_Brand&gclid=CjwKCAjw5ZPcBRBkEiwA-avvkyOLMJCrhqH8iac84aLX7EcUQIirSSqUCostzGi8y_XntJTCD73ZixoCQ4sQAvD_BwE?WT.mc_id=invopt-article-gmarchet) 提供一種方式來分析並顯示該程序中產生的資料。 
 
 下圖顯示典型 Power BI 儀表板。 它包括顯示 SKU 庫存資訊的兩張圖表。 
 
-![顯示超過 12 個月之結果的儀表板的範例。](assets/sku-optimization-solution-guide/sku-max-model.png)<center><font size="1">_圖 7：模型結果報告的範例 (由 Neal Analytics 提供)_</font></center>
+![顯示超過 12 個月之結果的儀表板的範例。](assets/sku-optimization-solution-guide/sku-max-model.png)<center><font size="1">_圖 7：模型結果報告的範例 (由 Neal Analytics 提供)_ </font></center>
 
 ## <a name="security-considerations"></a>安全性考量
 
@@ -272,22 +272,22 @@ ML Server 與其程式庫可部署在 HDInsight 上，但若要發揮平台功�
 - 提到的所有服務都支援傳輸中資料加密與待用資料加密。 若選擇將資料存放在Azure Data Lake 上，預設會啟用加密。 若您使用 Azure SQL 資料倉儲，您可以啟用透明資料加密 (TDE)。
 - 提到的所有服務 (ML studio 除外) 都支援與 Azure Active Directory 整合以進行驗證及授權。 若您撰寫自己的程式碼，您必須將該整合建置到您的應用程式中。
 
-如需有關 GDPR 的詳細資訊，請參閱我們的[合規性](https://www.microsoft.com/en-us/trustcenter?WT.mc_id=invopt-article-gmarchet) \(英文\) 頁面。
+如需有關 GDPR 的詳細資訊，請參閱我們的[合規性](https://www.microsoft.com/trustcenter?WT.mc_id=invopt-article-gmarchet) \(英文\) 頁面。
 
 ## <a name="technologies-mentioned"></a>提到的技術
 
-- [Azure Batch](https://azure.microsoft.com/en-us/services/batch/?WT.mc_id=invopt-article-gmarchet)
-- [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/?&OCID=AID719825_SEM_w1MNAVjn&lnkd=Google_Azure_Brand&gclid=CjwKCAjw5ZPcBRBkEiwA-avvk4bGtyQo11KBY-u2skor1SydsSl1vrYUmhyGhhwyJhDlAYpnMmIcRRoCTfsQAvD_BwE&dclid=CMn6lvfRkd0CFRwBrQYdtIoJOA?WT.mc_id=invopt-article-gmarchet)
-- [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/introduction?WT.mc_id=invopt-article-gmarchet)
-- [Azure Integration Runtime](https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime?WT.mc_id=invopt-article-gmarchet)
-- [HDInsight](https://azure.microsoft.com/en-us/services/hdinsight/?WT.mc_id=invopt-article-gmarchet)
-- [Databricks](https://azure.microsoft.com/en-us/services/databricks/?WT.mc_id=invopt-article-gmarchet)
-- [Azure SQL 資料倉儲](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is?WT.mc_id=invopt-article-gmarchet)
+- [Azure Batch](https://azure.microsoft.com/services/batch/?WT.mc_id=invopt-article-gmarchet)
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory/?&OCID=AID719825_SEM_w1MNAVjn&lnkd=Google_Azure_Brand&gclid=CjwKCAjw5ZPcBRBkEiwA-avvk4bGtyQo11KBY-u2skor1SydsSl1vrYUmhyGhhwyJhDlAYpnMmIcRRoCTfsQAvD_BwE&dclid=CMn6lvfRkd0CFRwBrQYdtIoJOA?WT.mc_id=invopt-article-gmarchet)
+- [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction?WT.mc_id=invopt-article-gmarchet)
+- [Azure Integration Runtime](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime?WT.mc_id=invopt-article-gmarchet)
+- [HDInsight](https://azure.microsoft.com/services/hdinsight/?WT.mc_id=invopt-article-gmarchet)
+- [Databricks](https://azure.microsoft.com/services/databricks/?WT.mc_id=invopt-article-gmarchet)
+- [Azure SQL 資料倉儲](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is?WT.mc_id=invopt-article-gmarchet)
 - [Azure ML Studio](https://studio.azureml.net/?WT.mc_id=invopt-article-gmarchet)
-- [Microsoft ML Server](https://docs.microsoft.com/en-us/machine-learning-server/what-is-machine-learning-server?WT.mc_id=invopt-article-gmarchet)
-- [Azure 資料科學 VM](https://azure.microsoft.com/en-us/services/virtual-machines/data-science-virtual-machines/?WT.mc_id=invopt-article-gmarchet)
-- [Azure Kubernetes Service](https://azure.microsoft.com/en-us/services/kubernetes-service/?WT.mc_id=invopt-article-gmarchet)
-- [Microsoft PowerBI](https://powerbi.microsoft.com/en-us/?WT.mc_id=invopt-article-gmarchet)
+- [Microsoft ML Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server?WT.mc_id=invopt-article-gmarchet)
+- [Azure 資料科學 VM](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/?WT.mc_id=invopt-article-gmarchet)
+- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/?WT.mc_id=invopt-article-gmarchet)
+- [Microsoft PowerBI](https://powerbi.microsoft.com/?WT.mc_id=invopt-article-gmarchet)
 - [Pyomo 最佳化模型建構語言](http://www.pyomo.org/)
 - [Bonmin 解析器](https://projects.coin-or.org/Bonmin)
 - [適用於 Spark 的 TFoCS 解析器](https://github.com/databricks/spark-tfocs)

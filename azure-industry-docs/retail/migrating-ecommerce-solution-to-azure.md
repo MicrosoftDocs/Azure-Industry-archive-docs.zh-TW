@@ -1,17 +1,17 @@
 ---
-title: 電子商務解決方案 Azure 移轉概觀
+title: 將電子商務解決方案移轉到 Azure 的概觀
 author: scseely
-ms.author: scseely, mazoroto
-ms.date: 07/16/2018
+ms.author: scseely
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: 本文章會說明將電子商務基礎結構從內部部署移轉到 Azure 的各個階段。
-ms.openlocfilehash: a440eabad6a1367ed8219c01424d21d22e441b16
-ms.sourcegitcommit: 20b001b9fb51b944ae82bf55d2d670aa852fa64b
+ms.openlocfilehash: e918f1157dc2bc42a6c4d0decfef95a8daa7ccf0
+ms.sourcegitcommit: b8f9ccc4e4453d6912b05cdd6cf04276e13d7244
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52297951"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74263350"
 ---
 # <a name="migrating-your-e-commerce-solution-to-azure-overview"></a>電子商務解決方案 Azure 移轉概觀
 
@@ -120,7 +120,7 @@ Azure 也會提供環境最佳化工具。 [Azure Advisor](/azure/advisor/adviso
 
 許多開發團隊都想要同時進行重新裝載與重構，以求解決技術債務並充分利用產能。 在貿然進入後續步驟之前，先進行重新裝載，會有一些優勢。  在部署到新環境時出現的任何問題，都比較容易診斷及修正。 開發和支援小組可以獲得足夠時間熟悉 Azure 帶來的新環境。 要開始重構及重建系統時，您已經是以穩定運作的應用程式做為基礎。 如此就能實施較小規模的針對性變更，也能頻繁更新。
 
-我們發佈了更為通用的白皮書，來解說如何移轉到雲端：《[雲端移轉基本資訊](https://azure.microsoft.com/resources/cloud-migration-essentials-e-book/?_lrsc=9618a836-9f81-4087-901f-51058783c3a8&WT.mc_id=retailecomm-docs-scseely)》(英文)。 在規劃移轉作業時，推薦您詳加閱讀此份白皮書。
+我們發佈了更為通用的白皮書，來解說如何移轉到雲端：[雲端移轉基本資訊](https://azure.microsoft.com/resources/cloud-migration-essentials-e-book/?_lrsc=9618a836-9f81-4087-901f-51058783c3a8&WT.mc_id=retailecomm-docs-scseely) \(英文\)。 在規劃移轉作業時，推薦您詳加閱讀此份白皮書。
 
 ## <a name="technologies-presented"></a>使用的技術
 

@@ -1,17 +1,17 @@
 ---
-title: 實作適用於 AI 的 Azure 藍圖
+title: 使用 Azure 服務的醫療保健藍圖實作 AI
 author: dstarr
 ms.author: dastarr
-ms.date: 11/07/2019
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: 此文章提供適用於 AI 之 Microsoft Azure 藍圖的指導方針。
-ms.openlocfilehash: 845ec2a1da335336375d90c789e0fa89bc70d23a
-ms.sourcegitcommit: 385e99900bc20950f02a63c885facc1cf62c49df
+ms.openlocfilehash: 40919ffde2c2cac11339b40348cba7a5e0e0e16d
+ms.sourcegitcommit: 2714a77488c413f01beb169a18acab45663bcfd7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73845624"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74308509"
 ---
 # <a name="implementing-the-azure-blueprint-for-ai"></a>實作適用於 AI 的 Azure 藍圖
 
@@ -162,7 +162,7 @@ Azure 藍圖安裝只包括實作 AI/ML 使用案例所需的服務。 不過，
 
 需要更多 Azure 功能時，可以新增資源 (例如 [Cosmos DB](/azure/cosmos-db/introduction?WT.mc_id=ms-docs-dastarr) 或新的 [Azure Functions](/azure/azure-functions/functions-overview?WT.mc_id=ms-docs-dastarr)) 到解決方案。 新增資源或服務時，請確定它們設定為符合法規與原則的安全性與隱私權原則。
 
-您可以使用 [Azure REST API](https://docs.microsoft.com/rest/api/?view=Azure&WT.mc_id=ms-docs-dastarr)、[Azure PowerShell 指令碼](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-6.6.0&WT.mc_id=ms-docs-dastarr)或使用 [Azure 入口網站](http://portal.azure.com/?WT.mc_id=ms-docs-dastarr)來建立新資源與服務。
+您可以使用 [Azure REST API](https://docs.microsoft.com/rest/api/?view=Azure&WT.mc_id=ms-docs-dastarr)、[Azure PowerShell 指令碼](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-6.6.0&WT.mc_id=ms-docs-dastarr)或使用 [Azure 入口網站](https://portal.azure.com/?WT.mc_id=ms-docs-dastarr)來建立新資源與服務。
 
 ## <a name="using-machine-learning-with-the-blueprint"></a>搭配藍圖使用機器學習
 

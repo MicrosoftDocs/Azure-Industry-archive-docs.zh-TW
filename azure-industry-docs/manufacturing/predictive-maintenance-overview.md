@@ -1,17 +1,17 @@
 ---
-title: 製造業中的預測性維護概觀
+title: 製造業中的預測性維護簡介
 author: scseely
 ms.author: scseely
-ms.date: 05/02/2018
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: 有關如何為 Azure 上的製造業客戶開發預測性維護 (PdM) 的概觀。
-ms.openlocfilehash: c5f3737c29c1d16f5d343a1fd56ed924684a3a1d
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: 14ef249685c9ee90846dbfeba993742f7502037b
+ms.sourcegitcommit: 2714a77488c413f01beb169a18acab45663bcfd7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654155"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74308460"
 ---
 # <a name="predictive-maintenance-in-manufacturing-overview"></a>製造業中的預測性維護概觀
 
@@ -23,7 +23,7 @@ PdM 可從工廠設備產生的資料擷取見解，並根據這些見解採取�
 
 PdM 需要設備從監視設備的感應器提供資料以及其他作業資料。 PdM 系統會分析資料並存放結果。 人會根據分析來採取動作。
 
-在此文章中引進一些背景之後，我們討論如何使用內部部署資料、Azure 機器學習與機器學習模型使用組合，來實作各種 PdM 解決方案。 PdM 高度仰賴資料來制訂決策，因此我們從查看資料收集開始。 必須收集資料並使用資料來評估目前發生什麼事，並在未來使用資料來建置更好的預測性模型。 最後，我們說明分析解決方案看起來像什麼樣子，包括在 [Power BI](https://docs.microsoft.com/en-us/power-bi/) 之類的報告工具中將分析結果視覺化。
+在此文章中引進一些背景之後，我們討論如何使用內部部署資料、Azure 機器學習與機器學習模型使用組合，來實作各種 PdM 解決方案。 PdM 高度仰賴資料來制訂決策，因此我們從查看資料收集開始。 必須收集資料並使用資料來評估目前發生什麼事，並在未來使用資料來建置更好的預測性模型。 最後，我們說明分析解決方案看起來像什麼樣子，包括在 [Power BI](https://docs.microsoft.com/power-bi/) 之類的報告工具中將分析結果視覺化。
 
 ## <a name="maintenance-strategies"></a>維護策略
 
@@ -48,21 +48,21 @@ PdM 解決方案可由製造商直接使用，以監視來自自己之製造作�
 
 ## <a name="building-a-predictive-maintenance-solution"></a>建置預測性維護解決方案
 
-若要建置 PdM 解決方案，我們從資料開始；找出顯示正常作業的資料以及顯示設備在故障之前、故障時與故障後看起來的樣子的資料。 資料來自感應器、由設備操作者維護的備註、執行資訊、設備資料與機器規格等。記錄系統可能包括歷史學家、製造執行系統與 ERP 等。資料以各種方式提供以進行分析。 [小組資料科學程序](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/) (圖解如下且已針對製造業自訂) 能有效說明建置及執行機器學習模型時可能會遇到的各種顧慮。
+若要建置 PdM 解決方案，我們從資料開始；找出顯示正常作業的資料以及顯示設備在故障之前、故障時與故障後看起來的樣子的資料。 資料來自感應器、由設備操作者維護的備註、執行資訊、設備資料與機器規格等。記錄系統可能包括歷史學家、製造執行系統與 ERP 等。資料以各種方式提供以進行分析。 [小組資料科學程序](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) (圖解如下且已針對製造業自訂) 能有效說明建置及執行機器學習模型時可能會遇到的各種顧慮。
 
  ![](./assets/pdm-assets/DataScienceDiagram.png)
 
 
 您的第一個工作將會是找出您想要預測的故障類型。 記住這點之後，您接著就可以找出有關於故障類型之有趣資料的資料來源。 管線會從您的環境將資料讀入到系統中。 資料科學家將會使用其最愛的機器學習工具來準備資料。 此時，他們已準備好建立模型並定型，以找出各種問題類型。 模型會回答如下問題：
 
-- 針對資產，接下來 X 小時內發生故障的機率為何？ 答：0-100%
-- 資產的剩餘使用年限為何？ 答：X 小時
-- 資產的行為是否異常？ 答：是或否
-- 哪些資產需要最緊急的維護？ 答：資產 X
+- 針對資產，接下來 X 小時內發生故障的機率為何？  答：0-100%
+- 資產的剩餘使用年限為何？  答：X 個小時
+- 資產的行為是否異常？  答：是或否
+- 哪些資產需要最緊急的維護？  答：資產 X
 
 一旦開發之後，模型能部署在設備本身進行自我診斷、部署在製造環境某處的邊緣裝置中，或部署在 Azure 中。 您將也能繼續將資料從主要來源傳送到中央存放區，以便您可以繼續建置並維護 PdM 解決方案。
 
-Azure 的功能允許您在您選擇的技術上定型並測試模型。 您可以使用 GPU、FPGA、CPU、大型記憶體機器等。 Azure 中的其中一個絕佳功能是平台完全採用由資料科學家 (例如 R 與 Python) 所使用的開放原始碼工具。 當分析完成時，結果可以顯示在儀表板的其他面或其他報告中。 這些報告可能會出現在自訂工具中，或您可以利用 [Power BI](https://docs.microsoft.com/en-us/power-bi/) 或[時間序列深入解析](https://docs.microsoft.com/en-us/azure/time-series-insights/)等報告工具的優勢。
+Azure 的功能允許您在您選擇的技術上定型並測試模型。 您可以使用 GPU、FPGA、CPU、大型記憶體機器等。 Azure 中的其中一個絕佳功能是平台完全採用由資料科學家 (例如 R 與 Python) 所使用的開放原始碼工具。 當分析完成時，結果可以顯示在儀表板的其他面或其他報告中。 這些報告可能會出現在自訂工具中，或您可以利用 [Power BI](https://docs.microsoft.com/power-bi/) 或[時間序列深入解析](https://docs.microsoft.com/azure/time-series-insights/)等報告工具的優勢。
 
 不論您的 PdM 需要什麼，Azure 都提供工具、規模與您所需的功能來建置穩固的解決方案。
 
@@ -74,27 +74,27 @@ Azure 的功能允許您在您選擇的技術上定型並測試模型。 您可�
 
 ## <a name="technologies-presented"></a>呈現的技術
 
-[Azure Blob 儲存體](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)能依所需的資料存取頻率，將數百到數十億個物件存放在經常性、非經常性或封存層中。
+[Azure Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)能依所需的資料存取頻率，將數百到數十億個物件存放在經常性、非經常性或封存層中。
 
-[Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/) 是全球範圍中延遲極低的資料庫且可大規模調整規模的應用程式，且原生支援 NoSQL。
+[Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) 是全球範圍中延遲極低的資料庫且可大規模調整規模的應用程式，且原生支援 NoSQL。
 
-[Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/) 的功能可讓開發人員、資料科學家以及分析師的工作更加輕鬆，範圍包括儲存任何大小、形狀及速率的資料，以及跨各平台和語言進行任何類型的處理及分析。
+[Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/) 的功能可讓開發人員、資料科學家以及分析師的工作更加輕鬆，範圍包括儲存任何大小、形狀及速率的資料，以及跨各平台和語言進行任何類型的處理及分析。
 
-[Azure 事件中樞](https://docs.microsoft.com/en-us/azure/event-hubs/)是規模超大的遙測內嵌服務，它可以收集、轉換及存放數百萬個事件。 這個分散式串流平台提供低延遲和可設定的保留期，讓您能夠將大量遙測資料輸入雲端，並使用發佈/訂閱語意從多個應用程式讀取資料。
+[Azure 事件中樞](https://docs.microsoft.com/azure/event-hubs/)是規模超大的遙測內嵌服務，它可以收集、轉換及存放數百萬個事件。 這個分散式串流平台提供低延遲和可設定的保留期，讓您能夠將大量遙測資料輸入雲端，並使用發佈/訂閱語意從多個應用程式讀取資料。
 
-[Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/) 是一個物聯網 (IoT) 服務，建置在 IoT 中樞之上。 這項服務提供客戶在裝置上分析資料的服務，也稱為 位於邊緣，而非在雲端中。 將部份工作負載移至 Edge，您的裝置就能以較少的時間將訊息傳送至雲端，並更快速地變更狀態。
+[Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) 是一個物聯網 (IoT) 服務，建置在 IoT 中樞之上。 這項服務提供客戶在裝置上分析資料的服務，也稱為 位於邊緣，而非在雲端中。 將部份工作負載移至 Edge，您的裝置就能以較少的時間將訊息傳送至雲端，並更快速地變更狀態。
 
-[Azure IoT 中樞](https://docs.microsoft.com/en-us/azure/iot-hub/)是一項完全受控的服務，可在數百萬個 IoT 裝置和一個解決方案後端之間啟用可靠且安全的雙向通訊。
+[Azure IoT 中樞](https://docs.microsoft.com/azure/iot-hub/)是一項完全受控的服務，可在數百萬個 IoT 裝置和一個解決方案後端之間啟用可靠且安全的雙向通訊。
 
-[Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/) 可讓電腦從資料與經驗當中學習並做出回應，而不需要明確的程式設計。 客戶可以建置利用智慧方式來感應、處理及操作資訊的人工智慧 (AI) 應用程式，以增強人力、增加速度和效率，並協助組織完成更多作業。
+[Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/) 可讓電腦從資料與經驗當中學習並做出回應，而不需要明確的程式設計。 客戶可以建置利用智慧方式來感應、處理及操作資訊的人工智慧 (AI) 應用程式，以增強人力、增加速度和效率，並協助組織完成更多作業。
 
-[Azure 服務匯流排](https://docs.microsoft.com/en-us/azure/service-bus/)是一個代理通訊機制。 服務匯流排傳訊基礎結構的核心元件，就是佇列、主題和訂用帳戶。
+[Azure 服務匯流排](https://docs.microsoft.com/azure/service-bus/)是一個代理通訊機制。 服務匯流排傳訊基礎結構的核心元件，就是佇列、主題和訂用帳戶。
 
-[Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/) 是完全受控的智慧型關聯式雲端資料庫服務，提供最廣泛的 SQL Server 引擎相容性，讓您不必更改應用程式，即可移轉 SQL Server 資料庫。
+[Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) 是完全受控的智慧型關聯式雲端資料庫服務，提供最廣泛的 SQL Server 引擎相容性，讓您不必更改應用程式，即可移轉 SQL Server 資料庫。
 
-[Power BI](https://docs.microsoft.com/en-us/power-bi/) 是商務分析工具套件，可將見解提供給整個組織。 連線到數百種資料來源，簡化資料準備工作，立即獲取特定的分析。
+[Power BI](https://docs.microsoft.com/power-bi/) 是商務分析工具套件，可將見解提供給整個組織。 連線到數百種資料來源，簡化資料準備工作，立即獲取特定的分析。
 
-[時間序列深入解析](https://docs.microsoft.com/en-us/azure/time-series-insights/)是完全受控的分析、儲存及視覺化服務，可讓您在雲端上管理 IoT 規模的時間序列資料。
+[時間序列深入解析](https://docs.microsoft.com/azure/time-series-insights/)是完全受控的分析、儲存及視覺化服務，可讓您在雲端上管理 IoT 規模的時間序列資料。
 
 ## <a name="conclusion"></a>結論
 

@@ -1,17 +1,17 @@
 ---
-title: 銀行業中的資料管理概觀
+title: 概觀 - 透過 Azure 服務管理銀行的資料資產
 author: dstarr
 ms.author: dastarr
-ms.date: 10/30/2019
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: 描述在受規範的銀行業環境中使用 Microsoft Azure 管理資料的技術。
-ms.openlocfilehash: 1314054018c04e45b6450604febbf0142ead380d
-ms.sourcegitcommit: f42a60539bec2a7769b42b6574f09eed4d1b6c79
+ms.openlocfilehash: cfafd5242b6da994def2fe1470db9fd86b2675e7
+ms.sourcegitcommit: f030566b177715794d2ad857b150317e72d04d64
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750540"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74234646"
 ---
 # <a name="data-management-in-banking-overview"></a>銀行業中的資料管理概觀
 

@@ -1,17 +1,17 @@
 ---
-title: 圖像式搜尋概觀
+title: 使用 CosmosDB 在零售業中進行圖像式搜尋的入門
 author: scseely
-ms.author: scseely, mazoroto
-ms.date: 07/16/2018
+ms.author: scseely
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
-description: 此文章說明將電子商務基礎結構從內部部署設施移轉到 Azure 的階段。
-ms.openlocfilehash: 0c80e3068a1b23bf12d2468489fdd0b67c660dfa
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+description: 本文章會說明將電子商務基礎結構從內部部署移轉到 Azure 的各個階段。
+ms.openlocfilehash: b43ea305e11ac32da58e4d0521d79f90d5c23d85
+ms.sourcegitcommit: 2714a77488c413f01beb169a18acab45663bcfd7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654205"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74308465"
 ---
 # <a name="visual-search-overview"></a>圖像式搜尋概觀
 
@@ -42,7 +42,7 @@ ms.locfileid: "51654205"
 
 幸運的是，您不需要擁有強大的運算能力就能從圖像式搜尋獲益。 具有影像型錄的任何公司都可以利用 Microsoft 建置在其 Azure 服務中的的 AI 專業。
 
-[Bing 圖像式搜尋](https://azure.microsoft.com/en-us/services/cognitive-services/bing-visual-search/?WT.mc_id=vsearchgio-article-gmarchet) API 提供一種方式來從影像擷取脈絡資訊，例如，透過辨識家具、時尚、各種產品等。
+[Bing 圖像式搜尋](https://azure.microsoft.com/services/cognitive-services/bing-visual-search/?WT.mc_id=vsearchgio-article-gmarchet) API 提供一種方式來從影像擷取脈絡資訊，例如，透過辨識家具、時尚、各種產品等。
 
 它也會以視覺化方式從其自有型錄、具有相對購物來源的產品、相關搜尋傳回類似的影像。 雖然這很有趣，但若您的公司不是那些來源的其中一個，則用途可能也有限。
 
@@ -64,7 +64,7 @@ Bing 也將提供：
 
  ![](./assets/visual-search-use-case-overview/visual-search-pipeline.png)
 
-*圖 1：圖像式搜尋管線範例*
+*圖 1：* 圖像式搜尋管線範例
 
 ### <a name="sourcing-the-pictures"></a>尋找圖片來源
 
@@ -72,7 +72,7 @@ Bing 也將提供：
 
  ![](./assets/visual-search-use-case-overview/deep-fashion-dataset.png)
 
-*圖 2：來自 The Deep Fashion 資料集的範例*
+*圖 2：* 來自 The Deep Fashion 資料集的範例
 
 ### <a name="filtering-the-images"></a>篩選影像
 
@@ -88,7 +88,7 @@ Bing 也將提供：
 
 資料層是您架構中最需要小心處理的元件。 它將會包含：
 
-- 影像
+- 映像
 - 任何有關影像的中繼資料 (大小、標籤、產品 SKU、描述)
 - 由機器學習模型產生的資料 (例如，每個影像的 4096 個元素的數字向量)
 
@@ -96,11 +96,11 @@ Bing 也將提供：
 
 您可能也想要要求數目最少的實用資料點 (例如，金鑰、產品 SKU、描述、標籤欄位的影像識別碼)。
 
-[Azure CosmosDB](https://azure.microsoft.com/en-us/services/cosmos-db/?WT.mc_id=vsearchgio-article-gmarchet) 針對建置在其上的應用程式提供您所需的彈性與各種存取機制 (有助於您的型錄搜尋)。 不過，追求最佳價格/效能時務必小心。 CosmosDB 允許存放文件附件，但每個帳戶都有總限制，而且它的成本可能很高。 通常建議將實際影像檔存放在 Blob 中，並在資料庫中插入其連結。 在 CosmosDB 的案例中，這意指建立包含與該影像關聯之型錄屬性 (SKU、標籤等) 的文件，以及包含影像檔案 (例如，在 Azure Blob 儲存體、OneDrive 等上) 之 URL 的附件。
+[Azure CosmosDB](https://azure.microsoft.com/services/cosmos-db/?WT.mc_id=vsearchgio-article-gmarchet) 針對建置在其上的應用程式提供您所需的彈性與各種存取機制 (有助於您的型錄搜尋)。 不過，追求最佳價格/效能時務必小心。 CosmosDB 允許存放文件附件，但每個帳戶都有總限制，而且它的成本可能很高。 通常建議將實際影像檔存放在 Blob 中，並在資料庫中插入其連結。 在 CosmosDB 的案例中，這意指建立包含與該影像關聯之型錄屬性 (SKU、標籤等) 的文件，以及包含影像檔案 (例如，在 Azure Blob 儲存體、OneDrive 等上) 之 URL 的附件。
 
  ![](./assets/visual-search-use-case-overview/cosmosdb-data-model.png)
 
-*圖 3：CosmosDB 階層式資源模型*
+*圖 3：* CosmosDB 階層式資源模型
 
 若計畫利用 Cosmos DB 全球分布的優點，請注意，它將會複寫文件與附件，但不會複寫連結的檔案。 您可能想要考慮適用於那些的內容發佈網路。
 
@@ -110,7 +110,7 @@ Bing 也將提供：
 
 編碼程序會從資料庫中的圖片擷取突出的特色，並將它們每一個都對應到疏鬆「特色」向量 (具有許多零的向量)，此向量可有數千個元件。 此向量是特色 (例如，邊緣、形狀) 的數字型表示法，可將圖片分類 (類似於代碼)。
 
-特色擷取技術通常使用「移轉學習機制」。 此機制的運作方式為：您選取預先定型的類神經網路、使用此網路執行每個影像，並將產生的特色向量存放回您的影像資料庫。 透過該方式，您可以從將該網路定型的人「移轉」學習。 Microsoft 已開發並發行數個預先定型的網路，這些網路廣為使用於影像辨識工作，例如 [ResNet50](https://www.kaggle.com/keras/resnet50)。
+特色擷取技術通常使用「移轉學習機制」  。 此機制的運作方式為：您選取預先定型的類神經網路、使用此網路執行每個影像，並將產生的特色向量存放回您的影像資料庫。 透過該方式，您可以從將該網路定型的人「移轉」學習。 Microsoft 已開發並發行數個預先定型的網路，這些網路廣為使用於影像辨識工作，例如 [ResNet50](https://www.kaggle.com/keras/resnet50)。
 
 視類神經網路而定，特色向量可能更長且更疏鬆，或更短且更不疏鬆，因此記憶體與儲存體需求將會不同。
 
@@ -122,13 +122,13 @@ Bing 也將提供：
 
  ![](./assets/visual-search-use-case-overview/resnet-modifications.png)
 
-*圖 4：對適用於圖像式搜尋之 ResNet 的修改 – F. Yang et al.，2017*
+*圖 4：* 對適用於圖像式搜尋之 ResNet 的修改 – F. Yang et al.，2017
 
 不論您是選擇預先定型的模型或開發您自己的模型，您仍必須決定要在哪執行模型本身的特色化和/ 或定型。
 
-Azure 提供數個選項：VM、Azure Batch、[Batch AI](https://azure.microsoft.com/en-us/services/batch-ai/?WT.mc_id=vsearchgio-article-gmarchet)、Databricks 叢集。 不過，在所有案例中，最佳價格/效能是以 GPU 使用率來給定。
+Azure 提供數個選項：VM、Azure Batch、[Batch AI](https://azure.microsoft.com/services/batch-ai/?WT.mc_id=vsearchgio-article-gmarchet)、Databricks 叢集。 不過，在所有案例中，最佳價格/效能是以 GPU 使用率來給定。
 
-Microsoft 最近也宣布推出 FPGA，讓您能以 GPU 成本的數分之一快速執行計算 ([Brainwave](https://www.microsoft.com/en-us/research/blog/microsoft-unveils-project-brainwave/?WT.mc_id=vsearchgio-article-gmarchet) 專案)。 不過，在本文撰寫時，此供應項目受限於特定網路架構，因此您必須密切評估其效能。
+Microsoft 最近也宣布推出 FPGA，讓您能以 GPU 成本的數分之一快速執行計算 ([Brainwave](https://www.microsoft.com/research/blog/microsoft-unveils-project-brainwave/?WT.mc_id=vsearchgio-article-gmarchet) 專案)。 不過，在本文撰寫時，此供應項目受限於特定網路架構，因此您必須密切評估其效能。
 
 ### <a name="similarity-measure-or-distance"></a>相似度度量或距離
 
@@ -144,7 +144,7 @@ Microsoft 最近也宣布推出 FPGA，讓您能以 GPU 成本的數分之一快
 
 一旦定義相似度，我們就必須設計不同的有效率方法來擷取最接近傳遞為輸入之項目的 N 個項目，然後傳回識別碼清單。 這也稱為「影像排名」。 在大型資料集上，計算每個距離的時間通常很長，因此我們使用近似最接近像素演算法。 針對那些用途，有數個開放原始碼程式庫可用，因此您不需要從頭開始撰寫程式碼。
 
-最後，記憶體與計算需求將決定已定型模型的部署技術，以及高可用性。 一般而言，搜尋空間將會分割，而且數個排名演算法執行個體將會同時執行。 允許延展性與可用性的其中一個選項是 [Azure Kubernetes](https://azure.microsoft.com/en-us/services/container-service/kubernetes/?WT.mc_id=vsearchgio-article-gmarchet) 叢集。 在該案例中，建議您跨數個容器 (每個容器都負責處理一個搜尋空間分割區) 與數個節點 (以達成高可用性) 部署排名模型。
+最後，記憶體與計算需求將決定已定型模型的部署技術，以及高可用性。 一般而言，搜尋空間將會分割，而且數個排名演算法執行個體將會同時執行。 允許延展性與可用性的其中一個選項是 [Azure Kubernetes](https://azure.microsoft.com/services/container-service/kubernetes/?WT.mc_id=vsearchgio-article-gmarchet) 叢集。 在該案例中，建議您跨數個容器 (每個容器都負責處理一個搜尋空間分割區) 與數個節點 (以達成高可用性) 部署排名模型。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -156,14 +156,14 @@ Microsoft 最近也宣布推出 FPGA，讓您能以 GPU 成本的數分之一快
 
 ### <a name="develop"></a>開發
 
-- 若要開始建立自訂服務，請參閱 [Bing 圖像式搜尋 API 概觀](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/overview/?WT.mc_id=vsearchgio-article-gmarchet)
+- 若要開始建立自訂服務，請參閱 [Bing 圖像式搜尋 API 概觀](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview/?WT.mc_id=vsearchgio-article-gmarchet)
 - 若要建立您的第一個要求，請參閱快速入門：[C#](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/quickstarts/csharp) | [Java](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/quickstarts/java) | [node.js](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/quickstarts/nodejs) | [Python](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/quickstarts/python)
 - 熟悉[圖像式搜尋 API](https://aka.ms/bingvisualsearchreferencedoc) 參考。
 
 ### <a name="background"></a>背景
 
 - [深度學習影像分離](https://www.microsoft.com/developerblog/2018/04/18/deep-learning-image-segmentation-for-ecommerce-catalogue-visual-search/?WT.mc_id=vsearchgio-article-gmarchet)：Microsoft 白皮書描述從背景分離影像的程序
-- [Ebay 的圖像式搜尋](https://arxiv.org/abs/1706.03154) \(英文\)：康乃爾大學研究
+- [Ebay 圖像式搜尋](https://arxiv.org/abs/1706.03154)：康乃爾大學研究
 - [Pinterest 的圖像式搜尋](https://arxiv.org/abs/1702.04680) \(英文\)：康乃爾大學研究
 - [S語意式雜湊處理](https://www.cs.utoronto.ca/~rsalakhu/papers/semantic_final.pdf)：多倫多大學研究
 
