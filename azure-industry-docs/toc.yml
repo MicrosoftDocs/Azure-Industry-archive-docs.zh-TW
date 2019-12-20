@@ -31,12 +31,6 @@
               href: health/overview-healthcare-ai-blueprint.md
             - name: 解決方案指南
               href: health/sg-healthcare-ai-blueprint.md
-        - name: 生物醫學實體辨識
-          href: /azure/machine-learning/desktop-workbench/scenario-tdsp-biomedical-recognition
-          maintainContext: true
-        - name: HL7 FHIR 醫療保健記錄變更
-          href: /azure/cosmos-db/change-feed-hl7-fhir-logic-apps
-          maintainContext: true
     - name: 製造
       href: manufacturing/index.md
       items:
