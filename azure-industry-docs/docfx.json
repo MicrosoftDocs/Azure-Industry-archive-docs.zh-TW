@@ -43,6 +43,12 @@
       "feedback_system": "None",
       "searchScope": [
         "Azure"
+      ],
+      "disable_contribution_on_translation_quality": [
+        "MT",
+        "MTE75",
+        "MTE95",
+        "Blank"
       ]
     },
     "fileMetadata": {},
