@@ -1,87 +1,80 @@
-items:
 - name: Docs
   tocHref: /
   topicHref: /
   items:
-  - name: Azure
-    tocHref: /azure/
-    topicHref: /azure/
-    items:
-    - name: 業界
-      tocHref: /Industry/
-      topicHref: /azure/industry/
+    - name: Azure
+      tocHref: /previous-versions/azure/
+      topicHref: /previous-versions/azure/
       items:
-      - name: 金融服務
-        tocHref: /Financial/
-        topicHref: /azure/industry/financial/
-        items:
-        - name: 其他資源
+        - name: 業界
+          tocHref: /previous-versions/Industry/
+          topicHref: /previous-versions/azure/industry/
           items:
-          - name: Azure Batch 文件
-            tocHref: /azure/batch
-          - name: Batch 程式碼範例
-            tocHref: /resources/samples/?service=batch
-          - name: Batch 程式碼範例存放庫
-            tocHref: https://github.com/Azure/azure-batch-samples
-          - name: 內部部署連線
-            tocHref: /azure/networking/networking-overview
-          - name: 受規範工作負載的 FFIEC
-            tocHref: /azure/security/blueprints/financial-services-regulated-workloads
-          - name: 教學課程 - 整合 AAD 與 Asset Bank
-            tocHref: /azure/active-directory/active-directory-saas-assetbank-tutorial
-      - name: 醫療保健與生命科學
-        tocHref: /Health & Life Sciences/
-        topicHref: /azure/industry/health/
-        items:
-        - name: 生物醫學實體辨識
-          tocHref: /azure/machine-learning/desktop-workbench/scenario-tdsp-biomedical-recognition
-        - name: HL7 FHIR 醫療保健記錄變更
-          tocHref: /azure/cosmos-db/change-feed-hl7-fhir-logic-apps
-        - name: Azure 藍圖
-          items:
-          - name: Azure 安全性與合規性 - HIPAA/HITRUST 醫療資料和 AI
-            href: /azure/security/blueprints/azure-health
-          - name: Azure 安全性與合規性 - 適用於英國 NHS 的資料分析
-            href: /azure/security/blueprints/uknhs-analytics-overview
-          - name: Azure 安全性與合規性 - 適用於英國 NHS 的資料分析
-            href: /azure/security/blueprints/uknhs-analytics-overview
-          - name: Azure 安全性與合規性 - 適用於英國 NHS 的資料倉儲
-            href: /azure/security/blueprints/uknhs-datawarehouse-overview
-          - name: Azure 安全性與合規性 - 適用於英國 NHS 的 IaaS Web 應用程式
-            href: /azure/security/blueprints/uknhs-iaaswa-overview
-          - name: Azure 安全性與合規性 - 適用於英國 NHS 的 PaaS Web 應用程式
-            href: /azure/security/blueprints/uknhs-paaswa-overview
-        - name: 其他資源
-          items:
-          - name: 快速入門 - Microsoft Genomics 服務
-            tocHref: /azure/genomics/quickstart-run-genomics-workflow-portal
-          - name: 安全性 - HIPAA/HITRUST 健康情況資料和 AI
-            tocHref: /azure/security/blueprints/azure-health
-          - name: Health Bot 概觀
-            tocHref: /azure/healthbot/
-      - name: 製造
-        tocHref: /Manufacturing/
-        topicHref: /azure/industry/manufacturing/
-        items:
-        - name: PdM 真實案例的深度學習
-          tocHref: /azure/machine-learning/desktop-workbench/scenario-deep-learning-for-predictive-maintenance
-        - name: 其他資源
-          items:
-          - name: 處理 IoT 裝置資料的 Azure 串流分析
-            tocHref: /azure/stream-analytics/
-      - name: 零售
-        tocHref: /Retail/
-        topicHref: /azure/industry/retail/
-        items:
-        - name: 符合 PCI DSS 規範的付款處理
-          tocHref: /azure/security/blueprints/payment-processing-blueprint
-        - name: 其他資源
-          items:
-          - name: Azure Cosmos DB 在零售和行銷中的應用
-            tocHref: /azure/cosmos-db/use-cases
-ms.openlocfilehash: 100dfd44f54195e97a35a3f726457e4823abb4b3
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654705"
+            - name: 金融服務
+              tocHref: /previous-versions/Financial/
+              topicHref: /previous-versions/azure/industry/financial/
+              items:
+                - name: 其他資源
+                  items:
+                    - name: Azure Batch 文件
+                      tocHref: /azure/batch
+                    - name: Batch 程式碼範例
+                      tocHref: /resources/samples/?service=batch
+                    - name: Batch 程式碼範例存放庫
+                      tocHref: 'https://github.com/Azure/azure-batch-samples'
+                    - name: 內部部署連線
+                      tocHref: /azure/networking/networking-overview
+                    - name: 受規範工作負載的 FFIEC
+                      tocHref: /azure/security/blueprints/financial-services-regulated-workloads
+                    - name: 教學課程 - 整合 AAD 與 Asset Bank
+                      tocHref: /azure/active-directory/active-directory-saas-assetbank-tutorial
+            - name: 醫療保健與生命科學
+              tocHref: /previous-versions/Health & Life Sciences/
+              topicHref: /previous-versions/azure/industry/health/
+              items:
+                - name: 生物醫學實體辨識
+                  tocHref: /azure/machine-learning/desktop-workbench/scenario-tdsp-biomedical-recognition
+                - name: HL7 FHIR 醫療保健記錄變更
+                  tocHref: /azure/cosmos-db/change-feed-hl7-fhir-logic-apps
+                - name: Azure 藍圖
+                  items:
+                    - name: Azure 安全性與合規性 - HIPAA/HITRUST 醫療資料和 AI
+                      href: /azure/security/blueprints/azure-health
+                    - name: Azure 安全性與合規性 - 適用於英國 NHS 的資料分析
+                      href: /azure/security/blueprints/uknhs-analytics-overview
+                    - name: Azure 安全性與合規性 - 適用於英國 NHS 的資料分析
+                      href: /azure/security/blueprints/uknhs-analytics-overview
+                    - name: Azure 安全性與合規性 - 適用於英國 NHS 的資料倉儲
+                      href: /azure/security/blueprints/uknhs-datawarehouse-overview
+                    - name: Azure 安全性與合規性 - 適用於英國 NHS 的 IaaS Web 應用程式
+                      href: /azure/security/blueprints/uknhs-iaaswa-overview
+                    - name: Azure 安全性與合規性 - 適用於英國 NHS 的 PaaS Web 應用程式
+                      href: /azure/security/blueprints/uknhs-paaswa-overview
+                - name: 其他資源
+                  items:
+                    - name: 快速入門 - Microsoft Genomics 服務
+                      tocHref: /azure/genomics/quickstart-run-genomics-workflow-portal
+                    - name: 安全性 - HIPAA/HITRUST 健康情況資料和 AI
+                      tocHref: /azure/security/blueprints/azure-health
+                    - name: Health Bot 概觀
+                      tocHref: /azure/healthbot/
+            - name: 製造
+              tocHref: /Manufacturing/
+              topicHref: /previous-versions/azure/industry/manufacturing/
+              items:
+                - name: PdM 真實案例的深度學習
+                  tocHref: /azure/machine-learning/desktop-workbench/scenario-deep-learning-for-predictive-maintenance
+                - name: 其他資源
+                  items:
+                    - name: 處理 IoT 裝置資料的 Azure 串流分析
+                      tocHref: /azure/stream-analytics/
+            - name: 零售
+              tocHref: /Retail/
+              topicHref: /previous-versions/azure/industry/retail/
+              items:
+                - name: 符合 PCI DSS 規範的付款處理
+                  tocHref: /azure/security/blueprints/payment-processing-blueprint
+                - name: 其他資源
+                  items:
+                    - name: Azure Cosmos DB 在零售和行銷中的應用
+                      tocHref: /azure/cosmos-db/use-cases
