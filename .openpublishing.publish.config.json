@@ -7,7 +7,7 @@
       "locale": "zh-tw",
       "monikers": [],
       "moniker_ranges": [],
-      "open_to_public_contributors": true,
+      "open_to_public_contributors": false,
       "type_mapping": {
         "Conceptual": "Content",
         "ManagedReference": "Content",
@@ -25,11 +25,7 @@
   "continue_with_document_error": true,
   "skip_source_output_uploading": false,
   "need_preview_pull_request": true,
-  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/Azure-Industry-docs.zh-tw",
-  "git_repository_branch_open_to_public_contributors": "live",
-	"contribution_branch_mappings": {
-		       "live-sxs": "live"
-  },
+  "contribution_branch_mappings": {},
   "dependent_repositories": [
     {
       "path_to_root": "_themes",
