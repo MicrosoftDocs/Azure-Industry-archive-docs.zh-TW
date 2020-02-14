@@ -7,11 +7,11 @@ ms.topic: article
 ms.service: industry
 description: Azure 產業經驗的金融服務使用案例
 ms.openlocfilehash: 2dd818dfe65c91e95efa90619a7a05d7a5b5ca17
-ms.sourcegitcommit: f030566b177715794d2ad857b150317e72d04d64
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74234610"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77052989"
 ---
 # <a name="financial-services-industry"></a>金融服務產業
 

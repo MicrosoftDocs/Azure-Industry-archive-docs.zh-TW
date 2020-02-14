@@ -7,11 +7,11 @@ ms.topic: article
 ms.service: industry
 description: 說明如何在2秒內偵測到詐騙交易
 ms.openlocfilehash: 17cc8cbcfe260b0925d50223e8c9d57319d19466
-ms.sourcegitcommit: f030566b177715794d2ad857b150317e72d04d64
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74234630"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77053040"
 ---
 # <a name="mobile-bank-fraud"></a>變化多端的銀行詐騙
 

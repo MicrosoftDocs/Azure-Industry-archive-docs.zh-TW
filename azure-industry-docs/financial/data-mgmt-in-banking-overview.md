@@ -7,11 +7,11 @@ ms.topic: article
 ms.service: industry
 description: 描述在受規範的銀行業環境中使用 Microsoft Azure 管理資料的技術。
 ms.openlocfilehash: cfafd5242b6da994def2fe1470db9fd86b2675e7
-ms.sourcegitcommit: f030566b177715794d2ad857b150317e72d04d64
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74234646"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77052921"
 ---
 # <a name="data-management-in-banking-overview"></a>銀行業中的資料管理概觀
 
@@ -178,7 +178,7 @@ Data Factory 管線是由活動組成，這些活動參與及輸出資料集。 
 
 有一個刪除不必要資料的有效策略，就是固定間隔時間執行，最常見的是每晚或每週。 您可以撰寫[時間觸發的 Azure Function](/azure/azure-functions/functions-bindings-timer?WT.mc_id=bankdm-docs-dastarr) 來正確執行此作業。 如果您刪除任何資料，Microsoft Azure 即會刪除該資料，包括任何快取或備份的複本。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 根據目前的使用狀況和現今使用的資料模型成熟度，有數種方法可以開始使用。 不論是什麼情況，現在都是檢閱資料儲存體、處理，以及每個資料存放區所需之保留模型的最佳時機。 這對於在法規合規性情境中建置資料管理系統至關重要。
 雲端在此提供的是新商機，而且目前在內部部署無法使用。 這可能意味著要更新您現有的資料模型。
@@ -203,10 +203,10 @@ Data Factory 管線是由活動組成，這些活動參與及輸出資料集。 
 
 隨著銀行與金融產業的數位化狀況快速改變，客戶越來越希望找到自己可以立即採用且加速時間很快的解決方案和合作夥伴。 隨著資料擷取以指數方式增加，銀行需要快速、創新且安全的方式來儲存、分析及使用其重要資料。
 
-Azure 可使用數種技術和策略協助資料擷取、處理、封存和刪除的需求。 將資料擷取至 Azure 很簡單，而且根據資料類型、結構等，有各種資料存放區可用來儲存資料。資料解決方案除了適用於 SQL Server 和 SQL Azure，還包含協力廠商資料庫。
+Azure 可使用數種技術和策略協助資料擷取、處理、封存和刪除的需求。 將資料內嵌至 Azure 很簡單，而且有各種資料存放區可用來儲存資料，視其類型、結構等而定。資料解決方案提供 SQL Server 和 SQL Azure 以外的版本，可包含協力廠商資料庫。
 
 使用 Databricks 和 Data Factory 等 Azure 服務，可以簡單地操作及處理該資料。 封存儲存體適用於不常存取的資料的長期儲存，而且可以視需要依循環週期加以刪除。
 
 請瀏覽 Azure 解決方案程式庫，了解[備份和封存儲存體](https://azure.microsoft.com/solutions/architecture/?solution=backup-archive?WT.mc_id=bankdm-docs-dastarr)，以開始設計您的資料管理計畫。
 
-**作者：** Howard Bush 和 David Starr
+**作者**Howard Bush 和 David Starr

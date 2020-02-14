@@ -7,11 +7,11 @@ ms.topic: article
 ms.service: industry
 description: 本篇概觀會介紹精算開發人員是如何將其現有的解決方案加上支援的基礎結構移至 Azure。
 ms.openlocfilehash: cb571d996ab34da9157e9e211f354d7ce3d5f720
-ms.sourcegitcommit: b8f9ccc4e4453d6912b05cdd6cf04276e13d7244
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74263377"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77052343"
 ---
 # <a name="actuarial-risk-analysis-and-financial-modeling"></a>精算風險分析與財務模型化
 
