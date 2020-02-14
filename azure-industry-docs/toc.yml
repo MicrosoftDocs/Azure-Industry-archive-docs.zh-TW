@@ -55,7 +55,7 @@
       items:
         - name: 零售業的資料管理概觀
           href: retail/retail-data-management-overview.md
-        - name: 將您的電子商務解決方案移轉至 Azure 概觀
+        - name: 電子商務解決方案 Azure 移轉概觀
           href: retail/migrating-ecommerce-solution-to-azure.md
         - name: 將現有的建議系統最佳化並重複使用
           href: retail/recommendation-engine-optimization.md

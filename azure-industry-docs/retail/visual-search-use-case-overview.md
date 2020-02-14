@@ -7,11 +7,11 @@ ms.topic: article
 ms.service: industry
 description: 本文章會說明將電子商務基礎結構從內部部署移轉到 Azure 的各個階段。
 ms.openlocfilehash: b43ea305e11ac32da58e4d0521d79f90d5c23d85
-ms.sourcegitcommit: 2714a77488c413f01beb169a18acab45663bcfd7
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74308465"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77053142"
 ---
 # <a name="visual-search-overview"></a>圖像式搜尋概觀
 
@@ -64,7 +64,7 @@ Bing 也將提供：
 
  ![](./assets/visual-search-use-case-overview/visual-search-pipeline.png)
 
-*圖 1：* 圖像式搜尋管線範例
+*圖 1：圖像式搜尋管線範例*
 
 ### <a name="sourcing-the-pictures"></a>尋找圖片來源
 
@@ -72,7 +72,7 @@ Bing 也將提供：
 
  ![](./assets/visual-search-use-case-overview/deep-fashion-dataset.png)
 
-*圖 2：* 來自 The Deep Fashion 資料集的範例
+*圖 2：來自 The Deep Fashion 資料集的範例*
 
 ### <a name="filtering-the-images"></a>篩選影像
 
@@ -88,7 +88,7 @@ Bing 也將提供：
 
 資料層是您架構中最需要小心處理的元件。 它將會包含：
 
-- 映像
+- 影像
 - 任何有關影像的中繼資料 (大小、標籤、產品 SKU、描述)
 - 由機器學習模型產生的資料 (例如，每個影像的 4096 個元素的數字向量)
 
@@ -100,7 +100,7 @@ Bing 也將提供：
 
  ![](./assets/visual-search-use-case-overview/cosmosdb-data-model.png)
 
-*圖 3：* CosmosDB 階層式資源模型
+*圖 3：CosmosDB 階層式資源模型*
 
 若計畫利用 Cosmos DB 全球分布的優點，請注意，它將會複寫文件與附件，但不會複寫連結的檔案。 您可能想要考慮適用於那些的內容發佈網路。
 
@@ -110,7 +110,7 @@ Bing 也將提供：
 
 編碼程序會從資料庫中的圖片擷取突出的特色，並將它們每一個都對應到疏鬆「特色」向量 (具有許多零的向量)，此向量可有數千個元件。 此向量是特色 (例如，邊緣、形狀) 的數字型表示法，可將圖片分類 (類似於代碼)。
 
-特色擷取技術通常使用「移轉學習機制」  。 此機制的運作方式為：您選取預先定型的類神經網路、使用此網路執行每個影像，並將產生的特色向量存放回您的影像資料庫。 透過該方式，您可以從將該網路定型的人「移轉」學習。 Microsoft 已開發並發行數個預先定型的網路，這些網路廣為使用於影像辨識工作，例如 [ResNet50](https://www.kaggle.com/keras/resnet50)。
+特色擷取技術通常使用「移轉學習機制」。 此機制的運作方式為：您選取預先定型的類神經網路、使用此網路執行每個影像，並將產生的特色向量存放回您的影像資料庫。 透過該方式，您可以從將該網路定型的人「移轉」學習。 Microsoft 已開發並發行數個預先定型的網路，這些網路廣為使用於影像辨識工作，例如 [ResNet50](https://www.kaggle.com/keras/resnet50)。
 
 視類神經網路而定，特色向量可能更長且更疏鬆，或更短且更不疏鬆，因此記憶體與儲存體需求將會不同。
 
@@ -122,7 +122,7 @@ Bing 也將提供：
 
  ![](./assets/visual-search-use-case-overview/resnet-modifications.png)
 
-*圖 4：* 對適用於圖像式搜尋之 ResNet 的修改 – F. Yang et al.，2017
+*圖 4：對適用於圖像式搜尋之 ResNet 的修改 – F. Yang et al.，2017*
 
 不論您是選擇預先定型的模型或開發您自己的模型，您仍必須決定要在哪執行模型本身的特色化和/ 或定型。
 
@@ -163,7 +163,7 @@ Microsoft 最近也宣布推出 FPGA，讓您能以 GPU 成本的數分之一快
 ### <a name="background"></a>背景
 
 - [深度學習影像分離](https://www.microsoft.com/developerblog/2018/04/18/deep-learning-image-segmentation-for-ecommerce-catalogue-visual-search/?WT.mc_id=vsearchgio-article-gmarchet)：Microsoft 白皮書描述從背景分離影像的程序
-- [Ebay 圖像式搜尋](https://arxiv.org/abs/1706.03154)：康乃爾大學研究
+- [Ebay 的圖像式搜尋](https://arxiv.org/abs/1706.03154) \(英文\)：康乃爾大學研究
 - [Pinterest 的圖像式搜尋](https://arxiv.org/abs/1702.04680) \(英文\)：康乃爾大學研究
 - [S語意式雜湊處理](https://www.cs.utoronto.ca/~rsalakhu/papers/semantic_final.pdf)：多倫多大學研究
 

@@ -8,13 +8,13 @@ ms.service: industry
 ms.topic: article
 ms.date: 11/28/2019
 ms.openlocfilehash: c08e6bbb1da47084122dae1ed6a9e1cea0b59473
-ms.sourcegitcommit: db3bee67c1467884af223a48a895715afba8e08c
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2019
-ms.locfileid: "75005307"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77053397"
 ---
-# <a name="extracting-actionable-insights-from-iot-data"></a>從 IoT 資料擷取可操作見解
+# <a name="extracting-actionable-insights-from-iot-data"></a>從 IoT 資料擷取可採取動作的見解
 
 如果您負責工廠的機器，應該已意識到物聯網 (IoT) 是改善流程和結果的下一步。 第一步是在機器或工廠裝設感應器。 下一步是使用資料 - 這是本文件的物件。 本指南提供從 IoT 資料分析中擷取可操作見解所需元件的技術概觀。
 
@@ -98,7 +98,7 @@ IoT 資料是時間序列資料：「事項」中的值會在一段時間內變�
 ## <a name="ingesting-the-data-stream"></a>擷取資料流
 
 若要以串流分析資料，我們可以根據時間範圍，對資料進行查詢，以識別模式和關聯性。 Azure 平台上有各種服務，可利用高輸送量擷取資料。
-在以下服務之間進行選擇，取決於專案的需求，例如裝置管理、通訊協定支援、延展性、團隊對程式設計模型的偏好等。例如，團隊可能會先前經驗而優先使用 Kafka，或者需要針對解決方案擁有 Kafka 訊息代理程式。 或者，另一種情況是，專案可能需要資料擷取系統，以利用 [IoT 中樞裝置佈建服務的 TPM 金鑰證明](/azure/iot-dps/?WT.mc_id=iotinsightssoln-docs-ercenk)來保護裝置對擷取點的存取權。
+在下列各項服務之間選擇取決於專案的需求，例如裝置管理、通訊協定支援、擴充性、小組的程式設計模型喜好等等。例如，小組可能會因為其經驗而偏好使用 Kafka，或需要有 Kafka 訊息代理程式來進行解決方案。 或者，另一種情況是，專案可能需要資料擷取系統，以利用 [IoT 中樞裝置佈建服務的 TPM 金鑰證明](/azure/iot-dps/?WT.mc_id=iotinsightssoln-docs-ercenk)來保護裝置對擷取點的存取權。
 
 - [Azure IoT 中樞](/azure/iot-hub/?WT.mc_id=iotinsightssoln-docs-ercenk)是 IoT 應用程式和裝置之間的雙向通訊中樞。 它是一種可擴充的服務，藉由提供安全通訊、訊息路由、與其他 Azure 服務的整合，以及用於控制和設定裝置的管理功能，實現全功能的 IoT 解決方案。
 
@@ -229,7 +229,7 @@ Azure SQL 資料倉儲提供許多其他功能，在某些情況下非常有用�
 
 ## <a name="appendix-pillars-of-software-quality-posq"></a>附錄：軟體品質的要素 (PoSQ)
 
-成功的雲端應用程式著重於[軟體品質的這幾項支柱](/azure/architecture/guide/pillars?WT.mc_id=iotinsightssoln-docs-ercenk)：延展性、可用性、復原、管理和安全性。 在本節中，我們將視需要簡要討論每個元件的要素。 我們未涵蓋可用性、彈性、管理和 DevOps，因為大部分是在實作層級處理，而且我們想提到的是 Azure 平台提供廣泛的方法，透過 API、工具、診斷和記錄來達成這些目標。 除了上述要件，我們也會提及成本效益。
+成功的雲端應用程式會建置在下列[軟體品質的要素](/azure/architecture/guide/pillars?WT.mc_id=iotinsightssoln-docs-ercenk)：延展性、可用性、復原功能、管理和安全性。 在本節中，我們將視需要簡要討論每個元件的要素。 我們未涵蓋可用性、彈性、管理和 DevOps，因為大部分是在實作層級處理，而且我們想提到的是 Azure 平台提供廣泛的方法，透過 API、工具、診斷和記錄來達成這些目標。 除了上述要件，我們也會提及成本效益。
 
 讓我們快速檢閱這些要素：
 
@@ -267,7 +267,7 @@ Azure Cosmos DB 實作需要佈建正確的輸送量參數和適當的資料分�
 
 ## <a name="posq-cold-path"></a>PoSQ：非經常性路徑
 
-**延展性**：Azure 時間序列深入解析 (TSI) 使用名為「容量」的計量進行調整，該計量是套用至輸入速率、儲存體容量，以及與 SKU 相關之成本的乘數。 
+**延展性**Azure 時間序列深入解析 (TSI) 使用名為「容量」的計量進行調整，該計量是套用至輸入速率、儲存體容量，以及與 SKU 相關之成本的乘數。 
 
 Azure 時間序列深入解析有多個 SKU，這些 SKU 對其垂直調整也有直接影響。 如需調整的相關詳細資料，請參閱文件[規劃 Azure 時間序列深入解析環境](/azure/time-series-insights/time-series-insights-environment-planning?WT.mc_id=iotinsightssoln-docs-ercenk)。 如同其他許多 Azure 服務一樣，TSI 也受限於節流，以避免「吵雜芳鄰」問題。 吵雜芳鄰 (Noisy Neighbor) 是共用環境中的應用程式 /azure/sql-database/sql-database-service-tiers-vcore?WT.mc_id=iotinsightssoln-docs-ercenk 會獨佔資源並讓其他使用者無法使用的現象。 如需管理節流的詳細資訊，請參閱 [TSI 說明文件](/azure/time-series-insights/time-series-insights-environment-mitigate-latency?WT.mc_id=iotinsightssoln-docs-ercenk)。 
 

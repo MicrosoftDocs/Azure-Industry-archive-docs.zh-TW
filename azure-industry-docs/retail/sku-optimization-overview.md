@@ -7,11 +7,11 @@ ms.topic: article
 ms.service: industry
 description: SKU 最佳化解決方案指南概觀
 ms.openlocfilehash: 68ade19b44cc7ec422a778f1d1c111f546db824a
-ms.sourcegitcommit: b8f9ccc4e4453d6912b05cdd6cf04276e13d7244
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74263448"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77054264"
 ---
 # <a name="sku-optimization-solution-guide"></a>SKU 最佳化解決方案指南
 

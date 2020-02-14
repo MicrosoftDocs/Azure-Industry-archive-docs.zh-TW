@@ -7,11 +7,11 @@ ms.topic: article
 ms.service: industry
 description: 此文章提供適用於 AI 之 Microsoft Azure 藍圖的指導方針。
 ms.openlocfilehash: 40919ffde2c2cac11339b40348cba7a5e0e0e16d
-ms.sourcegitcommit: 2714a77488c413f01beb169a18acab45663bcfd7
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74308509"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77052632"
 ---
 # <a name="implementing-the-azure-blueprint-for-ai"></a>實作適用於 AI 的 Azure 藍圖
 
@@ -146,7 +146,7 @@ IaaS 模型不再此文章的討論範圍內，此文章著重在藍圖的 PaaS 
 
 ### <a name="reinstall-after-an-uninstall"></a>在解除安裝之後重新安裝
 
-若需要在解除安裝藍圖之後重新安裝，您必須變更下一個部署中的前置詞，因為如果您沒有變更前置詞，解除安裝的 Key Vault 將會導致錯誤。 此文章的＜技術問題 > Key Vault＞  一節中有詳細的說明。
+若需要在解除安裝藍圖之後重新安裝，您必須變更下一個部署中的前置詞，因為如果您沒有變更前置詞，解除安裝的 Key Vault 將會導致錯誤。 此文章的＜技術問題 > Key Vault＞一節中有詳細的說明。
 
 ### <a name="required-administrator-roles"></a>必要系統管理員角色
 
@@ -172,7 +172,7 @@ Azure 藍圖安裝只包括實作 AI/ML 使用案例所需的服務。 不過，
 
 安裝藍圖且所有服務都正常運作之後，就可以內嵌要分析的資料。 我們提供 100,000 筆[可內嵌的病人記錄](/azure/security/blueprints/azure-health?WT.mc_id=ms-docs-dastarr#ingest)，這些記錄可搭配模型使用。 內嵌病人記錄是使用 [Azure Machine Learning Studio](/azure/machine-learning/studio/what-is-ml-studio?WT.mc_id=ms-docs-dastarr) 來執行病人住院天數實驗的第一個步驟，如下所示。
 
-![內嵌](assets/sg-healthcare-ai-blueprint-assets/ingest.png)
+![擷取](assets/sg-healthcare-ai-blueprint-assets/ingest.png)
 
 藍圖包括一個實驗，以及在 Machine Learning Studio (MLS) 中執行 ML 作業所需的資料。 該範例在實驗中使用已定型的模型來根據許多變數預測病人住院天數。
 
@@ -222,7 +222,7 @@ Azure Key Vault 服務是一個容器 (亦稱為「保存庫」)，可用來存�
 
 存放在保存庫中的金鑰可能已加密或簽署，而且可以根據任何安全性顧慮監視金鑰用途。
 
-當您刪除 Key Vault 時，系統並不會立即將它從 Azure 清除。 此文章的＜技術問題 > Key Vault＞  一節中說明關於這個的意涵。
+當您刪除 Key Vault 時，系統並不會立即將它從 Azure 清除。 此文章的＜技術問題 > Key Vault＞一節中說明關於這個的意涵。
 
 ### <a name="application-insights"></a>Application Insights
 
@@ -314,7 +314,7 @@ HITRUST 客戶責任矩陣是一個 Excel 文件，它支援針對建置在 Azur
 
 強烈建議您在空的 AAD 中安裝藍圖，而不要安裝到生產系統中。 建立新 AAD 執行個體並在安裝期間使用其租用戶識別碼，以避免新增藍圖帳戶到您的即時 AAD 執行個體。
 
-## <a name="technologies-presented"></a>呈現的技術
+## <a name="technologies-presented"></a>使用的技術
 
 - 深入了解 [Azure 健康資料與 AI 藍圖](/azure/security/blueprints/azure-health?WT.mc_id=ms-docs-dastarr)。
 - 下載、複製或將 [這裡的 GitHub 保存庫分岔](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md)。

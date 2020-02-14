@@ -7,11 +7,11 @@ ms.topic: article
 ms.service: industry
 description: 零售商擁有大量未使用資料的資料存放區，從中可以獲得有價值的見解。 本文討論 Microsoft Azure 如何協助有效地使用該資料。
 ms.openlocfilehash: 198e0f609889eee86e005c5ee56090006ae2a413
-ms.sourcegitcommit: b8f9ccc4e4453d6912b05cdd6cf04276e13d7244
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74263508"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77054111"
 ---
 # <a name="data-management-in-retail-overview"></a>零售業的資料管理概觀
 

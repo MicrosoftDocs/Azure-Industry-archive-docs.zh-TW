@@ -7,11 +7,11 @@ ms.topic: article
 ms.service: industry
 description: 有關如何為 Azure 上的製造業客戶開發預測性維護解決方案的解決方案描述。
 ms.openlocfilehash: c32893d534279cda35f7c6a142869d2983eaca67
-ms.sourcegitcommit: 2714a77488c413f01beb169a18acab45663bcfd7
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74308493"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77053839"
 ---
 # <a name="predictive-maintenance-in-manufacturing-solution-guide"></a>製造業解決方案指南中的預設性維護
 
@@ -66,12 +66,12 @@ ms.locfileid: "74308493"
 
 Microsoft 也發行了[詳細指南](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk)，說明如何準備資料並將機器學習模型定型。 有三個典型的維護問題，以及相關的機器學習演算法：
 
-- 針對資產，接下來 X 小時內發生故障的機率為何？  答：0-100%
+- 針對資產，接下來 X 小時內發生故障的機率為何？ 答：0-100%
   - **二元分類：** 二元分類是一個機器學習方法，它使用資料來判斷項目或資料列的種類、類型或類別是否屬於兩種類別其中一種的成員。 有多種類型的分類演算法，Microsoft 已發行一組演算法，並以 [Machine Learning Studio 模組](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model-classification?WT.mc_id=pdmsolution-docs-ercenk)的形式提供。
-- 資產的剩餘使用年限為何？  答：X 個小時
+- 資產的剩餘使用年限為何？ 答：X 小時
   - **迴歸：** 迴歸是一種機器學習演算法類別，它可以在給定一組其他變數的情況下預測變數的值。 Machine Learning Studio 以[模組](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model-regression?WT.mc_id=pdmsolution-docs-ercenk)的形式包括一組迴歸演算法。
-    - **長短期記憶 (LSTM)：** [LSTM](https://colah.github.io/posts/2015-08-Understanding-LSTMs/?WT.mc_id=pdmsolution-docs-ercenk) 網路是一種深度類神經網路 (DNN)。 DNN 的靈感來自建構大腦中個別神經元行為的模型。 Microsoft 已發行[逐步指南](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-deep-learning-for-predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk)，說明如何針對預測性維護使用 LSTM
-- 哪些資產需要最緊急的維護？  答：資產 X
+    - **長短期記憶體（LSTM）：** [LSTM](https://colah.github.io/posts/2015-08-Understanding-LSTMs/?WT.mc_id=pdmsolution-docs-ercenk)網路是一種深度類神經網路（DNN）。 DNN 的靈感來自建構大腦中個別神經元行為的模型。 Microsoft 已發行[逐步指南](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-deep-learning-for-predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk)，說明如何針對預測性維護使用 LSTM
+- 哪些資產需要最緊急的維護？ 答：資產 X
   - **多元分類：** 多元分類是一個機器學習方法，它使用資料來判斷項目或資料列的種類、類型或類別是否屬於兩種類別以上其中一種的成員。
 
 再提一次，帶入資料可能表示利用多種通道，先大量將它初始化，然後繼續接收用於預測失敗的串流資料，並針對後續的模型建置作業使用它。
@@ -106,7 +106,7 @@ Azure 平台上有數種工具與服務可用於擷取、轉換及上傳 (ETL) �
 
 決定要使用哪個工具取決於作業的複雜度、小組的經驗，以及資料的大小。
 
-除了雲端服務成本之外，雲端解決方案中的成本方程式還包括許多變數，例如額外的工程、系統管理與資料傳輸成本。在評估成本時使用這些變數，然後制訂明智的決策。 服務並不是構成總成本方程式的唯一要素。
+除了雲端服務成本之外，雲端解決方案上的成本方程式還包含許多變數，例如額外的工程、管理、資料傳輸等。評估成本時，請使用這些變數，並做出明智的決策。 服務並不是構成總成本方程式的唯一要素。
 
 設計資料分析與模型發行程序是複雜的主題，而且視使用的技術而異。 那些主題不在此文章的範圍內。 有一系列的文章說明該程序，而且我們提供可用來產生該模型的 Azure 服務。 Microsoft 也提供系統性方法，可讓您用於建置解決方案以讓資料科學小組有效率地在資料生命週期內共同作業。
 
@@ -201,9 +201,9 @@ ML 模型的內嵌、處理及儲存以及執行可在 Azure 雲端中發生。 
 
 ### <a name="data-security-and-isolation"></a>資料安全性與隔離
 
-提供服務的一方必須確定能識別來自其客戶的機密資訊並適當地保護或清理。Microsoft Azure 提供根據所使用儲存體服務來加密資料的功能。
+提供服務的合作物件必須確保其客戶的機密資訊受到識別並妥善保護或清除。Microsoft Azure 會根據所用的儲存體服務，提供加密資料的功能。
 
-您也必須使用已知方法 (例如個別裝置憑證、個別裝置啟用/停用、TLS 安全性、X.509 支援、IP 允許清單/封鎖清單與共用存取原則) 來保護裝置產生並提交資料的方式。 提供服務的一方必須確定能識別來其客戶的機密資訊並適當地保護或清理。[Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-encryption?WT.mc_id=pdmsolution-docs-ercenk)、[Azure 儲存體](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?WT.mc_id=pdmsolution-docs-ercenk)、[Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest?WT.mc_id=pdmsolution-docs-ercenk) 與 [Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?WT.mc_id=pdmsolution-docs-ercenk) 是可用來進行待用資料加密的服務範例。 解決方案提供者也應該考慮如何在相同的資源 (例如，資料庫) 或多個資源之間分割資料。 
+您也必須使用已知方法 (例如個別裝置憑證、個別裝置啟用/停用、TLS 安全性、X.509 支援、IP 允許清單/封鎖清單與共用存取原則) 來保護裝置產生並提交資料的方式。 提供服務的合作物件必須確定已識別出客戶的機密資訊，並妥善保護或清除。[Azure Data Lake 存放區](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-encryption?WT.mc_id=pdmsolution-docs-ercenk)、 [Azure 儲存體](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?WT.mc_id=pdmsolution-docs-ercenk)、 [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest?WT.mc_id=pdmsolution-docs-ercenk)和[Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?WT.mc_id=pdmsolution-docs-ercenk)是可用於加密待用資料的服務範例。 解決方案提供者也應該考慮如何在相同的資源 (例如，資料庫) 或多個資源之間分割資料。 
 
 ### <a name="geographical-considerations"></a>地理位置的考量
 
@@ -245,7 +245,7 @@ ML 模型的內嵌、處理及儲存以及執行可在 Azure 雲端中發生。 
 
 2. [利用由 IoT 提供支援的預測性維護增加設備的可靠性](https://www.microsoft.com/internet-of-things/predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk) \(英文\)
 
-3. [從物聯網獲得益處：如何處理預測性維護專案](https://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF?WT.mc_id=pdmsolution-docs-ercenk)
+3. [從物聯網獲取價值：如何採用預測性維護專案](https://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF?WT.mc_id=pdmsolution-docs-ercenk)
 
 4. [合作夥伴觀點：前線的預測性維護](https://blogs.microsoft.com/iot/2017/03/21/partner-perspectives-predictive-maintenance-on-the-frontlines/?WT.mc_id=pdmsolution-docs-ercenk) \(英文\)
 

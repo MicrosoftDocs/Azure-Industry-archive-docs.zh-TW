@@ -7,11 +7,11 @@ ms.topic: article
 ms.service: industry
 description: 零售產業種類最佳化。 透過來自 AI 與 ML 的見解的 SKU 最佳化。
 ms.openlocfilehash: 22411776e830bb3c71f8c1277b30ec4331a3ef17
-ms.sourcegitcommit: 2714a77488c413f01beb169a18acab45663bcfd7
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74308502"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77054366"
 ---
 # <a name="sku-optimization-for-consumer-brands-solution-guide"></a>消費者品牌的 SKU 最佳化解決方案指南
 
@@ -43,7 +43,7 @@ SKU 種類解決方案必須透過將銷售資料區非為有意義的詳細比�
 
 ## <a name="descriptive-analytics"></a>描述性分析
 
-描述性模型會彙總資料點並探索可能會影響產品銷售之因素之間的關係。 該資訊可以透過一些外部資料點來增強，例如位置、天氣與人口普查資料等。視覺化有助於一個人透過解譯資料來衍生見解。 不過，在這樣做時，該人將受限於了解先前銷售循環中發生什麼事，或目前期間發生什麼事 (取決於資料重新整理頻率)。
+描述性模型會彙總資料點並探索可能會影響產品銷售之因素之間的關係。 資訊可能會隨著一些外部資料點（例如位置、天氣、人口普查資料等）而增加。視覺效果可協助人員藉由解讀資料來衍生見解。 不過，在這樣做時，該人將受限於了解先前銷售循環中發生什麼事，或目前期間發生什麼事 (取決於資料重新整理頻率)。
 
 傳統資料倉儲與回報方法在此案例中足敷使用，例如，可讓您了解哪些 SKU 在一段時間內績效最好或最差。
 

@@ -7,11 +7,11 @@ ms.topic: article
 ms.service: industry
 description: 提供在 Azure 上實作銀行業中的風險網格運算的商業考量。
 ms.openlocfilehash: 746b93e545aa8ff61a8fab4a021b6c5caa1889bb
-ms.sourcegitcommit: f030566b177715794d2ad857b150317e72d04d64
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74234653"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77053091"
 ---
 # <a name="risk-grid-computing-in-banking-overview"></a>銀行業中的風險網格運算概觀
 
@@ -108,7 +108,7 @@ Azure Batch 處理模型對於風險網格運算有幾項優點：
 
 風險網格運算的重要考量是要[在 Azure VNet 內執行批次程序](/azure/batch/batch-virtual-network?WT.mc_id=gridbank-docs-dastarr)。 這可讓集區計算節點安全地與其他計算節點或內部部署網路進行通訊。 您應該建立適當的服務帳戶和網路服務群組 (NSG) 讓批次計算節點使用。 對於在 Azure 儲存體中傳輸中的資料和待用資料的資料加密，[Azure 也有解決方案](/azure/security/blueprints/financial-services-regulated-workloads?WT.mc_id=gridbank-docs-dastarr)。
 
-以下某些方面可能需要納入考量：Active Directory (AD) 或非加入 AD 的計算節點 (適用於 Windows Server 節點?WT.mc_id=gridbank-docs-dastarr)、[VM 磁碟加密](/azure/security/azure-security-disk-encryption?WT.mc_id=gridbank-docs-dastarr)、計算輸入和輸出待用資料和傳輸中資料的安全性、Azure 網路設定、使用權限等等。 驗證也可能透過祕密金鑰在 REST API 層級處理。
+要考量的某些區域會是：Active Directory (AD) 或非加入 AD 的計算節點 (適用於 Windows Server 節點?WT.mc_id=gridbank-docs-dastarr)、[VM 磁碟加密](/azure/security/azure-security-disk-encryption?WT.mc_id=gridbank-docs-dastarr)、計算輸入和輸出待用資料和傳輸中資料的安全性、Azure 網路設定、使用權限等等。 驗證也可能透過祕密金鑰在 REST API 層級處理。
 
 ## <a name="getting-started"></a>開始使用
 
@@ -118,7 +118,7 @@ Azure Batch 處理模型對於風險網格運算有幾項優點：
 
 最後，您可能已經準備好將風險運算基礎結構完整移轉到 Azure。 如果是，[這篇文章](/azure/batch/?WT.mc_id=gridbank-docs-dastarr)可以讓您立即開始。
 
-## <a name="technologies-presented"></a>呈現的技術
+## <a name="technologies-presented"></a>使用的技術
 
 [Azure Batch](/azure/batch/?WT.mc_id=gridbank-docs-dastarr) 可以擴充內部部署風險運算背景工作角色節點，根據需求動態提供計算資源。
 

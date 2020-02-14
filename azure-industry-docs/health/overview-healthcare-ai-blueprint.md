@@ -7,11 +7,11 @@ ms.topic: article
 ms.service: industry
 description: 此文章介紹適用於 AI 的 Microsoft Azure 藍圖。
 ms.openlocfilehash: fb4dbce8b0cf1d39fc03708303267a0bf2906d18
-ms.sourcegitcommit: b8f9ccc4e4453d6912b05cdd6cf04276e13d7244
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74263374"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77053550"
 ---
 # <a name="implementing-the-azure-blueprint-for-ai"></a>實作適用於 AI 的 Azure 藍圖
 

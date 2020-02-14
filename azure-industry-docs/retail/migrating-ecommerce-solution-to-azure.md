@@ -7,11 +7,11 @@ ms.topic: article
 ms.service: industry
 description: 本文章會說明將電子商務基礎結構從內部部署移轉到 Azure 的各個階段。
 ms.openlocfilehash: e918f1157dc2bc42a6c4d0decfef95a8daa7ccf0
-ms.sourcegitcommit: b8f9ccc4e4453d6912b05cdd6cf04276e13d7244
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74263350"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77054179"
 ---
 # <a name="migrating-your-e-commerce-solution-to-azure-overview"></a>電子商務解決方案 Azure 移轉概觀
 
@@ -60,7 +60,7 @@ ms.locfileid: "74263350"
 
 Microsoft 提供了多種工具來分析系統及編列目錄。 如果執行的是 VMWare，可以使用 [Azure Migrate](/azure/migrate/migrate-overview?WT.mc_id=retailecomm-docs-scseely) 來協助探索及評量。 這款工具可以找出能移動到 Azure 的機器、針對應執行的 VM 類型提出建議，以及預估工作負載的成本。 若是 Hyper-V 環境，請使用 [Azure Site Recovery 部署規劃工具](/azure/site-recovery/hyper-v-deployment-planner-overview?WT.mc_id=retailecomm-docs-scseely)。 若是要移動數百部或更多 VM 的大規模移轉，建議與 [Azure 移轉合作夥伴](https://azure.microsoft.com/migration/partners/?WT.mc_id=retailecomm-docs-scseely)合作。 這些合作夥伴具備移動工作負載的專業知識和經驗。
 
-### <a name="migrate"></a>移轉
+### <a name="migrate"></a>遷移
 
 開始規劃要將哪些服務移動到雲端，以及移轉的順序。 由於這個階段涉及到工作負載的移動，因此請遵循以下順序：
 
@@ -94,7 +94,7 @@ Azure 也會提供環境最佳化工具。 [Azure Advisor](/azure/advisor/adviso
 
 容器可以用來組合應用程式。 由於容器將作業系統虛擬化的方式，您可以將多個容器裝載到同一部 VM 上。 您可以在不變更或變更少量程式碼的情況下，將應用程式移動到容器，不過可能需要變更設定。 這項作業也需要撰寫指令碼，用指令碼將多個應用程式組合在一個容器中。 重構時，開發團隊需要花費時間撰寫和測試這些指令碼。 Azure 可透過 [Azure Kubernetes Service](/azure/aks/?WT.mc_id=retailecomm-docs-scseely) (AKS) 和相關的 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/?WT.mc_id=retailecomm-docs-scseely) 來支援容器化，協助您管理容器映像。
 
-至於應用程式服務，則可利用各種 Azure 服務。 比方說，您現有的基礎結構可能會將訊息放入佇列來處理客戶訂單，就像 [RabbitMQ](https://www.rabbitmq.com/) 一樣。 (例如，一則訊息用來向客戶收費，第二則訊息用來出貨。)重新裝載時，則會將 RabbitMQ 放在不同的 VM 中。 重構期間，您會將[服務匯流排](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions?WT.mc_id=retailecomm-docs-scseely)佇列或主題加入解決方案中、重寫 RabbitMQ 程式碼，並停止使用提供佇列功能的 VM。 這項變更會以永遠可用的訊息佇列服務來取代一組 VM，進而可降低成本。 Azure 入口網站另有提供其他應用程式服務。
+至於應用程式服務，則可利用各種 Azure 服務。 比方說，您現有的基礎結構可能會將訊息放入佇列來處理客戶訂單，就像 [RabbitMQ](https://www.rabbitmq.com/) 一樣。 （例如，一個訊息是向客戶收費，第二個則是寄送訂單）。重新裝載時，您會將 RabbitMQ 放在不同的 VM 中。 重構期間，您會將[服務匯流排](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions?WT.mc_id=retailecomm-docs-scseely)佇列或主題加入解決方案中、重寫 RabbitMQ 程式碼，並停止使用提供佇列功能的 VM。 這項變更會以永遠可用的訊息佇列服務來取代一組 VM，進而可降低成本。 Azure 入口網站另有提供其他應用程式服務。
 
 對於資料庫，則可將資料庫從 VM 移動到服務。 Azure 的 [Azure SQL Database](/azure/sql-database/sql-database-cloud-migrate?WT.mc_id=retailecomm-docs-scseely) 和 [Azure SQL Database 受控執行個體](/azure/sql-database/sql-database-managed-instance?WT.mc_id=retailecomm-docs-scseely)支援 SQL Server 工作負載。 [資料移轉服務](https://azure.microsoft.com/services/database-migration/?WT.mc_id=retailecomm-docs-scseely)會評估您的資料庫，通知您在移轉之前需要完成哪些工作，然後將資料庫從 VM 移動到服務。 Azure 也支援 [MySQL](https://azure.microsoft.com/services/mysql/?WT.mc_id=retailecomm-docs-scseely)、[PostgreSQL](https://azure.microsoft.com/services/postgresql/?WT.mc_id=retailecomm-docs-scseely) 和[其他資料庫](https://azure.microsoft.com/services/#databases?WT.mc_id=retailecomm-docs-scseely)引擎服務。
 
@@ -120,7 +120,7 @@ Azure 也會提供環境最佳化工具。 [Azure Advisor](/azure/advisor/adviso
 
 許多開發團隊都想要同時進行重新裝載與重構，以求解決技術債務並充分利用產能。 在貿然進入後續步驟之前，先進行重新裝載，會有一些優勢。  在部署到新環境時出現的任何問題，都比較容易診斷及修正。 開發和支援小組可以獲得足夠時間熟悉 Azure 帶來的新環境。 要開始重構及重建系統時，您已經是以穩定運作的應用程式做為基礎。 如此就能實施較小規模的針對性變更，也能頻繁更新。
 
-我們發佈了更為通用的白皮書，來解說如何移轉到雲端：[雲端移轉基本資訊](https://azure.microsoft.com/resources/cloud-migration-essentials-e-book/?_lrsc=9618a836-9f81-4087-901f-51058783c3a8&WT.mc_id=retailecomm-docs-scseely) \(英文\)。 在規劃移轉作業時，推薦您詳加閱讀此份白皮書。
+我們發佈了更為通用的白皮書，來解說如何移轉到雲端：《[雲端移轉基本資訊](https://azure.microsoft.com/resources/cloud-migration-essentials-e-book/?_lrsc=9618a836-9f81-4087-901f-51058783c3a8&WT.mc_id=retailecomm-docs-scseely)》(英文)。 在規劃移轉作業時，推薦您詳加閱讀此份白皮書。
 
 ## <a name="technologies-presented"></a>使用的技術
 
